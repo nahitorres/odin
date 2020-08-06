@@ -1,2 +1,2 @@
-# odin
-ODIN: an Object Detection and Instance Segmentation Diagnosis Framework
+# ODIN: an Object Detection and Instance Segmentation Diagnosis Framework
+
