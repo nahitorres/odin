@@ -37,7 +37,7 @@ The addition of meta-annotation is supported by a Jupyter Notebook that given se
 This repository contains three notebooks that presents how to use the different functionalities.
 
 ## **Cite this work**
-If you use PolimiDL or wish to refer it, please use the following BibTex entry.
+If you use ODIN or wish to refer it, please use the following BibTex entry.
 
 ```
 @inproceedings{torres2020odin,
