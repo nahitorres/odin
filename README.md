@@ -35,3 +35,21 @@ The addition of meta-annotation is supported by a Jupyter Notebook that given se
 
 
 This repository contains three notebooks that presents how to use the different functionalities.
+
+## **Cite this work**
+If you use PolimiDL or wish to refer it, please use the following BibTex entry.
+
+```
+@inproceedings{torres2020odin,
+  title={ODIN: An Object Detection and Instance Segmentation Diagnosis Framework},
+  author={Torres, Rocio Nahime and Fraternali, Piero and Romero, Jesus},
+  booktitle={European Conference on Computer Vision},
+  pages={19--31},
+  year={2020},
+  organization={Springer}
+}
+```
+
+## Reference
+
+* [ODIN: An Object Detection and Instance Segmentation Diagnosis Framework](https://link.springer.com/chapter/10.1007%2F978-3-030-65414-6_3). Rocio Nahime Torres, Piero Fraternali and Jesus Romero.
