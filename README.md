@@ -94,10 +94,8 @@ When an Analyzer class is instanciated (using the classes of the examples), a js
 More improvements on graphs customizations will be included in future commits (e.g. labels size), as well as performance improvements to accelerate the analysis execution time.
 
 #### This repo
-The folder "examples" contains notebooks that go through the main funcionality (analysis, annotators, visualizations), using the dataset ARTDL (http://www.artdl.org/). Some examples are provided using RacePlanes(https://www.cosmiqworks.org/RarePlanes/).Other notebooks are for you to play with your own dataset.
+The folder "examples" contains notebooks that go through the main funcionality (analysis, annotators, visualizations), using the dataset ARTDL (http://www.artdl.org/). Some examples are provided using RacePlanes(https://www.cosmiqworks.org/RarePlanes/) or SpamSMS (https://www.dt.fee.unicamp.br/~tiago/smsspamcollection/). Other notebooks are for you to play with your own dataset.
 We tried to make the functions easy to use and intuitive, as can be seen in the esamples, but we're working on a better documentation for future commits.
-
-In the requirements.txt we specified the different libraries required, as well as the version we used to implement and test the framework.
 
  ```
  pip install -r requirements.txt
