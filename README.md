@@ -1,42 +1,109 @@
-# ODIN: an Object Detection and Instance Segmentation Diagnosis Framework
+# ODIN: pluggable meta-annotations and metrics for the diagnosis of classification and localization
 
-We an error diagnosis framework for object detection and instance segmentation that helps model developers to add meta-annotations to their data sets, to compute  performance metrics split by meta-annotation values, and  to visualize diagnosis reports. The framework supports the popular PASCAL VOC and MS COCO input formats,   is agnostic to the training platform, and can be extended with application- and domain-specific meta-annotations and metrics  with almost no coding.
+ODIN  is an open source diagnosis framework for generic ML classification tasks and for CV object detection and instance segmentation tasks that lets developers add meta-annotations to their data sets,  compute  performance metrics split by meta-annotation values, and visualize diagnosis reports.  
 
-ANALYZER
+ODIN  is agnostic to the training platform and  input formats and can be extended with application- and domain-specific meta-annotations and metrics with almost no coding. It integrates a rapid annotation tool for classification and object detection data sets.
 
-Detections: one .txt for category (categoryName.txt) with one line for each detection in the following format
+Developers can run all metrics, or a subset thereof, for a single class or a set of classes. The values of all metrics are reported using diagrams of multiple types, which can be visualized and saved. The following table summarizes the implemented metrics for each supported task.
 
-for bounging boxes:
+|Metric / Analysis| |Binary|SL Class.|ML Class.|Obj. Det.|Ins. Seg.|
+| ------ | ------ |------ |------ |------ |------ |------ |
+|Base Metrics|Accuracy|X|X|X|-|-|
+|Base Metrics|Precision|X|X|X|X|X
+|Base Metrics|Recall|X|X|X|X|X
+|Base Metrics|Average Precision|X|X|X|X|X
+|Base Metrics|ROC AUC|X|X|X|-|-
+|Base Metrics|Precision Recall AUC|X|X|X|X|X
+|Base Metrics|F1 Score AUC|X|X|X|X|X
+|Base Metrics|F1 Score|X|X|X|X|X
+|Base Metrics|Custom|X|X|X|X|X
+|Curves|Precision Recall|X|X|X|X|X
+|Curves|F1 Score|X|X|X|X|X
+|Curves|ROC|X|X|X|-|-
+|Confusion Matrix||X|X|X|-|-
+|Metric  per property value||X|X|X|X|X
+|Distribution of Properties and Classes||X|X|X|X|X
+|Impact Analysis||X|X|X|X|X
+|False Positives Analysis||-|X|X|X|X
+|FP, TP, FN, TN Distribution||-|X|X|X|X
+|Calibration Diagrams||X|X|X|X|X
+|Base Report|Total value|X|X|X|X|X
+|Base Report|Per-category  value|X|X|X|X|X
+|Base Report|Per-property value|X|X|X|X|X
 
-        image_name, confidence_score, min_x, min_y, width, height
+#### Meta-Properties annotator
+Meta-annotations can be automatically extracted (e.g., image color space) or manually provided. 
+Meta-annotation editing is supported by a Jupyter Notebook that given the ground truth and the meta-annotation values,  allows the developer to iterate on the samples and select the appropriate value, which is saved in a standard format and can be analysed with the illustrated diagnosis functions.
 
-for segmentation masks
+#### Data set generation
+In addition to editing meta-annotations, ODIN also supports the creation of a classification or object detection data set. The annotator can be configured to associate training labels to data samples and to draw bounding boxes over images and label them. The resulting data set is saved i a standard format and can be analysed with the illustrated diagnosis functions.
 
-        image_name, confidence_score, x1, y1, x2, y2, ..., xn, yn
+#### Data set visualizer
+A GUI realized as a Jupyter Notebook enables the inspection of the data set. The visualization can be executed on all the samples, limited to  the samples of a  class, limited to the samples with a certain meta-annotation value, and limited to the samples of a class with a given meta-annotation value.
 
-Dataset: a .json file in coco format (see convertor VOCtoCOCO for PASCAL VOC formats and a folder containing the images (no needed for the analysis but for visualization capabilities).
+#### Input
+For the analysis proposed, we need mainly two inputs: (1) the ground truth containing the observations of the dataset, with their corresponding classes, meta-properties and bbox or segmentation mask when applies (can be generated with the previously described annotators) (2) predictions of the model to evaluate.
+Examples are found in test-data.
 
-Main reports:
-- Performance for property: given a property name it computes the performances for its different values on the different categories
-(Can be invoked in different ways and also you can plot the distribution of the property in the different categories)
-- False positive impact: per-class analysis  of wrong object detection is supported, including confusion with background, poor localization, confusion with similar classes or confusion with other classes.
-(Also distribution of the error in the entire ds, in a single category and the impact it will have to remove the error in the overall performance)
--Property sensitivity and impact:  for each property,  the worst and best performing image subsets can be  computed, with the maximum and minimum AP achieved. The difference between the maximum and minimum AP highlights the sensitivity of AP w.r.t. the property, while the maximum  w.r.t. the overall AP provides insight on the impact of the property onto the AP.
+**Ground Truth**
+For detection and localization, we use COCO format (for Pascal VOC an example of parser is provided).
+For classification an adapation of COCO is employed:
+```
+{
+        "categories" : [{"id":1, "name":"cat1"}, {"id":2, "name":"cat2"}],
+        "observations": [ --> # in COCO this is images we renamed it to accept non-images datasets
+                {
+                        "id": 1,
+                        "file_name": "example.png",
+                        "category": 1, #--> for single label,
+                        "categories": [1, 2] #--> for multi-label
+                        "...": "..", # any other annotation
+                        "...": ".." 
+                }
+        ]
+}
+```
 
-The analyzer can be extended by overrading the function "_evaluation_metric" to use an metric different of AP all points interpolation norm.
 
-VISUALIZER
+**Predictions:**
+One .txt for category (categoryName.txt) with one line for each prediction in the following format
 
-Visualization capabilities for the dataset (all images,  images with annotation with a certain property and/or class)
+For bounging boxes:
 
-ANNOTATOR
+```
+image_id, confidence_score, min_x, min_y, width, height
+```
 
-The addition of meta-annotation is supported by a Jupyter Notebook that given set of images and a set of valid meta-annotation values allows the developer to iterate on the images and select the appropriate value, which is saved in the format  used for evaluation.
+For segmentation masks:
 
+```
+image_id, confidence_score, x1, y1, x2, y2, ..., xn, yn
+```
 
-This repository contains three notebooks that presents how to use the different functionalities.
+For classification:
 
-## **Cite this work**
+```
+observation_id, confidence_score
+```
+
+Additionally, record["file_name"] can be used instead of ID for matching the predictions to the GT, providing a parameter indicator "match_on_filename=True", when creating the dataset. 
+
+#### Customize visualization
+Sometimes the classes names or properties values are too long and make the graphs less readable.
+When an Analyzer class is instanciated (using the classes of the examples), a json file (by default called properties.json but can be customized) is created. Here we can modify the "display names" of the different attributes.
+More improvements on graphs customizations will be included in future commits (e.g. labels size), as well as performance improvements to accelerate the analysis execution time.
+
+#### This repo
+The folder "examples" contains notebooks that go through the main funcionality (analysis, annotators, visualizations), using the dataset ARTDL (http://www.artdl.org/). Some examples are provided using RacePlanes(https://www.cosmiqworks.org/RarePlanes/).Other notebooks are for you to play with your own dataset.
+We tried to make the functions easy to use and intuitive, as can be seen in the esamples, but we're working on a better documentation for future commits.
+
+In the requirements.txt we specified the different libraries required, as well as the version we used to implement and test the framework.
+
+ ```
+ pip install -r requirements.txt
+ ```
+
+## Cite this work
 If you use ODIN or wish to refer it, please use the following BibTex entry.
 
 ```
@@ -50,6 +117,6 @@ If you use ODIN or wish to refer it, please use the following BibTex entry.
 }
 ```
 
-## Reference
 
-* [ODIN: An Object Detection and Instance Segmentation Diagnosis Framework](https://link.springer.com/chapter/10.1007%2F978-3-030-65414-6_3). Rocio Nahime Torres, Piero Fraternali and Jesus Romero.
+
+

@@ -1,0 +1,51 @@
+{
+    "categories": [
+        {
+            "supercategory": "spam",
+            "name": "spam",
+            "id": 1
+        },
+        {
+            "supercategory": "legitimate",
+            "name": "legitimate",
+            "id": 2
+        }
+    ],
+    "observations": [
+        {
+            "observation": "Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...\n",
+            "id": 1,
+            "category": 2
+        },
+        {
+            "observation": "Ok lar... Joking wif u oni...\n",
+            "id": 2,
+            "category": 2
+        },
+        {
+            "observation": "Free entry in 2 a wkly comp to win FA Cup final tkts 21st May 2005. Text FA to 87121 to receive entry question(std txt rate)T&C's apply 08452810075over18's\n",
+            "id": 3,
+            "category": 1
+        },
+        {
+            "observation": "U dun say so early hor... U c already then say...\n",
+            "id": 4,
+            "category": 2
+        },
+        {
+            "observation": "Nah I don't think he goes to usf, he lives around here though\n",
+            "id": 5,
+            "category": 2
+        },
+        {
+            "observation": "FreeMsg Hey there darling it's been 3 week's now and no word back! I'd like some fun you up for it still? Tb ok! XxX std chgs to send, \u00a31.50 to rcv\n",
+            "id": 6,
+            "category": 1
+        },
+        {
+            "observation": "Even my brother is not like to speak with me. They treat me like aids patent.\n",
+            "id": 7,
+            "category": 1
+        }
+    ]
+}

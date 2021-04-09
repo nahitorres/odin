@@ -1,0 +1,190 @@
+{
+    "categories": [
+        {
+            "supercategory": "Anthony of Padua",
+            "name": "Anthony of Padua",
+            "id": 1
+        },
+        {
+            "supercategory": "Virgin Mary",
+            "name": "Virgin Mary",
+            "id": 2
+        },
+        {
+            "supercategory": "Mary Magdalena",
+            "name": "Mary Magdalena",
+            "id": 3
+        },
+        {
+            "supercategory": "John Baptist - Adult",
+            "name": "John Baptist - Adult",
+            "id": 4
+        },
+        {
+            "supercategory": "Francis of Assisi",
+            "name": "Francis of Assisi",
+            "id": 5
+        },
+        {
+            "supercategory": "Paul",
+            "name": "Paul",
+            "id": 6
+        },
+        {
+            "supercategory": "Peter",
+            "name": "Peter",
+            "id": 7
+        },
+        {
+            "supercategory": "Jerome",
+            "name": "Jerome",
+            "id": 8
+        },
+        {
+            "supercategory": "Saint Sebastian",
+            "name": "Saint Sebastian",
+            "id": 9
+        },
+        {
+            "supercategory": "Saint Dominic",
+            "name": "Saint Dominic",
+            "id": 10
+        }
+    ],
+    "observations": [
+        {
+            "path": "../test-data/annotator_example/images/268091.jpg",
+            "file_name": "268091.jpg",
+            "id": 1,
+            "categories": [
+                1,
+                2
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/3081112895.jpg",
+            "file_name": "3081112895.jpg",
+            "id": 2,
+            "categories": [
+                6,
+                5,
+                7
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD2441058_00152172.jpg",
+            "file_name": "ICCD2441058_00152172.jpg",
+            "id": 3,
+            "categories": [
+                9,
+                10,
+                4,
+                2
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD3125600_C0858.jpg",
+            "file_name": "ICCD3125600_C0858.jpg",
+            "id": 4,
+            "categories": [
+                2,
+                7,
+                6
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD3169011_74948-H.jpg",
+            "file_name": "ICCD3169011_74948-H.jpg",
+            "id": 5,
+            "categories": [
+                2,
+                1
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD4100320_00128944.jpg",
+            "file_name": "ICCD4100320_00128944.jpg",
+            "id": 6,
+            "categories": [
+                1,
+                2
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD6037370_HR002940.jpg",
+            "file_name": "ICCD6037370_HR002940.jpg",
+            "id": 7,
+            "categories": [
+                2,
+                9
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD6065474_HH000866.jpg",
+            "file_name": "ICCD6065474_HH000866.jpg",
+            "id": 8,
+            "categories": [
+                10,
+                2
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD8182508_C0011661.jpg",
+            "file_name": "ICCD8182508_C0011661.jpg",
+            "id": 9,
+            "categories": [
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD8484012_g26052.jpg",
+            "file_name": "ICCD8484012_g26052.jpg",
+            "id": 10,
+            "categories": [
+                4,
+                2,
+                8
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD8484248_g00282.jpg",
+            "file_name": "ICCD8484248_g00282.jpg",
+            "id": 11,
+            "categories": [
+                1
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD8493953_RC1048.jpg",
+            "file_name": "ICCD8493953_RC1048.jpg",
+            "id": 12,
+            "categories": [
+                1,
+                9
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images/ICCD8493981_RC1261.jpg",
+            "file_name": "ICCD8493981_RC1261.jpg",
+            "id": 13,
+            "categories": [
+                7,
+                1
+            ]
+        },
+        {
+            "path": "../test-data/annotator_example/images\\268091.jpg",
+            "file_name": "268091.jpg",
+            "id": 14,
+            "categories": []
+        },
+        {
+            "path": "../test-data/annotator_example/images\\3081112895.jpg",
+            "file_name": "3081112895.jpg",
+            "id": 15,
+            "categories": []
+        }
+    ]
+}
