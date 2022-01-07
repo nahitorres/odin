@@ -125,7 +125,10 @@ class Iterator:
         self.__perform_action(self.pos, self.max_pos)
 
     def __on_save_clicked(self, b):
-        self.save_function(self.images[self.pos], self.pos)
+        if type(self.images[self.pos]) == str:
+            self.save_function(self.images[self.pos], self.pos)
+        else:
+            self.save_function(self.images[self.pos]['file_name'], self.pos)
 
     def __perform_action(self, index, max_pos):
         self.next_button.disabled = (index == max_pos)
@@ -161,3 +164,10 @@ class Iterator:
 
         display(self.all_widgets)
         self.__perform_action(self.pos, self.max_pos)
+
+    def refresh_output(self):
+        with self.out:
+            self.out.clear_output()
+        with self.out:
+            self.image_display_function(self.images[self.pos], self.pos)
+

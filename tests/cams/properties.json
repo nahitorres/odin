@@ -1,0 +1,11 @@
+{
+    "properties": {},
+    "categories": {
+        "cat": {
+            "display_name": "cat"
+        },
+        "dog": {
+            "display_name": "dog"
+        }
+    }
+}

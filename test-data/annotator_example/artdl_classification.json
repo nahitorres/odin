@@ -59,7 +59,10 @@
             "categories": [
                 1,
                 2
-            ]
+            ],
+            "color": "rgb",
+            "characters": "2-4",
+            "source": "wikiart"
         },
         {
             "path": "../test-data/annotator_example/images/3081112895.jpg",
@@ -69,7 +72,10 @@
                 6,
                 5,
                 7
-            ]
+            ],
+            "color": "rgb",
+            "characters": "2-4",
+            "source": "pharos"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD2441058_00152172.jpg",
@@ -80,7 +86,10 @@
                 10,
                 4,
                 2
-            ]
+            ],
+            "color": "bw",
+            "characters": "5+",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD3125600_C0858.jpg",
@@ -90,7 +99,10 @@
                 2,
                 7,
                 6
-            ]
+            ],
+            "color": "rgb",
+            "characters": "2-4",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD3169011_74948-H.jpg",
@@ -99,7 +111,10 @@
             "categories": [
                 2,
                 1
-            ]
+            ],
+            "color": "bw",
+            "characters": "5+",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD4100320_00128944.jpg",
@@ -108,7 +123,10 @@
             "categories": [
                 1,
                 2
-            ]
+            ],
+            "color": "rgb",
+            "characters": "2-4",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD6037370_HR002940.jpg",
@@ -117,7 +135,10 @@
             "categories": [
                 2,
                 9
-            ]
+            ],
+            "color": "bw",
+            "characters": "5+",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD6065474_HH000866.jpg",
@@ -126,7 +147,10 @@
             "categories": [
                 10,
                 2
-            ]
+            ],
+            "color": "bw",
+            "characters": "2-4",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD8182508_C0011661.jpg",
@@ -136,7 +160,10 @@
                 2,
                 3,
                 4
-            ]
+            ],
+            "color": "rgb",
+            "characters": "0-1",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD8484012_g26052.jpg",
@@ -146,7 +173,10 @@
                 4,
                 2,
                 8
-            ]
+            ],
+            "color": "bw",
+            "characters": "2-4",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD8484248_g00282.jpg",
@@ -154,7 +184,10 @@
             "id": 11,
             "categories": [
                 1
-            ]
+            ],
+            "color": "bw",
+            "characters": "2-4",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD8493953_RC1048.jpg",
@@ -163,7 +196,10 @@
             "categories": [
                 1,
                 9
-            ]
+            ],
+            "color": "rgb",
+            "characters": "5+",
+            "source": "beni culturali"
         },
         {
             "path": "../test-data/annotator_example/images/ICCD8493981_RC1261.jpg",
@@ -172,19 +208,10 @@
             "categories": [
                 7,
                 1
-            ]
-        },
-        {
-            "path": "../test-data/annotator_example/images\\268091.jpg",
-            "file_name": "268091.jpg",
-            "id": 14,
-            "categories": []
-        },
-        {
-            "path": "../test-data/annotator_example/images\\3081112895.jpg",
-            "file_name": "3081112895.jpg",
-            "id": 15,
-            "categories": []
+            ],
+            "color": "rgb",
+            "characters": "2-4",
+            "source": "beni culturali"
         }
     ]
 }

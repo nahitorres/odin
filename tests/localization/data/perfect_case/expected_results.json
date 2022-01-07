@@ -1,0 +1,901 @@
+{
+    "matching": {
+        "cat": [
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 1,
+                "ann_id": 1,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 2,
+                "ann_id": 4,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 3,
+                "ann_id": 7,
+                "category_det": 1,
+                "category_ann": 1
+            }
+        ],
+        "dog": [
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 4,
+                "ann_id": 2,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 5,
+                "ann_id": 5,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 6,
+                "ann_id": 8,
+                "category_det": 2,
+                "category_ann": 2
+            }
+        ],
+        "fox": [
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 7,
+                "ann_id": 3,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 8,
+                "ann_id": 6,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 1,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 9,
+                "ann_id": 9,
+                "category_det": 3,
+                "category_ann": 3
+            }
+        ]
+    },
+    "support_metric": {
+        "cat": {
+            "n_anns": 24,
+            "confidence": [
+                1,
+                1,
+                1
+            ],
+            "label": [
+                1,
+                1,
+                1
+            ],
+            "tp": [
+                1,
+                2,
+                3
+            ],
+            "fp": [
+                0,
+                0,
+                0
+            ]
+        }
+    },
+    "support_metric_threshold": {
+        "cat": {
+            "tp": 17,
+            "tp_norm": 21.25,
+            "fp": 2
+        }
+    },
+    "metric_for_category": {
+        "cat": {
+            "F1": 1.0
+        },
+        "dog": {
+            "F1": 1.0
+        },
+        "fox": {
+            "F1": 1.0
+        }
+    },
+    "metric_for_prop_for_cat": {
+        "cat": {
+            "size": {
+                "small": {
+                    "F1": 1.0
+                },
+                "medium": {
+                    "F1": 1.0
+                },
+                "large": {
+                    "F1": 1.0
+                }
+            }
+        },
+        "dog": {
+            "size": {
+                "small": {
+                    "F1": 1.0
+                },
+                "medium": {
+                    "F1": 1.0
+                },
+                "large": {
+                    "F1": 1.0
+                }
+            }
+        },
+        "fox": {
+            "size": {
+                "small": {
+                    "F1": 1.0
+                },
+                "medium": {
+                    "F1": 1.0
+                },
+                "large": {
+                    "F1": 1.0
+                }
+            }
+        }
+    },
+    "support_reliability": {
+        "confidence": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "label": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    },
+    "get_input_report": {
+        "all": {
+            "n_anns": 9,
+            "matching": [
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 1,
+                    "ann_id": 1,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 2,
+                    "ann_id": 4,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 3,
+                    "ann_id": 7,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 4,
+                    "ann_id": 2,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 5,
+                    "ann_id": 5,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 6,
+                    "ann_id": 8,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 7,
+                    "ann_id": 3,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 8,
+                    "ann_id": 6,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 9,
+                    "ann_id": 9,
+                    "category_det": 3,
+                    "category_ann": 3
+                }
+            ]
+        },
+        "cat": {
+            "n_anns": 3,
+            "matching": [
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 1,
+                    "ann_id": 1,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 2,
+                    "ann_id": 4,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 3,
+                    "ann_id": 7,
+                    "category_det": 1,
+                    "category_ann": 1
+                }
+            ]
+        },
+        "dog": {
+            "n_anns": 3,
+            "matching": [
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 4,
+                    "ann_id": 2,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 5,
+                    "ann_id": 5,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 6,
+                    "ann_id": 8,
+                    "category_det": 2,
+                    "category_ann": 2
+                }
+            ]
+        },
+        "fox": {
+            "n_anns": 3,
+            "matching": [
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 7,
+                    "ann_id": 3,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 8,
+                    "ann_id": 6,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 1,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 9,
+                    "ann_id": 9,
+                    "category_det": 3,
+                    "category_ann": 3
+                }
+            ]
+        },
+        "size_small": {
+            "cat": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 1,
+                        "ann_id": 1,
+                        "category_det": 1,
+                        "category_ann": 1
+                    }
+                ]
+            },
+            "dog": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 4,
+                        "ann_id": 2,
+                        "category_det": 2,
+                        "category_ann": 2
+                    }
+                ]
+            },
+            "fox": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 7,
+                        "ann_id": 3,
+                        "category_det": 3,
+                        "category_ann": 3
+                    }
+                ]
+            }
+        },
+        "size_medium": {
+            "cat": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 2,
+                        "ann_id": 4,
+                        "category_det": 1,
+                        "category_ann": 1
+                    }
+                ]
+            },
+            "dog": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 5,
+                        "ann_id": 5,
+                        "category_det": 2,
+                        "category_ann": 2
+                    }
+                ]
+            },
+            "fox": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 8,
+                        "ann_id": 6,
+                        "category_det": 3,
+                        "category_ann": 3
+                    }
+                ]
+            }
+        },
+        "size_large": {
+            "cat": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 3,
+                        "ann_id": 7,
+                        "category_det": 1,
+                        "category_ann": 1
+                    }
+                ]
+            },
+            "dog": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 6,
+                        "ann_id": 8,
+                        "category_det": 2,
+                        "category_ann": 2
+                    }
+                ]
+            },
+            "fox": {
+                "n_anns": 1,
+                "matching": [
+                    {
+                        "confidence": 1,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1,
+                        "det_id": 9,
+                        "ann_id": 9,
+                        "category_det": 3,
+                        "category_ann": 3
+                    }
+                ]
+            }
+        }
+    },
+    "analyze_iou_for_category": {
+        "cat": {
+            "iou": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+            ],
+            "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "dog": {
+            "iou": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+            ],
+            "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        },
+        "fox": {
+            "iou": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+            ],
+            "value": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "analyze_property": {
+        "cat": {
+            "value": 1.0,
+            "size": {
+                "small": 1.0,
+                "medium": 1.0,
+                "large": 1.0
+            }
+        },
+        "dog": {
+            "value": 1.0,
+            "size": {
+                "small": 1.0,
+                "medium": 1.0,
+                "large": 1.0
+            }
+        },
+        "fox": {
+            "value": 1.0,
+            "size": {
+                "small": 1.0,
+                "medium": 1.0,
+                "large": 1.0
+            }
+        }
+    },
+    "tp_distribution": {
+        "cat": 3,
+        "dog": 3,
+        "fox": 3
+    },
+    "fp_distribution": {
+        "cat": 0,
+        "dog": 0,
+        "fox": 0
+    },
+    "fn_distribution": {
+        "cat": 0,
+        "dog": 0,
+        "fox": 0
+    },
+    "pr_curve": {
+        "cat": {
+            "Recall": [
+                1.0,
+                0
+            ],
+            "Precision": [
+                1.0,
+                1
+            ]
+        },
+        "dog": {
+            "Recall": [
+                1.0,
+                0
+            ],
+            "Precision": [
+                1.0,
+                1
+            ]
+        },
+        "fox": {
+            "Recall": [
+                1.0,
+                0
+            ],
+            "Precision": [
+                1.0,
+                1
+            ]
+        }
+    },
+    "f1_curve": {
+        "cat": {
+            "Threshold": [
+                0,
+                1.0
+            ],
+            "F1": [
+                1.0,
+                1.0
+            ]
+        },
+        "dog": {
+            "Threshold": [
+                0,
+                1.0
+            ],
+            "F1": [
+                1.0,
+                1.0
+            ]
+        },
+        "fox": {
+            "Threshold": [
+                0,
+                1.0
+            ],
+            "F1": [
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "analyze_reliability": {
+        "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+        ],
+        "gaps": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            9
+        ],
+        "bins": [
+            [
+                0,
+                0.1,
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.8,
+                0.9,
+                1
+            ]
+        ],
+        "avg_value": 1,
+        "avg_conf": 1,
+        "ece": 0,
+        "mce": 0
+    },
+    "base_report": {
+        "macro": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        },
+        "cat": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        },
+        "dog": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        },
+        "fox": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        },
+        "micro": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        },
+        "size_small": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        },
+        "size_medium": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        },
+        "size_large": {
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0
+        }
+    }
+}

@@ -1,0 +1,466 @@
+{
+    "observations": [
+        {
+            "id": 55,
+            "date_captured": "2020-11-14-13:37:40",
+            "width": 600,
+            "license": 0,
+            "height": 840,
+            "file_name": "ICCD2441058_00152172.jpg",
+            "categories": [
+                8,
+                2,
+                10
+            ],
+            "size": 3
+        },
+        {
+            "id": 262,
+            "date_captured": "2020-11-14-13:38:54",
+            "width": 600,
+            "license": 0,
+            "height": 743,
+            "file_name": "268091.jpg",
+            "categories": [
+                1,
+                8
+            ],
+            "size": 1
+        },
+        {
+            "id": 372,
+            "date_captured": "2020-11-16-21:44:57",
+            "width": 1013,
+            "license": 0,
+            "height": 600,
+            "file_name": "3081112895.jpg",
+            "categories": [
+                2,
+                9,
+                3
+            ],
+            "size": 3
+        },
+        {
+            "id": 391,
+            "date_captured": "2020-11-17-12:20:01",
+            "width": 600,
+            "license": 0,
+            "height": 851,
+            "file_name": "ICCD8493981_RC1261.jpg",
+            "categories": [
+                1,
+                9
+            ],
+            "size": 1
+        },
+        {
+            "id": 458,
+            "date_captured": "2020-11-20-11:31:46",
+            "width": 600,
+            "license": 0,
+            "height": 746,
+            "file_name": "ICCD8484248_g00282.jpg",
+            "categories": [
+                1,
+                3
+            ],
+            "size": 2
+        },
+        {
+            "id": 465,
+            "date_captured": "2020-11-20-11:49:28",
+            "width": 600,
+            "license": 0,
+            "height": 602,
+            "file_name": "ICCD4100320_00128944.jpg",
+            "categories": [
+                1,
+                5
+            ],
+            "size": 1
+        },
+        {
+            "id": 619,
+            "date_captured": "2020-11-29-10:06:28",
+            "width": 600,
+            "license": 0,
+            "height": 1196,
+            "file_name": "ICCD8493953_RC1048.jpg",
+            "categories": [
+                10,
+                1
+            ],
+            "size": 2
+        },
+        {
+            "id": 653,
+            "date_captured": "2020-11-29-10:37:58",
+            "width": 719,
+            "license": 0,
+            "height": 600,
+            "file_name": "ICCD8484012_g26052.jpg",
+            "categories": [
+                8,
+                2,
+                6
+            ],
+            "size": 3
+        },
+        {
+            "id": 744,
+            "date_captured": "2020-12-03-19:27:38",
+            "width": 600,
+            "license": 0,
+            "height": 688,
+            "file_name": "ICCD6065474_HH000866.jpg",
+            "categories": [
+                8,
+                7
+            ],
+            "size": 1
+        }
+    ],
+    "categories": [
+        {
+            "supercategory": "",
+            "id": 1,
+            "name": "11H(ANTONY OF PADUA)"
+        },
+        {
+            "supercategory": "",
+            "id": 2,
+            "name": "11H(JOHN THE BAPTIST)"
+        },
+        {
+            "supercategory": "",
+            "id": 3,
+            "name": "11H(PAUL)"
+        },
+        {
+            "supercategory": "",
+            "id": 4,
+            "name": "11H(FRANCIS)"
+        },
+        {
+            "supercategory": "",
+            "id": 5,
+            "name": "11HH(MARY MAGDALENE)"
+        },
+        {
+            "supercategory": "",
+            "id": 6,
+            "name": "11H(JEROME)"
+        },
+        {
+            "supercategory": "",
+            "id": 7,
+            "name": "11H(DOMINIC)"
+        },
+        {
+            "supercategory": "",
+            "id": 8,
+            "name": "11F(MARY)"
+        },
+        {
+            "supercategory": "",
+            "id": 9,
+            "name": "11H(PETER)"
+        },
+        {
+            "supercategory": "",
+            "id": 10,
+            "name": "11H(SEBASTIAN)"
+        }
+    ],
+    "annotations": [
+        {
+            "id": 56,
+            "image_id": 55,
+            "bbox": [
+                251,
+                47,
+                156,
+                151
+            ],
+            "area": 23556,
+            "category_id": 8,
+            "iscrowd": false
+        },
+        {
+            "id": 57,
+            "image_id": 55,
+            "bbox": [
+                213,
+                336,
+                213,
+                470
+            ],
+            "area": 100110,
+            "category_id": 2,
+            "iscrowd": false
+        },
+        {
+            "id": 58,
+            "image_id": 55,
+            "bbox": [
+                93,
+                318,
+                231,
+                458
+            ],
+            "area": 105798,
+            "category_id": 10,
+            "iscrowd": false
+        },
+        {
+            "id": 278,
+            "image_id": 262,
+            "bbox": [
+                323,
+                192,
+                233,
+                528
+            ],
+            "area": 123024,
+            "category_id": 1,
+            "iscrowd": false
+        },
+        {
+            "id": 279,
+            "image_id": 262,
+            "bbox": [
+                6,
+                3,
+                295,
+                659
+            ],
+            "area": 194405,
+            "category_id": 8,
+            "iscrowd": false
+        },
+        {
+            "id": 392,
+            "image_id": 372,
+            "bbox": [
+                325,
+                82,
+                313,
+                481
+            ],
+            "area": 150553,
+            "category_id": 2,
+            "iscrowd": false
+        },
+        {
+            "id": 393,
+            "image_id": 372,
+            "bbox": [
+                627,
+                80,
+                293,
+                490
+            ],
+            "area": 143570,
+            "category_id": 9,
+            "iscrowd": false
+        },
+        {
+            "id": 394,
+            "image_id": 372,
+            "bbox": [
+                35,
+                50,
+                303,
+                515
+            ],
+            "area": 156045,
+            "category_id": 3,
+            "iscrowd": false
+        },
+        {
+            "id": 415,
+            "image_id": 391,
+            "bbox": [
+                301,
+                120,
+                236,
+                637
+            ],
+            "area": 150332,
+            "category_id": 1,
+            "iscrowd": false
+        },
+        {
+            "id": 416,
+            "image_id": 391,
+            "bbox": [
+                61,
+                127,
+                225,
+                630
+            ],
+            "area": 141750,
+            "category_id": 9,
+            "iscrowd": false
+        },
+        {
+            "id": 484,
+            "image_id": 458,
+            "bbox": [
+                29,
+                76,
+                247,
+                595
+            ],
+            "area": 146965,
+            "category_id": 1,
+            "iscrowd": false
+        },
+        {
+            "id": 485,
+            "image_id": 458,
+            "bbox": [
+                215,
+                69,
+                170,
+                558
+            ],
+            "area": 94860,
+            "category_id": 3,
+            "iscrowd": false
+        },
+        {
+            "id": 492,
+            "image_id": 465,
+            "bbox": [
+                26,
+                87,
+                314,
+                512
+            ],
+            "area": 160768,
+            "category_id": 1,
+            "iscrowd": false
+        },
+        {
+            "id": 493,
+            "image_id": 465,
+            "bbox": [
+                292,
+                109,
+                286,
+                482
+            ],
+            "area": 137852,
+            "category_id": 5,
+            "iscrowd": false
+        },
+        {
+            "id": 657,
+            "image_id": 619,
+            "bbox": [
+                365,
+                257,
+                199,
+                724
+            ],
+            "area": 144076,
+            "category_id": 10,
+            "iscrowd": false
+        },
+        {
+            "id": 658,
+            "image_id": 619,
+            "bbox": [
+                287,
+                75,
+                269,
+                228
+            ],
+            "area": 61332,
+            "category_id": 1,
+            "iscrowd": false
+        },
+        {
+            "id": 694,
+            "image_id": 653,
+            "bbox": [
+                127,
+                29,
+                472,
+                566
+            ],
+            "area": 267152,
+            "category_id": 8,
+            "iscrowd": false
+        },
+        {
+            "id": 695,
+            "image_id": 653,
+            "bbox": [
+                2,
+                61,
+                211,
+                539
+            ],
+            "area": 113729,
+            "category_id": 2,
+            "iscrowd": false
+        },
+        {
+            "id": 696,
+            "image_id": 653,
+            "bbox": [
+                493,
+                65,
+                221,
+                531
+            ],
+            "area": 117351,
+            "category_id": 6,
+            "iscrowd": false
+        },
+        {
+            "id": 794,
+            "image_id": 744,
+            "bbox": [
+                35,
+                85,
+                230,
+                380
+            ],
+            "area": 87400,
+            "category_id": 8,
+            "iscrowd": false
+        },
+        {
+            "id": 795,
+            "image_id": 744,
+            "bbox": [
+                231,
+                216,
+                302,
+                420
+            ],
+            "area": 126840,
+            "category_id": 7,
+            "iscrowd": false
+        }
+    ],
+    "info": {
+        "description": "Dataset",
+        "contributor": "Polimi",
+        "date_created": "2020-11-02-11:44:24",
+        "year": 2020,
+        "url": "www.polimi.it",
+        "version": "0.1.0"
+    },
+    "licenses": [
+        {
+            "id": 0,
+            "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+            "name": "Attribution-NonCommercial-ShareAlike License"
+        }
+    ]
+}

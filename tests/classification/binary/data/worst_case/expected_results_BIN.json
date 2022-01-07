@@ -1,0 +1,272 @@
+{
+    "analyze_properties": {
+        "Accuracy": 0.0,
+        "Error_Rate": 1.0,
+        "Precision": 0,
+        "Recall": 0.0,
+        "F1": 0,
+        "meta_annotations": {
+            "size": {
+                "small": {
+                    "Accuracy": 0.0,
+                    "Error_Rate": 1.0,
+                    "Precision": 0,
+                    "Recall": 0.0,
+                    "F1": 0
+                },
+                "medium": {
+                    "Accuracy": 0.0,
+                    "Error_Rate": 1.0,
+                    "Precision": 0,
+                    "Recall": 0.0,
+                    "F1": 0
+                },
+                "large": {
+                    "Accuracy": 0.0,
+                    "Error_Rate": 1.0,
+                    "Precision": 0,
+                    "Recall": 0.0,
+                    "F1": 0
+                }
+            }
+        }
+    },
+    "cm": [
+        [
+            0,
+            0
+        ],
+        [
+            9,
+            0
+        ]
+    ],
+    "pr_curve": {
+        "Recall": [
+            1,
+            0.0,
+            0
+        ],
+        "Precision": [
+            1,
+            0,
+            1
+        ]
+    },
+    "f1_curve": {
+        "Threshold": [
+            0.0,
+            1.0
+        ],
+        "F1": [
+            0,
+            0
+        ]
+    },
+    "roc_curve": {
+        "tpr": [
+            1,
+            0.0
+        ],
+        "fpr": [
+            1,
+            0
+        ]
+    },
+    "base_report": {
+        "Accuracy": {
+            "total": 0.0,
+            "size_small": 0.0,
+            "size_medium": 0.0,
+            "size_large": 0.0
+        },
+        "Error_Rate": {
+            "total": 1.0,
+            "size_small": 1.0,
+            "size_medium": 1.0,
+            "size_large": 1.0
+        },
+        "Precision": {
+            "total": 0,
+            "size_small": 0,
+            "size_medium": 0,
+            "size_large": 0
+        },
+        "Recall": {
+            "total": 0.0,
+            "size_small": 0.0,
+            "size_medium": 0.0,
+            "size_large": 0.0
+        },
+        "F1": {
+            "total": 0,
+            "size_small": 0,
+            "size_medium": 0,
+            "size_large": 0
+        }
+    },
+    "reliability": {
+        "all": {
+            "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "gaps": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "bins": [
+                0,
+                0.1,
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.8,
+                0.9,
+                1
+            ],
+            "avg_values": 0,
+            "avg_conf": 0,
+            "ece": 0,
+            "mce": 0
+        }
+    },
+    "convert_for_category": {
+        "y_true": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "y_score": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    "support_get_input_report": {
+        "y_true": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "y_score": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    "convert_input_cm": {
+        "y_true": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "y_pred": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    "convert_input_reliability": {
+        "y_true": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "y_score": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "y_pred": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    }
+}

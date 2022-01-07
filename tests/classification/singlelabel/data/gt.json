@@ -1,0 +1,173 @@
+{
+    "info": [
+        {
+            "description": "Dataset test - Classification SL"
+        }
+    ],
+    "observations": [
+        {
+            "id": 1,
+            "size": "small",
+            "category": 1
+        },
+        {
+            "id": 2,
+            "size": "small",
+            "category": 1
+        },
+        {
+            "id": 3,
+            "size": "small",
+            "category": 1
+        },
+        {
+            "id": 4,
+            "size": "small",
+            "category": 1
+        },
+        {
+            "id": 5,
+            "size": "small",
+            "category": 1
+        },
+        {
+            "id": 6,
+            "size": "small",
+            "category": 1
+        },
+        {
+            "id": 7,
+            "size": "small",
+            "category": 1
+        },
+        {
+            "id": 8,
+            "size": "small",
+            "category": 2
+        },
+        {
+            "id": 9,
+            "size": "small",
+            "category": 2
+        },
+        {
+            "id": 10,
+            "size": "small",
+            "category": 2
+        },
+        {
+            "id": 11,
+            "size": "medium",
+            "category": 2
+        },
+        {
+            "id": 12,
+            "size": "medium",
+            "category": 2
+        },
+        {
+            "id": 13,
+            "size": "medium",
+            "category": 2
+        },
+        {
+            "id": 14,
+            "size": "medium",
+            "category": 1
+        },
+        {
+            "id": 15,
+            "size": "medium",
+            "category": 2
+        },
+        {
+            "id": 16,
+            "size": "medium",
+            "category": 2
+        },
+        {
+            "id": 17,
+            "size": "medium",
+            "category": 3
+        },
+        {
+            "id": 18,
+            "size": "medium",
+            "category": 3
+        },
+        {
+            "id": 19,
+            "size": "medium",
+            "category": 3
+        },
+        {
+            "id": 20,
+            "size": "medium",
+            "category": 3
+        },
+        {
+            "id": 21,
+            "size": "large",
+            "category": 3
+        },
+        {
+            "id": 22,
+            "size": "large",
+            "category": 3
+        },
+        {
+            "id": 23,
+            "size": "large",
+            "category": 3
+        },
+        {
+            "id": 24,
+            "size": "large",
+            "category": 3
+        },
+        {
+            "id": 25,
+            "size": "large",
+            "category": 3
+        },
+        {
+            "id": 26,
+            "size": "large",
+            "category": 3
+        },
+        {
+            "id": 27,
+            "size": "large",
+            "category": 2
+        },
+        {
+            "id": 28,
+            "size": "large",
+            "category": 2
+        },
+        {
+            "id": 29,
+            "size": "large",
+            "category": 2
+        },
+        {
+            "id": 30,
+            "size": "large",
+            "category": 1
+        }
+    ],
+    "categories": [
+        {
+            "name": "cat",
+            "id": 1
+        },
+        {
+            "name": "dog",
+            "id": 2
+        },
+        {
+            "name": "fox",
+            "id": 3
+        }
+    ]
+}

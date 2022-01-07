@@ -1,0 +1,32 @@
+{
+    "properties": {
+        "size": {
+            "values": [
+                {
+                    "value": "large",
+                    "display_name": "large"
+                },
+                {
+                    "value": "medium",
+                    "display_name": "medium"
+                },
+                {
+                    "value": "small",
+                    "display_name": "small"
+                }
+            ],
+            "display_name": "size"
+        }
+    },
+    "categories": {
+        "cat": {
+            "display_name": "cat"
+        },
+        "dog": {
+            "display_name": "dog"
+        },
+        "fox": {
+            "display_name": "fox"
+        }
+    }
+}

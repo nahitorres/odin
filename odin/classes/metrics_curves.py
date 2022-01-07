@@ -2,17 +2,23 @@ from enum import Enum
 
 
 class Metrics(Enum):
-    ACCURACY = "accuracy"
-    PRECISION_SCORE = "precision_score"
-    RECALL_SCORE = "recall_score"
-    F1_SCORE = "f1_score"
-    AVERAGE_PRECISION_SCORE = "average_precision_score"
-    ROC_AUC = "roc_auc"
-    PRECISION_RECALL_AUC = "precision_recall_auc"
-    CUSTOM = "custom"
+    ACCURACY = "Accuracy"
+    ERROR_RATE = "Error_Rate"
+    PRECISION_SCORE = "Precision"
+    RECALL_SCORE = "Recall"
+    F1_SCORE = "F1"
+    AVERAGE_PRECISION_SCORE = "Average_Precision"
+    AVERAGE_PRECISION_INTERPOLATED = "Average_Precision_Interpolated"
+    ROC_AUC = "ROC_AUC"
+    PRECISION_RECALL_AUC = "Precision-Recall_AUC"
+    F1_AUC = "F1_AUC"
+    CAM_COMPONENT_IOU = "Component_IoU"
+    CAM_GLOBAL_IOU = "Global_IoU"
+    CAM_BBOX_COVERAGE = "Bbox_coverage"
+    CAM_IRRELEVANT_ATTENTION = "Irrelevant attention"
 
 
 class Curves(Enum):
-    PRECISION_RECALL_CURVE = 'precision_recall_curve'
-    ROC_CURVE = 'roc_curve'
-    F1_CURVE = 'f1_curve'
+    PRECISION_RECALL_CURVE = 'Precision-Recall_Curve'
+    ROC_CURVE = 'ROC_Curve'
+    F1_CURVE = 'F1_Curve'

@@ -4,29 +4,17 @@ from datetime import datetime
 import csv, sys
 from types import FunctionType
 import numpy as np
+from IPython import get_ipython
 
 
-
-def get_root_logger(log_level=logging.INFO, log_path=None):
+def get_root_logger(log_level=logging.INFO):
     logger = logging.getLogger()
-    if log_path is None:
-        log_path = os.path.join(os.getcwd(), 'emd', 'logs') if os.path.basename(os.getcwd()) != 'emd' else os.path.join(
-            os.getcwd(), 'logs')
-        # if it's called from outside emd directory level, or at the within emd directory level
-
-        if not os.path.isdir(log_path):  # create logger path
-            logger.info('Creating a logger directory in path {}'.format(log_path))
-            os.makedirs(log_path)
-
-        log_path = os.path.join(log_path,
-                                'error_metric_detector_' + datetime.now().strftime('%Y-%m-%d %H.%M.%S') + '.log')
 
     if not logger.hasHandlers():
         logging.basicConfig(
             format='%(asctime)s - %(levelname)s - %(message)s',
-            level=log_level,  # filename=log_path,
+            level=log_level,
             handlers=[
-                logging.FileHandler(log_path),
                 logging.StreamHandler()
             ]
         )
@@ -125,4 +113,17 @@ def get_max_val(s, fname, maxy):
 
 def methods_from_class(cls):
     return [x for x, y in cls.__dict__.items() if type(y) == FunctionType]
+
+
+def is_notebook():
+    try:
+        shell = get_ipython().__class__.__name__
+        if shell == 'ZMQInteractiveShell':
+            return True   # Jupyter notebook or qtconsole
+        elif shell == 'TerminalInteractiveShell':
+            return False  # Terminal running IPython
+        else:
+            return False  # Other type (?)
+    except NameError:
+        return False      # Probably standard Python interpreter
 

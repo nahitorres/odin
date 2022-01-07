@@ -1,0 +1,795 @@
+{
+    "analyze_properties": {
+        "cat": {
+            "Accuracy": 1.0,
+            "Error_Rate": 0.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "meta_annotations": {
+                "size": {
+                    "small": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    },
+                    "medium": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    },
+                    "large": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    }
+                }
+            }
+        },
+        "dog": {
+            "Accuracy": 1.0,
+            "Error_Rate": 0.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "meta_annotations": {
+                "size": {
+                    "small": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    },
+                    "medium": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    },
+                    "large": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    }
+                }
+            }
+        },
+        "fox": {
+            "Accuracy": 1.0,
+            "Error_Rate": 0.0,
+            "Precision": 1.0,
+            "Recall": 1.0,
+            "F1": 1.0,
+            "meta_annotations": {
+                "size": {
+                    "small": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    },
+                    "medium": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    },
+                    "large": {
+                        "Accuracy": 1.0,
+                        "Error_Rate": 0.0,
+                        "Precision": 1.0,
+                        "Recall": 1.0,
+                        "F1": 1.0
+                    }
+                }
+            }
+        }
+    },
+    "tp_distribution": {
+        "cat": 3,
+        "dog": 3,
+        "fox": 3
+    },
+    "fp_distribution": {
+        "cat": 0,
+        "dog": 0,
+        "fox": 0
+    },
+    "tn_distribution": {
+        "cat": 6,
+        "dog": 6,
+        "fox": 6
+    },
+    "fn_distribution": {
+        "cat": 0,
+        "dog": 0,
+        "fox": 0
+    },
+    "cm": {
+        "all": [
+            [
+                3,
+                0,
+                0
+            ],
+            [
+                0,
+                3,
+                0
+            ],
+            [
+                0,
+                0,
+                3
+            ]
+        ],
+        "cat": [
+            [
+                6,
+                0
+            ],
+            [
+                0,
+                3
+            ]
+        ],
+        "dog": [
+            [
+                6,
+                0
+            ],
+            [
+                0,
+                3
+            ]
+        ],
+        "fox": [
+            [
+                6,
+                0
+            ],
+            [
+                0,
+                3
+            ]
+        ]
+    },
+    "pr_curve": {
+        "cat": {
+            "Recall": [
+                1.0,
+                1.0,
+                0
+            ],
+            "Precision": [
+                1.0,
+                1.0,
+                1
+            ]
+        },
+        "dog": {
+            "Recall": [
+                1.0,
+                1.0,
+                0
+            ],
+            "Precision": [
+                1.0,
+                1.0,
+                1
+            ]
+        },
+        "fox": {
+            "Recall": [
+                1.0,
+                1.0,
+                0
+            ],
+            "Precision": [
+                1.0,
+                1.0,
+                1
+            ]
+        }
+    },
+    "f1_curve": {
+        "cat": {
+            "Threshold": [
+                0.0,
+                1.0
+            ],
+            "F1": [
+                1.0,
+                1.0
+            ]
+        },
+        "dog": {
+            "Threshold": [
+                0.0,
+                1.0
+            ],
+            "F1": [
+                1.0,
+                1.0
+            ]
+        },
+        "fox": {
+            "Threshold": [
+                0.0,
+                1.0
+            ],
+            "F1": [
+                1.0,
+                1.0
+            ]
+        }
+    },
+    "roc_curve": {
+        "cat": {
+            "tpr": [
+                1,
+                1.0,
+                0
+            ],
+            "fpr": [
+                1,
+                0.0,
+                0
+            ]
+        },
+        "dog": {
+            "tpr": [
+                1,
+                1.0,
+                0
+            ],
+            "fpr": [
+                1,
+                0.0,
+                0
+            ]
+        },
+        "fox": {
+            "tpr": [
+                1,
+                1.0,
+                0
+            ],
+            "fpr": [
+                1,
+                0.0,
+                0
+            ]
+        }
+    },
+    "base_report": {
+        "Accuracy": {
+            "micro": 1,
+            "macro": 1.0,
+            "cat": 1.0,
+            "dog": 1.0,
+            "fox": 1.0,
+            "size_small": 1.0,
+            "size_medium": 1.0,
+            "size_large": 1.0
+        },
+        "Error_Rate": {
+            "micro": 0,
+            "macro": 0.0,
+            "cat": 0.0,
+            "dog": 0.0,
+            "fox": 0.0,
+            "size_small": 0.0,
+            "size_medium": 0.0,
+            "size_large": 0.0
+        },
+        "Precision": {
+            "micro": 1,
+            "macro": 1.0,
+            "cat": 1.0,
+            "dog": 1.0,
+            "fox": 1.0,
+            "size_small": 1.0,
+            "size_medium": 1.0,
+            "size_large": 1.0
+        },
+        "Recall": {
+            "micro": 1,
+            "macro": 1.0,
+            "cat": 1.0,
+            "dog": 1.0,
+            "fox": 1.0,
+            "size_small": 1.0,
+            "size_medium": 1.0,
+            "size_large": 1.0
+        },
+        "F1": {
+            "micro": 1,
+            "macro": 1.0,
+            "cat": 1.0,
+            "dog": 1.0,
+            "fox": 1.0,
+            "size_small": 1.0,
+            "size_medium": 1.0,
+            "size_large": 1.0
+        }
+    },
+    "top1_top5": {
+        "all": {
+            "Accuracy": {
+                "top1": 1,
+                "top5": 1
+            },
+            "Error_Rate": {
+                "top1": 0,
+                "top5": 0
+            }
+        },
+        "size": {
+            "small": {
+                "Accuracy": {
+                    "top1": 1,
+                    "top5": 1
+                },
+                "Error_Rate": {
+                    "top1": 0,
+                    "top5": 0
+                }
+            },
+            "medium": {
+                "Accuracy": {
+                    "top1": 1,
+                    "top5": 1
+                },
+                "Error_Rate": {
+                    "top1": 0,
+                    "top5": 0
+                }
+            },
+            "large": {
+                "Accuracy": {
+                    "top1": 1,
+                    "top5": 1
+                },
+                "Error_Rate": {
+                    "top1": 0,
+                    "top5": 0
+                }
+            }
+        }
+    },
+    "reliability": {
+        "all": {
+            "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "gaps": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            "counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9
+            ],
+            "bins": [
+                0,
+                0.1,
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.8,
+                0.9,
+                1
+            ],
+            "avg_values": 1,
+            "avg_conf": 1,
+            "ece": 0,
+            "mce": 0
+        }
+    },
+    "convert_for_category": {
+        "cat": {
+            "y_true": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "y_score": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        "dog": {
+            "y_true": [
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0
+            ],
+            "y_score": [
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        "fox": {
+            "y_true": [
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1
+            ],
+            "y_score": [
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1
+            ]
+        }
+    },
+    "support_get_input_report": {
+        "all": {
+            "y_true": [
+                1,
+                2,
+                3,
+                1,
+                2,
+                3,
+                1,
+                2,
+                3
+            ],
+            "y_score": [
+                [
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ],
+                [
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ]
+            ]
+        },
+        "cat": {
+            "y_true": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ],
+            "y_score": [
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        "dog": {
+            "y_true": [
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0
+            ],
+            "y_score": [
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        "fox": {
+            "y_true": [
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1
+            ],
+            "y_score": [
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1
+            ]
+        }
+    },
+    "convert_input_ml_sl": {
+        "y_true": [
+            [
+                1,
+                0,
+                0
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                0,
+                1
+            ],
+            [
+                1,
+                0,
+                0
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                0,
+                1
+            ],
+            [
+                1,
+                0,
+                0
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                0,
+                1
+            ]
+        ],
+        "y_pred": [
+            [
+                1,
+                0,
+                0
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                0,
+                1
+            ],
+            [
+                1,
+                0,
+                0
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                0,
+                1
+            ],
+            [
+                1,
+                0,
+                0
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                0,
+                1
+            ]
+        ],
+        "y_true_all": [],
+        "y_score_all": []
+    },
+    "convert_input_cm": {
+        "y_true": [
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            1,
+            2,
+            3
+        ],
+        "y_pred": [
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            1,
+            2,
+            3
+        ]
+    },
+    "convert_input_reliability": {
+        "y_true": [
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            1,
+            2,
+            3
+        ],
+        "y_pred": [
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            1,
+            2,
+            3
+        ],
+        "y_score": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ]
+    }
+}

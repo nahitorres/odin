@@ -1,0 +1,128 @@
+{
+    "0.0": {
+        "global_iou": 0.16,
+        "irrelevant_attention": 0.84,
+        "mask_coverage": 1,
+        "component_iou": 0.16
+    },
+    "0.05": {
+        "global_iou": 0.16,
+        "irrelevant_attention": 0.84,
+        "mask_coverage": 1,
+        "component_iou": 0.16
+    },
+    "0.1": {
+        "global_iou": 0.16,
+        "irrelevant_attention": 0.84,
+        "mask_coverage": 1,
+        "component_iou": 0.16
+    },
+    "0.15": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.75,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.2": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.75,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.25": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.75,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.3": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.75,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.35": {
+        "global_iou": 0.4444444444444444,
+        "irrelevant_attention": 0.5555555555555556,
+        "mask_coverage": 1,
+        "component_iou": 0.4444444444444444
+    },
+    "0.4": {
+        "global_iou": 0.4444444444444444,
+        "irrelevant_attention": 0.5555555555555556,
+        "mask_coverage": 1,
+        "component_iou": 0.4444444444444444
+    },
+    "0.45": {
+        "global_iou": 0.4444444444444444,
+        "irrelevant_attention": 0.5555555555555556,
+        "mask_coverage": 1,
+        "component_iou": 0.4444444444444444
+    },
+    "0.5": {
+        "global_iou": 0.4444444444444444,
+        "irrelevant_attention": 0.5555555555555556,
+        "mask_coverage": 1,
+        "component_iou": 0.4444444444444444
+    },
+    "0.55": {
+        "global_iou": 1.0,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 1.0
+    },
+    "0.6": {
+        "global_iou": 1.0,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 1.0
+    },
+    "0.65": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.7": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.75": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.8": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.85": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.9": {
+        "global_iou": 0.25,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 1,
+        "component_iou": 0.25
+    },
+    "0.95": {
+        "global_iou": 0.0,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 0,
+        "component_iou": 0.0
+    },
+    "1.0": {
+        "global_iou": 0.0,
+        "irrelevant_attention": 0.0,
+        "mask_coverage": 0,
+        "component_iou": 0.0
+    }
+}

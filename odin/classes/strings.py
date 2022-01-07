@@ -24,7 +24,7 @@ info_completed_obj = "Completed objects:"
 info_incomplete_obj = "Incomplete objects:"
 info_ds_output = "Generated dataset will be saved at: "
 
-warn_select_class = "<b style=\"color:RED\">You must assing a class to all bbox before continuing</b>"
+warn_select_class = "<b style=\"color:RED\">You must assign a class to all bbox before continuing</b>"
 warn_skip_wrong = "Skipping wrong annotation"
 warn_img_path_not_exits = "Image path does not exists "
 
@@ -38,3 +38,48 @@ warn_display_function_needed = "Non image data requires the definition of the cu
 warn_no_images_criteria = "No images meet the specified criteria"
 warn_incorrect_class = "Class not present in dataset"
 warn_incorrect_property = "Meta-Annotation not present in dataset"
+
+warn_no_proposals = "No proposals available. Please make sure to load the proposals to the dataset"
+warn_no_properties = "No properties available. Please make sure to load the properties to the dataset"
+
+err_properties_file = "Error loading properties file"
+err_categories_file = "Error loading categories file"
+
+err_categories_id_dataset = "categories: mandatory field 'id' not found"
+err_categories_id_dataset_few = "categories: mandatory field 'id' not found in some categories"
+err_categories_name_dataset = "categories: mandatory field 'name' not found"
+err_categories_name_dataset_few = "categories: mandatory field 'name' not found in some categories"
+err_images_id_dataset = "images: mandatory field 'id' not found"
+err_images_id_dataset_few = "images: mandatory field 'id' not found in some images"
+err_images_filename_dataset = "images: mandatory field 'file_name' not found. Please make sure to specify this field " \
+                              "if match_on_filename=True"
+err_images_filename_dataset_few = "images: mandatory field 'file_name' not found in some images"
+err_annotations_image_id_dataset = "annotations: mandatory field 'image_id' not found"
+err_annotations_image_id_dataset_few = "annotations: mandatory field 'image_id' not found in some images"
+err_annotations_category_id_dataset = "annotations: mandatory field 'category_id' not found"
+err_annotations_category_id_dataset_few = "annotations: mandatory field 'category_id' not found in some annotations"
+err_annotations_segmentation_dataset = "annotations: mandatory field 'segmentation' not found. Please make sure to " \
+                                       "specify this field for TaskType.INSTANCE_SEGMENTATION"
+err_annotations_segmentation_dataset_few = "annotations: mandatory field 'segmentation' not found in some annotations"
+err_annotations_bbox_dataset = "annotations: mandatory field 'bbox' not found. Please make sure to specify this " \
+                               "field for TaskType.OBJECT_DETECTION"
+err_annotations_bbox_dataset_few = "annotations: mandatory field 'bbox' not found in some annotations"
+err_observations_id_dataset = "observations: mandatory field 'id' not found"
+err_observations_id_dataset_few = "observations: mandatory field 'id' not found in some observations"
+err_observations_filename_dataset = "observations: mandatory field 'file_name' not found. Please make sure to specify " \
+                                    "this field if match_on_filename=True"
+err_observations_filename_dataset_few = "observations: mandatory field 'file_name' not found in some observations"
+err_observations_categories_dataset = "observations: mandatory field 'categories' not found. Please make sure to " \
+                                      "specify this field for TaskType.CLASSIFICATION_MULTI_LABEL"
+err_observations_categories_dataset_few = "observations: mandatory field 'categories' not found in some observations"
+err_observations_category_dataset = "observations: mandatory field 'category' not found. Please make sure to specify " \
+                                    "this field for TaskType.CLASSIFICATION_SINGLE_LABEL and " \
+                                    "TaskType.CLASSIFICATION_BINARY"
+err_observations_category_dataset_few = "observations: mandatory field 'category' not found in some observations"
+
+
+err_type = "Invalid '{}' type"
+err_value = "Invalid '{}' value. Possible values: {}"
+err_property_not_loaded = "Property '{}' not loaded"
+
+

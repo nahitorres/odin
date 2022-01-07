@@ -1,0 +1,82 @@
+{
+    "properties": {
+        "AspectRatio": {
+            "values": [
+                {
+                    "value": "W",
+                    "display_name": "W"
+                },
+                {
+                    "value": "T",
+                    "display_name": "T"
+                },
+                {
+                    "value": "XW",
+                    "display_name": "XW"
+                },
+                {
+                    "value": "XT",
+                    "display_name": "XT"
+                },
+                {
+                    "value": "M",
+                    "display_name": "M"
+                }
+            ],
+            "display_name": "AspectRatio"
+        },
+        "size": {
+            "values": [
+                {
+                    "value": "large",
+                    "display_name": "large"
+                },
+                {
+                    "value": "small",
+                    "display_name": "small"
+                },
+                {
+                    "value": "medium",
+                    "display_name": "medium"
+                }
+            ],
+            "display_name": "size"
+        },
+        "AreaSize": {
+            "values": [
+                {
+                    "value": "XL",
+                    "display_name": "XL"
+                },
+                {
+                    "value": "L",
+                    "display_name": "L"
+                },
+                {
+                    "value": "S",
+                    "display_name": "S"
+                },
+                {
+                    "value": "XS",
+                    "display_name": "XS"
+                },
+                {
+                    "value": "M",
+                    "display_name": "M"
+                }
+            ],
+            "display_name": "AreaSize"
+        }
+    },
+    "categories": {
+        "cat": {
+            "display_name": "cat"
+        },
+        "dog": {
+            "display_name": "dog"
+        },
+        "fox": {
+            "display_name": "fox"
+        }
+    }
+}

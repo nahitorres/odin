@@ -1,0 +1,128 @@
+{
+    "0.0": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.05": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.1": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.15": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.2": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.25": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.3": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.35": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.4": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.45": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.5": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.55": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.6": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.65": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.7": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.75": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.8": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.85": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.9": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "0.95": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    },
+    "1.0": {
+        "global_iou": 0,
+        "irrelevant_attention": 1,
+        "mask_coverage": 0,
+        "component_iou": 0
+    }
+}

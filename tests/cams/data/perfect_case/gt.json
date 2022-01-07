@@ -1,0 +1,201 @@
+{
+    "info": [
+        {
+            "description": "Dataset test - CAMs"
+        }
+    ],
+    "annotations": [
+        {
+            "id": 1,
+            "image_id": 1,
+            "category_id": 1,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 2,
+            "image_id": 1,
+            "category_id": 2,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 3,
+            "image_id": 2,
+            "category_id": 1,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 4,
+            "image_id": 2,
+            "category_id": 2,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 5,
+            "image_id": 3,
+            "category_id": 1,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 6,
+            "image_id": 3,
+            "category_id": 2,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 7,
+            "image_id": 4,
+            "category_id": 1,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 8,
+            "image_id": 4,
+            "category_id": 2,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 9,
+            "image_id": 5,
+            "category_id": 1,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "id": 10,
+            "image_id": 5,
+            "category_id": 2,
+            "bbox": [
+                3,
+                3,
+                3,
+                3
+            ]
+        }
+    ],
+    "observations": [
+        {
+            "id": 1,
+            "file_name": "a.png",
+            "height": 10,
+            "width": 10,
+            "category": 1
+        },
+        {
+            "id": 2,
+            "file_name": "b.png",
+            "height": 10,
+            "width": 10,
+            "category": 2
+        },
+        {
+            "id": 3,
+            "file_name": "c.png",
+            "height": 10,
+            "width": 10,
+            "category": 1
+        },
+        {
+            "id": 4,
+            "file_name": "d.png",
+            "height": 10,
+            "width": 10,
+            "category": 2
+        },
+        {
+            "id": 5,
+            "file_name": "e.png",
+            "height": 10,
+            "width": 10,
+            "category": 1
+        },
+        {
+            "id": 6,
+            "file_name": "f.png",
+            "height": 10,
+            "width": 10,
+            "category": 2
+        },
+        {
+            "id": 7,
+            "file_name": "g.png",
+            "height": 10,
+            "width": 10,
+            "category": 1
+        },
+        {
+            "id": 8,
+            "file_name": "h.png",
+            "height": 10,
+            "width": 10,
+            "category": 2
+        },
+        {
+            "id": 9,
+            "file_name": "i.png",
+            "height": 10,
+            "width": 10,
+            "category": 1
+        },
+        {
+            "id": 10,
+            "file_name": "l.png",
+            "height": 10,
+            "width": 10,
+            "category": 2
+        }
+    ],
+    "categories": [
+        {
+            "name": "cat",
+            "id": 1
+        },
+        {
+            "name": "dog",
+            "id": 2
+        }
+    ]
+}

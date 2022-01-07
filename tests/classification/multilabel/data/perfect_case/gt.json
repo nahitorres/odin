@@ -1,0 +1,104 @@
+{
+    "info": [
+        {
+            "description": "Dataset test - Classification ML"
+        }
+    ],
+    "observations": [
+        {
+            "id": 1,
+            "size": "small",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 2,
+            "size": "medium",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 3,
+            "size": "large",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 4,
+            "size": "small",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 5,
+            "size": "medium",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 6,
+            "size": "large",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 7,
+            "size": "small",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 8,
+            "size": "medium",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 9,
+            "size": "large",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        }
+    ],
+    "categories": [
+        {
+            "name": "cat",
+            "id": 1
+        },
+        {
+            "name": "dog",
+            "id": 2
+        },
+        {
+            "name": "fox",
+            "id": 3
+        }
+    ]
+}

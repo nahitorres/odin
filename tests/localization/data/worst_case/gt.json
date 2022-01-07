@@ -1,0 +1,187 @@
+{
+    "info": [
+        {
+            "description": "Dataset test - Object Detection"
+        }
+    ],
+    "images": [
+        {
+            "id": 1,
+            "file_name": 1,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 2,
+            "file_name": 2,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 3,
+            "file_name": 3,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 4,
+            "file_name": 4,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 5,
+            "file_name": 5,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 6,
+            "file_name": 6,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 7,
+            "file_name": 7,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 8,
+            "file_name": 8,
+            "width": 200,
+            "height": 200
+        },
+        {
+            "id": 9,
+            "file_name": 9,
+            "width": 200,
+            "height": 200
+        }
+    ],
+    "annotations": [
+        {
+            "id": 1,
+            "image_id": 1,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 1,
+            "size": "small"
+        },
+        {
+            "id": 2,
+            "image_id": 2,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 2,
+            "size": "small"
+        },
+        {
+            "id": 3,
+            "image_id": 3,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 3,
+            "size": "small"
+        },
+        {
+            "id": 4,
+            "image_id": 4,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 1,
+            "size": "medium"
+        },
+        {
+            "id": 5,
+            "image_id": 5,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 2,
+            "size": "medium"
+        },
+        {
+            "id": 6,
+            "image_id": 6,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 3,
+            "size": "medium"
+        },
+        {
+            "id": 7,
+            "image_id": 7,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 1,
+            "size": "large"
+        },
+        {
+            "id": 8,
+            "image_id": 8,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 2,
+            "size": "large"
+        },
+        {
+            "id": 9,
+            "image_id": 9,
+            "bbox": [
+                1,
+                1,
+                10,
+                10
+            ],
+            "category_id": 3,
+            "size": "large"
+        }
+    ],
+    "categories": [
+        {
+            "name": "cat",
+            "id": 1
+        },
+        {
+            "name": "dog",
+            "id": 2
+        },
+        {
+            "name": "fox",
+            "id": 3
+        }
+    ]
+}

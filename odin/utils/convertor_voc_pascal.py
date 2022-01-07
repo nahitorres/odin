@@ -1,6 +1,8 @@
 import os
 import json
 import xmltodict
+from tqdm import tqdm, tqdm_notebook
+from odin.utils.env import is_notebook
 
 
 class VOCtoCoco:
@@ -10,9 +12,10 @@ class VOCtoCoco:
         self.images_path = images_path
         self.annotations_path = annotations_path
         self.output_path = output_path
+        self.__tqdm = tqdm_notebook if is_notebook() else tqdm
 
     def __get_category_id_from_name(self, coco_ds, category_name):
-        index = 0
+        index = 1
         for c in coco_ds["categories"]:
             index += 1
             if c["name"] == category_name:
@@ -28,7 +31,7 @@ class VOCtoCoco:
         coco_ds["images"] = []
         imgs_counter = 1
         anns_counter = 1
-        for im in self.images:
+        for im in self.__tqdm(self.images):
             ann_path = os.path.join(self.annotations_path, im + ".xml")
             img_path = os.path.join(self.images_path, im + ".jpg")
 

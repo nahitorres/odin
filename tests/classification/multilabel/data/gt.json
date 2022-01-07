@@ -1,0 +1,250 @@
+{
+    "info": [
+        {
+            "description": "Dataset test - Classification ML"
+        }
+    ],
+    "observations": [
+        {
+            "id": 1,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 2,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 3,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 4,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 5,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 6,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 7,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 8,
+            "size": "small",
+            "categories": [
+                1
+            ]
+        },
+        {
+            "id": 9,
+            "size": "small",
+            "categories": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": 10,
+            "size": "small",
+            "categories": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": 11,
+            "size": "medium",
+            "categories": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": 12,
+            "size": "medium",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 13,
+            "size": "medium",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 14,
+            "size": "medium",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 15,
+            "size": "medium",
+            "categories": [
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "id": 16,
+            "size": "medium",
+            "categories": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 17,
+            "size": "medium",
+            "categories": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 18,
+            "size": "medium",
+            "categories": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 19,
+            "size": "medium",
+            "categories": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 20,
+            "size": "medium",
+            "categories": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 21,
+            "size": "large",
+            "categories": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 22,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 23,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 24,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 25,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 26,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 27,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 28,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 29,
+            "size": "large",
+            "categories": [
+                2
+            ]
+        },
+        {
+            "id": 30,
+            "size": "large",
+            "categories": [
+                3
+            ]
+        }
+    ],
+    "categories": [
+        {
+            "name": "cat",
+            "id": 1
+        },
+        {
+            "name": "dog",
+            "id": 2
+        },
+        {
+            "name": "fox",
+            "id": 3
+        }
+    ]
+}

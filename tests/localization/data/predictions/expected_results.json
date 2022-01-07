@@ -1,0 +1,1258 @@
+{
+    "matching": {
+        "cat": [
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 1,
+                "ann_id": 1,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 2,
+                "ann_id": 51,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 3,
+                "ann_id": 2,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 4,
+                "ann_id": 3,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6944444444444444,
+                "det_id": 5,
+                "ann_id": 5,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 6,
+                "ann_id": 52,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 7,
+                "ann_id": 30,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 8,
+                "ann_id": 6,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.25,
+                "det_id": 9,
+                "ann_id": 7,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6666666666666666,
+                "det_id": 10,
+                "ann_id": 8,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 11,
+                "ann_id": 32,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 12,
+                "ann_id": 9,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 13,
+                "ann_id": 34,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.75,
+                "det_id": 14,
+                "ann_id": 10,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.5,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.2,
+                "det_id": 15,
+                "ann_id": 11,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 16,
+                "ann_id": 12,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 17,
+                "ann_id": 13,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 18,
+                "ann_id": 14,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 19,
+                "ann_id": 59,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 20,
+                "ann_id": 15,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.9333333333333333,
+                "det_id": 21,
+                "ann_id": 16,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 22,
+                "ann_id": 41,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.8,
+                "det_id": 23,
+                "ann_id": 17,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6944444444444444,
+                "det_id": 24,
+                "ann_id": 18,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 25,
+                "ann_id": 19,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 26,
+                "ann_id": 20,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 27,
+                "ann_id": 21,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 28,
+                "ann_id": 46,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 29,
+                "ann_id": 22,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 30,
+                "ann_id": 64,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 31,
+                "ann_id": 48,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.75,
+                "det_id": 32,
+                "ann_id": 23,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 33,
+                "ann_id": 24,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 34,
+                "ann_id": 68,
+                "category_det": 1,
+                "category_ann": 3
+            }
+        ],
+        "dog": [
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 35,
+                "ann_id": 25,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 36,
+                "ann_id": 51,
+                "category_det": 2,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 37,
+                "ann_id": 26,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 38,
+                "ann_id": 27,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6666666666666666,
+                "det_id": 39,
+                "ann_id": 28,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 40,
+                "ann_id": 29,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 41,
+                "ann_id": 52,
+                "category_det": 2,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 42,
+                "ann_id": 30,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.3333333333333333,
+                "det_id": 43,
+                "ann_id": 31,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 44,
+                "ann_id": 6,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 45,
+                "ann_id": 7,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 46,
+                "ann_id": 32,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 47,
+                "ann_id": 33,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 48,
+                "ann_id": 9,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6666666666666666,
+                "det_id": 49,
+                "ann_id": 34,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.7,
+                "det_id": 50,
+                "ann_id": 35,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 51,
+                "ann_id": 36,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 52,
+                "ann_id": 37,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 53,
+                "ann_id": 38,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 54,
+                "ann_id": 59,
+                "category_det": 2,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 55,
+                "ann_id": 39,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 56,
+                "ann_id": 40,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 57,
+                "ann_id": 41,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 58,
+                "ann_id": 42,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.25,
+                "det_id": 59,
+                "ann_id": 43,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 60,
+                "ann_id": 20,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6,
+                "det_id": 61,
+                "ann_id": 44,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.9333333333333333,
+                "det_id": 62,
+                "ann_id": 45,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 63,
+                "ann_id": 46,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 64,
+                "ann_id": 22,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 65,
+                "ann_id": 47,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.45,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 66,
+                "ann_id": 48,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 67,
+                "ann_id": 49,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 68,
+                "ann_id": 23,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 69,
+                "ann_id": 24,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 70,
+                "ann_id": 68,
+                "category_det": 2,
+                "category_ann": 3
+            }
+        ],
+        "fox": [
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 71,
+                "ann_id": 50,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.3,
+                "det_id": 72,
+                "ann_id": 51,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 73,
+                "ann_id": 2,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 74,
+                "ann_id": 28,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 75,
+                "ann_id": 4,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 76,
+                "ann_id": 52,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 77,
+                "ann_id": 31,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 78,
+                "ann_id": 6,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.7,
+                "det_id": 79,
+                "ann_id": 53,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 80,
+                "ann_id": 54,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 81,
+                "ann_id": 33,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 82,
+                "ann_id": 9,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.8333333333333334,
+                "det_id": 83,
+                "ann_id": 55,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 84,
+                "ann_id": 56,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 85,
+                "ann_id": 36,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 86,
+                "ann_id": 57,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 87,
+                "ann_id": 58,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 88,
+                "ann_id": 13,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 89,
+                "ann_id": 59,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 90,
+                "ann_id": 40,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 91,
+                "ann_id": 41,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.75,
+                "det_id": 92,
+                "ann_id": 60,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 93,
+                "ann_id": 43,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6,
+                "det_id": 94,
+                "ann_id": 61,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 95,
+                "ann_id": 62,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 96,
+                "ann_id": 45,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.3,
+                "det_id": 97,
+                "ann_id": 63,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 98,
+                "ann_id": 22,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 99,
+                "ann_id": 64,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 100,
+                "ann_id": 65,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 101,
+                "ann_id": 66,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 102,
+                "ann_id": 23,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 103,
+                "ann_id": 67,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 104,
+                "ann_id": 68,
+                "category_det": 3,
+                "category_ann": 3
+            }
+        ]
+    },
+    "support_metric": {
+        "cat": {
+            "n_anns": 24,
+            "confidence": [
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.7,
+                0.7,
+                0.7,
+                0.7,
+                0.6,
+                0.6,
+                0.6,
+                0.6,
+                0.6,
+                0.5,
+                0.4,
+                0.4,
+                0.3,
+                0.3,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            "label": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                -1,
+                1,
+                1,
+                -1,
+                1,
+                1,
+                1,
+                1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1
+            ],
+            "tp": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                15,
+                16,
+                17,
+                17,
+                18,
+                19,
+                20,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21
+            ],
+            "fp": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+            ]
+        }
+    },
+    "support_metric_threshold": {
+        "cat": {
+            "tp": 17,
+            "tp_norm": 21.25,
+            "fp": 2
+        }
+    },
+    "metric_for_category": {
+        "cat": {
+            "F1": 0.7906976744186046
+        },
+        "dog": {
+            "F1": 0.7111111111111111
+        },
+        "fox": {
+            "F1": 0.6470588235294117
+        }
+    },
+    "metric_for_prop_for_cat": {
+        "cat": {
+            "size": {
+                "small": {
+                    "F1": 0.6
+                },
+                "medium": {
+                    "F1": 0.761904761904762
+                },
+                "large": {
+                    "F1": 0.75
+                }
+            }
+        },
+        "dog": {
+            "size": {
+                "small": {
+                    "F1": 0.6250000000000001
+                },
+                "medium": {
+                    "F1": 0.5454545454545454
+                },
+                "large": {
+                    "F1": 0.8000000000000002
+                }
+            }
+        },
+        "fox": {
+            "size": {
+                "small": {
+                    "F1": 0.6250000000000001
+                },
+                "medium": {
+                    "F1": 0.6
+                },
+                "large": {
+                    "F1": 0.6
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6019 @@
+{
+    "matching": {
+        "cat": [
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 1,
+                "ann_id": 1,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 2,
+                "ann_id": 51,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 3,
+                "ann_id": 2,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 4,
+                "ann_id": 3,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6944444444444444,
+                "det_id": 5,
+                "ann_id": 5,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 6,
+                "ann_id": 52,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 7,
+                "ann_id": 30,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 8,
+                "ann_id": 6,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.25,
+                "det_id": 9,
+                "ann_id": 7,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6666666666666666,
+                "det_id": 10,
+                "ann_id": 8,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 11,
+                "ann_id": 32,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 12,
+                "ann_id": 9,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 13,
+                "ann_id": 34,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.75,
+                "det_id": 14,
+                "ann_id": 10,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.5,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.2,
+                "det_id": 15,
+                "ann_id": 11,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 16,
+                "ann_id": 12,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 17,
+                "ann_id": 13,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 18,
+                "ann_id": 14,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 19,
+                "ann_id": 59,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 20,
+                "ann_id": 15,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.9333333333333333,
+                "det_id": 21,
+                "ann_id": 16,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 22,
+                "ann_id": 41,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.8,
+                "det_id": 23,
+                "ann_id": 17,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6944444444444444,
+                "det_id": 24,
+                "ann_id": 18,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 25,
+                "ann_id": 19,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 26,
+                "ann_id": 20,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 27,
+                "ann_id": 21,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 28,
+                "ann_id": 46,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 29,
+                "ann_id": 22,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 30,
+                "ann_id": 64,
+                "category_det": 1,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 31,
+                "ann_id": 48,
+                "category_det": 1,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.75,
+                "det_id": 32,
+                "ann_id": 23,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 33,
+                "ann_id": 24,
+                "category_det": 1,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 34,
+                "ann_id": 68,
+                "category_det": 1,
+                "category_ann": 3
+            }
+        ],
+        "dog": [
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 35,
+                "ann_id": 25,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 36,
+                "ann_id": 51,
+                "category_det": 2,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 37,
+                "ann_id": 26,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 38,
+                "ann_id": 27,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6666666666666666,
+                "det_id": 39,
+                "ann_id": 28,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 40,
+                "ann_id": 29,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 41,
+                "ann_id": 52,
+                "category_det": 2,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 42,
+                "ann_id": 30,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.3333333333333333,
+                "det_id": 43,
+                "ann_id": 31,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 44,
+                "ann_id": 6,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 45,
+                "ann_id": 7,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 46,
+                "ann_id": 32,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 47,
+                "ann_id": 33,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 48,
+                "ann_id": 9,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6666666666666666,
+                "det_id": 49,
+                "ann_id": 34,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.7,
+                "det_id": 50,
+                "ann_id": 35,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 51,
+                "ann_id": 36,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 52,
+                "ann_id": 37,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 53,
+                "ann_id": 38,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 54,
+                "ann_id": 59,
+                "category_det": 2,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 55,
+                "ann_id": 39,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 56,
+                "ann_id": 40,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 57,
+                "ann_id": 41,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 58,
+                "ann_id": 42,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.25,
+                "det_id": 59,
+                "ann_id": 43,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 60,
+                "ann_id": 20,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6,
+                "det_id": 61,
+                "ann_id": 44,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.9333333333333333,
+                "det_id": 62,
+                "ann_id": 45,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 63,
+                "ann_id": 46,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 64,
+                "ann_id": 22,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 65,
+                "ann_id": 47,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.45,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 66,
+                "ann_id": 48,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 67,
+                "ann_id": 49,
+                "category_det": 2,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 68,
+                "ann_id": 23,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 69,
+                "ann_id": 24,
+                "category_det": 2,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 70,
+                "ann_id": 68,
+                "category_det": 2,
+                "category_ann": 3
+            }
+        ],
+        "fox": [
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 71,
+                "ann_id": 50,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.3,
+                "det_id": 72,
+                "ann_id": 51,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 73,
+                "ann_id": 2,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 74,
+                "ann_id": 28,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 75,
+                "ann_id": 4,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 76,
+                "ann_id": 52,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 77,
+                "ann_id": 31,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 78,
+                "ann_id": 6,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.7,
+                "det_id": 79,
+                "ann_id": 53,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 80,
+                "ann_id": 54,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 81,
+                "ann_id": 33,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 82,
+                "ann_id": 9,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.8333333333333334,
+                "det_id": 83,
+                "ann_id": 55,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 84,
+                "ann_id": 56,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 85,
+                "ann_id": 36,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 86,
+                "ann_id": 57,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.4,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 87,
+                "ann_id": 58,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 88,
+                "ann_id": 13,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 89,
+                "ann_id": 59,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 90,
+                "ann_id": 40,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 91,
+                "ann_id": 41,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.8,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.75,
+                "det_id": 92,
+                "ann_id": 60,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 93,
+                "ann_id": 43,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.6,
+                "det_id": 94,
+                "ann_id": 61,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 95,
+                "ann_id": 62,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 1,
+                "det_id": 96,
+                "ann_id": 45,
+                "category_det": 3,
+                "category_ann": 2
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.3,
+                "det_id": 97,
+                "ann_id": 63,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 98,
+                "ann_id": 22,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.7,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 99,
+                "ann_id": 64,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.3,
+                "difficult": 0,
+                "label": 1,
+                "iou": 0.5,
+                "det_id": 100,
+                "ann_id": 65,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 101,
+                "ann_id": 66,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.2,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0,
+                "det_id": 102,
+                "ann_id": 23,
+                "category_det": 3,
+                "category_ann": 1
+            },
+            {
+                "confidence": 0.9,
+                "difficult": 0,
+                "label": 1,
+                "iou": 1,
+                "det_id": 103,
+                "ann_id": 67,
+                "category_det": 3,
+                "category_ann": 3
+            },
+            {
+                "confidence": 0.6,
+                "difficult": 0,
+                "label": -1,
+                "iou": 0.4,
+                "det_id": 104,
+                "ann_id": 68,
+                "category_det": 3,
+                "category_ann": 3
+            }
+        ]
+    },
+    "support_metric": {
+        "cat": {
+            "n_anns": 24,
+            "confidence": [
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.9,
+                0.7,
+                0.7,
+                0.7,
+                0.7,
+                0.6,
+                0.6,
+                0.6,
+                0.6,
+                0.6,
+                0.5,
+                0.4,
+                0.4,
+                0.3,
+                0.3,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2,
+                0.2
+            ],
+            "label": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                -1,
+                1,
+                1,
+                -1,
+                1,
+                1,
+                1,
+                1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1,
+                -1
+            ],
+            "tp": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                15,
+                16,
+                17,
+                17,
+                18,
+                19,
+                20,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21,
+                21
+            ],
+            "fp": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13
+            ]
+        }
+    },
+    "support_metric_threshold": {
+        "cat": {
+            "tp": 17,
+            "tp_norm": 21.25,
+            "fp": 2
+        }
+    },
+    "metric_for_category": {
+        "cat": {
+            "F1": 0.7906976744186046
+        },
+        "dog": {
+            "F1": 0.7111111111111111
+        },
+        "fox": {
+            "F1": 0.6470588235294117
+        }
+    },
+    "metric_for_prop_for_cat": {
+        "cat": {
+            "size": {
+                "small": {
+                    "F1": 0.6
+                },
+                "medium": {
+                    "F1": 0.761904761904762
+                },
+                "large": {
+                    "F1": 0.75
+                }
+            }
+        },
+        "dog": {
+            "size": {
+                "small": {
+                    "F1": 0.5555555555555556
+                },
+                "medium": {
+                    "F1": 0.4615384615384615
+                },
+                "large": {
+                    "F1": 0.7272727272727272
+                }
+            }
+        },
+        "fox": {
+            "size": {
+                "small": {
+                    "F1": 0.5555555555555556
+                },
+                "medium": {
+                    "F1": 0.5
+                },
+                "large": {
+                    "F1": 0.5
+                }
+            }
+        }
+    },
+    "support_reliability": {
+        "confidence": [
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.8,
+            0.8,
+            0.8,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.45,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2
+        ],
+        "label": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ]
+    },
+    "get_input_report": {
+        "all": {
+            "n_anns": 68,
+            "matching": [
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 1,
+                    "ann_id": 1,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 2,
+                    "ann_id": 51,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 3,
+                    "ann_id": 2,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 4,
+                    "ann_id": 3,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6944444444444444,
+                    "det_id": 5,
+                    "ann_id": 5,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 6,
+                    "ann_id": 52,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 7,
+                    "ann_id": 30,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 8,
+                    "ann_id": 6,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.25,
+                    "det_id": 9,
+                    "ann_id": 7,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6666666666666666,
+                    "det_id": 10,
+                    "ann_id": 8,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 11,
+                    "ann_id": 32,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 12,
+                    "ann_id": 9,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 13,
+                    "ann_id": 34,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.75,
+                    "det_id": 14,
+                    "ann_id": 10,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.5,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.2,
+                    "det_id": 15,
+                    "ann_id": 11,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 16,
+                    "ann_id": 12,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 17,
+                    "ann_id": 13,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 18,
+                    "ann_id": 14,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 19,
+                    "ann_id": 59,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 20,
+                    "ann_id": 15,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.9333333333333333,
+                    "det_id": 21,
+                    "ann_id": 16,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 22,
+                    "ann_id": 41,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.8,
+                    "det_id": 23,
+                    "ann_id": 17,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6944444444444444,
+                    "det_id": 24,
+                    "ann_id": 18,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 25,
+                    "ann_id": 19,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 26,
+                    "ann_id": 20,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 27,
+                    "ann_id": 21,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 28,
+                    "ann_id": 46,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 29,
+                    "ann_id": 22,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 30,
+                    "ann_id": 64,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 31,
+                    "ann_id": 48,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.75,
+                    "det_id": 32,
+                    "ann_id": 23,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 33,
+                    "ann_id": 24,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 34,
+                    "ann_id": 68,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 35,
+                    "ann_id": 25,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 36,
+                    "ann_id": 51,
+                    "category_det": 2,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 37,
+                    "ann_id": 26,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 38,
+                    "ann_id": 27,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6666666666666666,
+                    "det_id": 39,
+                    "ann_id": 28,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 40,
+                    "ann_id": 29,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 41,
+                    "ann_id": 52,
+                    "category_det": 2,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 42,
+                    "ann_id": 30,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.3333333333333333,
+                    "det_id": 43,
+                    "ann_id": 31,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 44,
+                    "ann_id": 6,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 45,
+                    "ann_id": 7,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 46,
+                    "ann_id": 32,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 47,
+                    "ann_id": 33,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 48,
+                    "ann_id": 9,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6666666666666666,
+                    "det_id": 49,
+                    "ann_id": 34,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.7,
+                    "det_id": 50,
+                    "ann_id": 35,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 51,
+                    "ann_id": 36,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 52,
+                    "ann_id": 37,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 53,
+                    "ann_id": 38,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 54,
+                    "ann_id": 59,
+                    "category_det": 2,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 55,
+                    "ann_id": 39,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 56,
+                    "ann_id": 40,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 57,
+                    "ann_id": 41,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 58,
+                    "ann_id": 42,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.25,
+                    "det_id": 59,
+                    "ann_id": 43,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 60,
+                    "ann_id": 20,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6,
+                    "det_id": 61,
+                    "ann_id": 44,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.9333333333333333,
+                    "det_id": 62,
+                    "ann_id": 45,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 63,
+                    "ann_id": 46,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 64,
+                    "ann_id": 22,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 65,
+                    "ann_id": 47,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.45,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 66,
+                    "ann_id": 48,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 67,
+                    "ann_id": 49,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 68,
+                    "ann_id": 23,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 69,
+                    "ann_id": 24,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 70,
+                    "ann_id": 68,
+                    "category_det": 2,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 71,
+                    "ann_id": 50,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.3,
+                    "det_id": 72,
+                    "ann_id": 51,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 73,
+                    "ann_id": 2,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 74,
+                    "ann_id": 28,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 75,
+                    "ann_id": 4,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 76,
+                    "ann_id": 52,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 77,
+                    "ann_id": 31,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 78,
+                    "ann_id": 6,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.7,
+                    "det_id": 79,
+                    "ann_id": 53,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 80,
+                    "ann_id": 54,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 81,
+                    "ann_id": 33,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 82,
+                    "ann_id": 9,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.8333333333333334,
+                    "det_id": 83,
+                    "ann_id": 55,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 84,
+                    "ann_id": 56,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 85,
+                    "ann_id": 36,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 86,
+                    "ann_id": 57,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 87,
+                    "ann_id": 58,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 88,
+                    "ann_id": 13,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 89,
+                    "ann_id": 59,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 90,
+                    "ann_id": 40,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 91,
+                    "ann_id": 41,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.75,
+                    "det_id": 92,
+                    "ann_id": 60,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 93,
+                    "ann_id": 43,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6,
+                    "det_id": 94,
+                    "ann_id": 61,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 95,
+                    "ann_id": 62,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1.0,
+                    "det_id": 96,
+                    "ann_id": 45,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.3,
+                    "det_id": 97,
+                    "ann_id": 63,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 98,
+                    "ann_id": 22,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 99,
+                    "ann_id": 64,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 100,
+                    "ann_id": 65,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 101,
+                    "ann_id": 66,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.0,
+                    "det_id": 102,
+                    "ann_id": 23,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1.0,
+                    "det_id": 103,
+                    "ann_id": 67,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 104,
+                    "ann_id": 68,
+                    "category_det": 3,
+                    "category_ann": 3
+                }
+            ]
+        },
+        "cat": {
+            "n_anns": 24,
+            "matching": [
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 1,
+                    "ann_id": 1,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 2,
+                    "ann_id": 51,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 3,
+                    "ann_id": 2,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 4,
+                    "ann_id": 3,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6944444444444444,
+                    "det_id": 5,
+                    "ann_id": 5,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 6,
+                    "ann_id": 52,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 7,
+                    "ann_id": 30,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 8,
+                    "ann_id": 6,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.25,
+                    "det_id": 9,
+                    "ann_id": 7,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6666666666666666,
+                    "det_id": 10,
+                    "ann_id": 8,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 11,
+                    "ann_id": 32,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 12,
+                    "ann_id": 9,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 13,
+                    "ann_id": 34,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.75,
+                    "det_id": 14,
+                    "ann_id": 10,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.5,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.2,
+                    "det_id": 15,
+                    "ann_id": 11,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 16,
+                    "ann_id": 12,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 17,
+                    "ann_id": 13,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 18,
+                    "ann_id": 14,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 19,
+                    "ann_id": 59,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 20,
+                    "ann_id": 15,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.9333333333333333,
+                    "det_id": 21,
+                    "ann_id": 16,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 22,
+                    "ann_id": 41,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.8,
+                    "det_id": 23,
+                    "ann_id": 17,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6944444444444444,
+                    "det_id": 24,
+                    "ann_id": 18,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 25,
+                    "ann_id": 19,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 26,
+                    "ann_id": 20,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 27,
+                    "ann_id": 21,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 28,
+                    "ann_id": 46,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 29,
+                    "ann_id": 22,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 30,
+                    "ann_id": 64,
+                    "category_det": 1,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 31,
+                    "ann_id": 48,
+                    "category_det": 1,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.75,
+                    "det_id": 32,
+                    "ann_id": 23,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 33,
+                    "ann_id": 24,
+                    "category_det": 1,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 34,
+                    "ann_id": 68,
+                    "category_det": 1,
+                    "category_ann": 3
+                }
+            ]
+        },
+        "dog": {
+            "n_anns": 25,
+            "matching": [
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 35,
+                    "ann_id": 25,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 36,
+                    "ann_id": 51,
+                    "category_det": 2,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 37,
+                    "ann_id": 26,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 38,
+                    "ann_id": 27,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6666666666666666,
+                    "det_id": 39,
+                    "ann_id": 28,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 40,
+                    "ann_id": 29,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 41,
+                    "ann_id": 52,
+                    "category_det": 2,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 42,
+                    "ann_id": 30,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.3333333333333333,
+                    "det_id": 43,
+                    "ann_id": 31,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 44,
+                    "ann_id": 6,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 45,
+                    "ann_id": 7,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 46,
+                    "ann_id": 32,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 47,
+                    "ann_id": 33,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 48,
+                    "ann_id": 9,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6666666666666666,
+                    "det_id": 49,
+                    "ann_id": 34,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.7,
+                    "det_id": 50,
+                    "ann_id": 35,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 51,
+                    "ann_id": 36,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 52,
+                    "ann_id": 37,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 53,
+                    "ann_id": 38,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 54,
+                    "ann_id": 59,
+                    "category_det": 2,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 55,
+                    "ann_id": 39,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 56,
+                    "ann_id": 40,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 57,
+                    "ann_id": 41,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 58,
+                    "ann_id": 42,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.25,
+                    "det_id": 59,
+                    "ann_id": 43,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 60,
+                    "ann_id": 20,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6,
+                    "det_id": 61,
+                    "ann_id": 44,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.9333333333333333,
+                    "det_id": 62,
+                    "ann_id": 45,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 63,
+                    "ann_id": 46,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 64,
+                    "ann_id": 22,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 65,
+                    "ann_id": 47,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.45,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 66,
+                    "ann_id": 48,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 67,
+                    "ann_id": 49,
+                    "category_det": 2,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 68,
+                    "ann_id": 23,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 69,
+                    "ann_id": 24,
+                    "category_det": 2,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 70,
+                    "ann_id": 68,
+                    "category_det": 2,
+                    "category_ann": 3
+                }
+            ]
+        },
+        "fox": {
+            "n_anns": 19,
+            "matching": [
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 71,
+                    "ann_id": 50,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.3,
+                    "det_id": 72,
+                    "ann_id": 51,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 73,
+                    "ann_id": 2,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 74,
+                    "ann_id": 28,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 75,
+                    "ann_id": 4,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 76,
+                    "ann_id": 52,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 77,
+                    "ann_id": 31,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 78,
+                    "ann_id": 6,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.7,
+                    "det_id": 79,
+                    "ann_id": 53,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 80,
+                    "ann_id": 54,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 81,
+                    "ann_id": 33,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 82,
+                    "ann_id": 9,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.8333333333333334,
+                    "det_id": 83,
+                    "ann_id": 55,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 84,
+                    "ann_id": 56,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 85,
+                    "ann_id": 36,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 86,
+                    "ann_id": 57,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.4,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 87,
+                    "ann_id": 58,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 88,
+                    "ann_id": 13,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 89,
+                    "ann_id": 59,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 90,
+                    "ann_id": 40,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 91,
+                    "ann_id": 41,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.8,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.75,
+                    "det_id": 92,
+                    "ann_id": 60,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 93,
+                    "ann_id": 43,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.6,
+                    "det_id": 94,
+                    "ann_id": 61,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 95,
+                    "ann_id": 62,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 1,
+                    "det_id": 96,
+                    "ann_id": 45,
+                    "category_det": 3,
+                    "category_ann": 2
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.3,
+                    "det_id": 97,
+                    "ann_id": 63,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 98,
+                    "ann_id": 22,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.7,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 99,
+                    "ann_id": 64,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.3,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 0.5,
+                    "det_id": 100,
+                    "ann_id": 65,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 101,
+                    "ann_id": 66,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.2,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0,
+                    "det_id": 102,
+                    "ann_id": 23,
+                    "category_det": 3,
+                    "category_ann": 1
+                },
+                {
+                    "confidence": 0.9,
+                    "difficult": 0,
+                    "label": 1,
+                    "iou": 1,
+                    "det_id": 103,
+                    "ann_id": 67,
+                    "category_det": 3,
+                    "category_ann": 3
+                },
+                {
+                    "confidence": 0.6,
+                    "difficult": 0,
+                    "label": -1,
+                    "iou": 0.4,
+                    "det_id": 104,
+                    "ann_id": 68,
+                    "category_det": 3,
+                    "category_ann": 3
+                }
+            ]
+        },
+        "size_small": {
+            "cat": {
+                "n_anns": 5,
+                "matching": [
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 2,
+                        "ann_id": 51,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 3,
+                        "ann_id": 2,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 6,
+                        "ann_id": 52,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 7,
+                        "ann_id": 30,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.25,
+                        "det_id": 9,
+                        "ann_id": 7,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 11,
+                        "ann_id": 32,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 13,
+                        "ann_id": 34,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.5,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.2,
+                        "det_id": 15,
+                        "ann_id": 11,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 19,
+                        "ann_id": 59,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 22,
+                        "ann_id": 41,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.8,
+                        "det_id": 23,
+                        "ann_id": 17,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 25,
+                        "ann_id": 19,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 28,
+                        "ann_id": 46,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 30,
+                        "ann_id": 64,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 31,
+                        "ann_id": 48,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 34,
+                        "ann_id": 68,
+                        "category_det": 1,
+                        "category_ann": 3
+                    }
+                ]
+            },
+            "dog": {
+                "n_anns": 9,
+                "matching": [
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 36,
+                        "ann_id": 51,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 37,
+                        "ann_id": 26,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 38,
+                        "ann_id": 27,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 41,
+                        "ann_id": 52,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 42,
+                        "ann_id": 30,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3333333333333333,
+                        "det_id": 43,
+                        "ann_id": 31,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 44,
+                        "ann_id": 6,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 45,
+                        "ann_id": 7,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 46,
+                        "ann_id": 32,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 48,
+                        "ann_id": 9,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.7,
+                        "det_id": 50,
+                        "ann_id": 35,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 53,
+                        "ann_id": 38,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 54,
+                        "ann_id": 59,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 57,
+                        "ann_id": 41,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.25,
+                        "det_id": 59,
+                        "ann_id": 43,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 60,
+                        "ann_id": 20,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.6,
+                        "det_id": 61,
+                        "ann_id": 44,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.8,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 63,
+                        "ann_id": 46,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 64,
+                        "ann_id": 22,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.45,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 66,
+                        "ann_id": 48,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 68,
+                        "ann_id": 23,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 69,
+                        "ann_id": 24,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 70,
+                        "ann_id": 68,
+                        "category_det": 2,
+                        "category_ann": 3
+                    }
+                ]
+            },
+            "fox": {
+                "n_anns": 9,
+                "matching": [
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 71,
+                        "ann_id": 50,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.4,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3,
+                        "det_id": 72,
+                        "ann_id": 51,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 73,
+                        "ann_id": 2,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 74,
+                        "ann_id": 28,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 75,
+                        "ann_id": 4,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 76,
+                        "ann_id": 52,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 77,
+                        "ann_id": 31,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 78,
+                        "ann_id": 6,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.7,
+                        "det_id": 79,
+                        "ann_id": 53,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 81,
+                        "ann_id": 33,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 82,
+                        "ann_id": 9,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 84,
+                        "ann_id": 56,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 85,
+                        "ann_id": 36,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 86,
+                        "ann_id": 57,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 88,
+                        "ann_id": 13,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 90,
+                        "ann_id": 40,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 91,
+                        "ann_id": 41,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 93,
+                        "ann_id": 43,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.6,
+                        "det_id": 94,
+                        "ann_id": 61,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 96,
+                        "ann_id": 45,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3,
+                        "det_id": 97,
+                        "ann_id": 63,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 98,
+                        "ann_id": 22,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 99,
+                        "ann_id": 64,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 102,
+                        "ann_id": 23,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 104,
+                        "ann_id": 68,
+                        "category_det": 3,
+                        "category_ann": 3
+                    }
+                ]
+            }
+        },
+        "size_medium": {
+            "cat": {
+                "n_anns": 11,
+                "matching": [
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 1,
+                        "ann_id": 1,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 2,
+                        "ann_id": 51,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 6,
+                        "ann_id": 52,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 7,
+                        "ann_id": 30,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.5,
+                        "det_id": 8,
+                        "ann_id": 6,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.25,
+                        "det_id": 9,
+                        "ann_id": 7,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 11,
+                        "ann_id": 32,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 13,
+                        "ann_id": 34,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.75,
+                        "det_id": 14,
+                        "ann_id": 10,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.5,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.2,
+                        "det_id": 15,
+                        "ann_id": 11,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 16,
+                        "ann_id": 12,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 17,
+                        "ann_id": 13,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 19,
+                        "ann_id": 59,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 20,
+                        "ann_id": 15,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 22,
+                        "ann_id": 41,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 26,
+                        "ann_id": 20,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 27,
+                        "ann_id": 21,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 28,
+                        "ann_id": 46,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.5,
+                        "det_id": 29,
+                        "ann_id": 22,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 30,
+                        "ann_id": 64,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 31,
+                        "ann_id": 48,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.75,
+                        "det_id": 32,
+                        "ann_id": 23,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 34,
+                        "ann_id": 68,
+                        "category_det": 1,
+                        "category_ann": 3
+                    }
+                ]
+            },
+            "dog": {
+                "n_anns": 6,
+                "matching": [
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 36,
+                        "ann_id": 51,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 37,
+                        "ann_id": 26,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.4,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 40,
+                        "ann_id": 29,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 41,
+                        "ann_id": 52,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 42,
+                        "ann_id": 30,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3333333333333333,
+                        "det_id": 43,
+                        "ann_id": 31,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 44,
+                        "ann_id": 6,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 45,
+                        "ann_id": 7,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 48,
+                        "ann_id": 9,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 52,
+                        "ann_id": 37,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 54,
+                        "ann_id": 59,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 55,
+                        "ann_id": 39,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.25,
+                        "det_id": 59,
+                        "ann_id": 43,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 60,
+                        "ann_id": 20,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.8,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 63,
+                        "ann_id": 46,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 64,
+                        "ann_id": 22,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 65,
+                        "ann_id": 47,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 68,
+                        "ann_id": 23,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 69,
+                        "ann_id": 24,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 70,
+                        "ann_id": 68,
+                        "category_det": 2,
+                        "category_ann": 3
+                    }
+                ]
+            },
+            "fox": {
+                "n_anns": 5,
+                "matching": [
+                    {
+                        "confidence": 0.4,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3,
+                        "det_id": 72,
+                        "ann_id": 51,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 73,
+                        "ann_id": 2,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 74,
+                        "ann_id": 28,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 75,
+                        "ann_id": 4,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 76,
+                        "ann_id": 52,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 77,
+                        "ann_id": 31,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 78,
+                        "ann_id": 6,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 81,
+                        "ann_id": 33,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 82,
+                        "ann_id": 9,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 85,
+                        "ann_id": 36,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 86,
+                        "ann_id": 57,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.4,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 87,
+                        "ann_id": 58,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 88,
+                        "ann_id": 13,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 90,
+                        "ann_id": 40,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 91,
+                        "ann_id": 41,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.8,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.75,
+                        "det_id": 92,
+                        "ann_id": 60,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 93,
+                        "ann_id": 43,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 96,
+                        "ann_id": 45,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3,
+                        "det_id": 97,
+                        "ann_id": 63,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 98,
+                        "ann_id": 22,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 101,
+                        "ann_id": 66,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 102,
+                        "ann_id": 23,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 103,
+                        "ann_id": 67,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 104,
+                        "ann_id": 68,
+                        "category_det": 3,
+                        "category_ann": 3
+                    }
+                ]
+            }
+        },
+        "size_large": {
+            "cat": {
+                "n_anns": 8,
+                "matching": [
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 2,
+                        "ann_id": 51,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 4,
+                        "ann_id": 3,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.6944444444444444,
+                        "det_id": 5,
+                        "ann_id": 5,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 6,
+                        "ann_id": 52,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 7,
+                        "ann_id": 30,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.25,
+                        "det_id": 9,
+                        "ann_id": 7,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.4,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.6666666666666666,
+                        "det_id": 10,
+                        "ann_id": 8,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 11,
+                        "ann_id": 32,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 12,
+                        "ann_id": 9,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 13,
+                        "ann_id": 34,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.5,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.2,
+                        "det_id": 15,
+                        "ann_id": 11,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 18,
+                        "ann_id": 14,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 19,
+                        "ann_id": 59,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.9333333333333333,
+                        "det_id": 21,
+                        "ann_id": 16,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 22,
+                        "ann_id": 41,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.4,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.6944444444444444,
+                        "det_id": 24,
+                        "ann_id": 18,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 28,
+                        "ann_id": 46,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 30,
+                        "ann_id": 64,
+                        "category_det": 1,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 31,
+                        "ann_id": 48,
+                        "category_det": 1,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 33,
+                        "ann_id": 24,
+                        "category_det": 1,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 34,
+                        "ann_id": 68,
+                        "category_det": 1,
+                        "category_ann": 3
+                    }
+                ]
+            },
+            "dog": {
+                "n_anns": 10,
+                "matching": [
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 35,
+                        "ann_id": 25,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 36,
+                        "ann_id": 51,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 37,
+                        "ann_id": 26,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.6666666666666666,
+                        "det_id": 39,
+                        "ann_id": 28,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 41,
+                        "ann_id": 52,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 42,
+                        "ann_id": 30,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3333333333333333,
+                        "det_id": 43,
+                        "ann_id": 31,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 44,
+                        "ann_id": 6,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 45,
+                        "ann_id": 7,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 47,
+                        "ann_id": 33,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 48,
+                        "ann_id": 9,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.8,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.6666666666666666,
+                        "det_id": 49,
+                        "ann_id": 34,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 51,
+                        "ann_id": 36,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 54,
+                        "ann_id": 59,
+                        "category_det": 2,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.5,
+                        "det_id": 56,
+                        "ann_id": 40,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 58,
+                        "ann_id": 42,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.25,
+                        "det_id": 59,
+                        "ann_id": 43,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 60,
+                        "ann_id": 20,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.8,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.9333333333333333,
+                        "det_id": 62,
+                        "ann_id": 45,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.8,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 63,
+                        "ann_id": 46,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 64,
+                        "ann_id": 22,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 67,
+                        "ann_id": 49,
+                        "category_det": 2,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 68,
+                        "ann_id": 23,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 69,
+                        "ann_id": 24,
+                        "category_det": 2,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 70,
+                        "ann_id": 68,
+                        "category_det": 2,
+                        "category_ann": 3
+                    }
+                ]
+            },
+            "fox": {
+                "n_anns": 5,
+                "matching": [
+                    {
+                        "confidence": 0.4,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3,
+                        "det_id": 72,
+                        "ann_id": 51,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 73,
+                        "ann_id": 2,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 74,
+                        "ann_id": 28,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 75,
+                        "ann_id": 4,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 76,
+                        "ann_id": 52,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 77,
+                        "ann_id": 31,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 78,
+                        "ann_id": 6,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 80,
+                        "ann_id": 54,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 81,
+                        "ann_id": 33,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 82,
+                        "ann_id": 9,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.7,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.8333333333333334,
+                        "det_id": 83,
+                        "ann_id": 55,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 85,
+                        "ann_id": 36,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 86,
+                        "ann_id": 57,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 88,
+                        "ann_id": 13,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.9,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 1.0,
+                        "det_id": 89,
+                        "ann_id": 59,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 90,
+                        "ann_id": 40,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 91,
+                        "ann_id": 41,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 93,
+                        "ann_id": 43,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.5,
+                        "det_id": 95,
+                        "ann_id": 62,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 1.0,
+                        "det_id": 96,
+                        "ann_id": 45,
+                        "category_det": 3,
+                        "category_ann": 2
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.3,
+                        "det_id": 97,
+                        "ann_id": 63,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 98,
+                        "ann_id": 22,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.3,
+                        "difficult": 0,
+                        "label": 1,
+                        "iou": 0.5,
+                        "det_id": 100,
+                        "ann_id": 65,
+                        "category_det": 3,
+                        "category_ann": 3
+                    },
+                    {
+                        "confidence": 0.2,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.0,
+                        "det_id": 102,
+                        "ann_id": 23,
+                        "category_det": 3,
+                        "category_ann": 1
+                    },
+                    {
+                        "confidence": 0.6,
+                        "difficult": 0,
+                        "label": -1,
+                        "iou": 0.4,
+                        "det_id": 104,
+                        "ann_id": 68,
+                        "category_det": 3,
+                        "category_ann": 3
+                    }
+                ]
+            }
+        }
+    },
+    "analyze_iou_for_category": {
+        "cat": {
+            "iou": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+            ],
+            "value": [
+                0.8837209302325582,
+                0.8837209302325582,
+                0.8837209302325582,
+                0.8837209302325582,
+                0.8837209302325582,
+                0.8372093023255814,
+                0.7906976744186046,
+                0.7906976744186046,
+                0.7906976744186046,
+                0.7906976744186046,
+                0.7906976744186046,
+                0.6976744186046512,
+                0.6976744186046512,
+                0.6976744186046512,
+                0.6511627906976745,
+                0.6511627906976745,
+                0.5581395348837209,
+                0.5116279069767442,
+                0.5116279069767442,
+                0.46511627906976744,
+                0.46511627906976744
+            ]
+        },
+        "dog": {
+            "iou": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+            ],
+            "value": [
+                0.888888888888889,
+                0.888888888888889,
+                0.888888888888889,
+                0.888888888888889,
+                0.888888888888889,
+                0.888888888888889,
+                0.888888888888889,
+                0.8444444444444444,
+                0.8444444444444444,
+                0.7111111111111111,
+                0.7111111111111111,
+                0.6666666666666665,
+                0.6666666666666665,
+                0.6222222222222222,
+                0.5333333333333332,
+                0.48888888888888893,
+                0.48888888888888893,
+                0.48888888888888893,
+                0.48888888888888893,
+                0.4444444444444445,
+                0.4444444444444445
+            ]
+        },
+        "fox": {
+            "iou": [
+                0.0,
+                0.05,
+                0.1,
+                0.15,
+                0.2,
+                0.25,
+                0.3,
+                0.35,
+                0.4,
+                0.45,
+                0.5,
+                0.55,
+                0.6,
+                0.65,
+                0.7,
+                0.75,
+                0.8,
+                0.85,
+                0.9,
+                0.95,
+                1.0
+            ],
+            "value": [
+                0.8823529411764706,
+                0.8823529411764706,
+                0.8823529411764706,
+                0.8823529411764706,
+                0.8823529411764706,
+                0.8823529411764706,
+                0.8823529411764706,
+                0.8235294117647058,
+                0.8235294117647058,
+                0.6470588235294117,
+                0.6470588235294117,
+                0.6470588235294117,
+                0.6470588235294117,
+                0.5882352941176471,
+                0.5882352941176471,
+                0.5294117647058824,
+                0.47058823529411764,
+                0.4117647058823529,
+                0.4117647058823529,
+                0.4117647058823529,
+                0.4117647058823529
+            ]
+        }
+    },
+    "analyze_property": {
+        "cat": {
+            "value": 0.7906976744186046,
+            "size": {
+                "small": 0.6,
+                "medium": 0.761904761904762,
+                "large": 0.75
+            }
+        },
+        "dog": {
+            "value": 0.7111111111111111,
+            "size": {
+                "small": 0.5555555555555556,
+                "medium": 0.4615384615384615,
+                "large": 0.7272727272727272
+            }
+        },
+        "fox": {
+            "value": 0.6470588235294117,
+            "size": {
+                "small": 0.5555555555555556,
+                "medium": 0.5,
+                "large": 0.5
+            }
+        }
+    },
+    "tp_distribution": {
+        "cat": 17,
+        "dog": 16,
+        "fox": 11
+    },
+    "fp_distribution": {
+        "cat": 2,
+        "dog": 4,
+        "fox": 4
+    },
+    "fn_distribution": {
+        "cat": 7,
+        "dog": 9,
+        "fox": 8
+    },
+    "pr_curve": {
+        "cat": {
+            "Recall": [
+                1,
+                0.875,
+                0.875,
+                0.7916666666666666,
+                0.7083333333333334,
+                0.7083333333333334,
+                0.5416666666666666,
+                0.375,
+                0.0
+            ],
+            "Precision": [
+                0,
+                0.6176470588235294,
+                0.9130434782608695,
+                0.9047619047619048,
+                0.8947368421052632,
+                0.9444444444444444,
+                1.0,
+                1.0,
+                1
+            ]
+        },
+        "dog": {
+            "Recall": [
+                1,
+                0.8,
+                0.8,
+                0.72,
+                0.68,
+                0.64,
+                0.6,
+                0.48,
+                0.4,
+                0.0
+            ],
+            "Precision": [
+                0,
+                0.5555555555555556,
+                0.8,
+                0.8181818181818182,
+                0.8095238095238095,
+                0.8,
+                0.8333333333333334,
+                0.9230769230769231,
+                1.0,
+                1
+            ]
+        },
+        "fox": {
+            "Recall": [
+                1,
+                0.7368421052631579,
+                0.7368421052631579,
+                0.631578947368421,
+                0.5789473684210527,
+                0.5263157894736842,
+                0.3684210526315789,
+                0.3157894736842105,
+                0.0
+            ],
+            "Precision": [
+                0,
+                0.4117647058823529,
+                0.7368421052631579,
+                0.7058823529411765,
+                0.7333333333333333,
+                1.0,
+                1.0,
+                1.0,
+                1
+            ]
+        }
+    },
+    "f1_curve": {
+        "cat": {
+            "Threshold": [
+                0,
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.9,
+                1.0
+            ],
+            "F1": [
+                0.7241379310344829,
+                0.7241379310344829,
+                0.8936170212765957,
+                0.8444444444444444,
+                0.7906976744186046,
+                0.8095238095238096,
+                0.7027027027027027,
+                0.5454545454545454,
+                0
+            ]
+        },
+        "dog": {
+            "Threshold": [
+                0,
+                0.2,
+                0.3,
+                0.4,
+                0.45,
+                0.6,
+                0.7,
+                0.8,
+                0.9,
+                1.0
+            ],
+            "F1": [
+                0.6557377049180328,
+                0.6557377049180328,
+                0.8000000000000002,
+                0.7659574468085107,
+                0.7391304347826089,
+                0.7111111111111111,
+                0.6976744186046512,
+                0.631578947368421,
+                0.5714285714285715,
+                0
+            ]
+        },
+        "fox": {
+            "Threshold": [
+                0,
+                0.2,
+                0.3,
+                0.4,
+                0.6,
+                0.7,
+                0.8,
+                0.9,
+                1.0
+            ],
+            "F1": [
+                0.5283018867924528,
+                0.5283018867924528,
+                0.7368421052631579,
+                0.6666666666666667,
+                0.6470588235294117,
+                0.6896551724137931,
+                0.5384615384615384,
+                0.4799999999999999,
+                0
+            ]
+        }
+    },
+    "analyze_reliability": {
+        "values": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+        ],
+        "gaps": [
+            0,
+            0.2,
+            -0.7,
+            -0.6,
+            -0.55,
+            -0.4,
+            -0.30000000000000004,
+            -0.19999999999999996,
+            -0.09999999999999998,
+            0
+        ],
+        "counts": [
+            0,
+            14,
+            6,
+            4,
+            1,
+            6,
+            10,
+            3,
+            25,
+            0
+        ],
+        "bins": [
+            [
+                0,
+                0.1,
+                0.2,
+                0.3,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.8,
+                0.9,
+                1
+            ]
+        ],
+        "avg_value": 0.8093567251461988,
+        "avg_conf": 0.6108695652173913,
+        "ece": 0.26739130434782615,
+        "mce": 0.7
+    },
+    "base_report": {
+        "macro": {
+            "Precision": 0.8093567251461988,
+            "Recall": 0.6424269005847953,
+            "F1": 0.7162892030197091
+        },
+        "cat": {
+            "Precision": 0.8947368421052632,
+            "Recall": 0.7083333333333334,
+            "F1": 0.7906976744186046
+        },
+        "dog": {
+            "Precision": 0.8,
+            "Recall": 0.64,
+            "F1": 0.7111111111111111
+        },
+        "fox": {
+            "Precision": 0.7333333333333333,
+            "Recall": 0.5789473684210527,
+            "F1": 0.6470588235294117
+        },
+        "micro": {
+            "Precision": 0.8148148148148148,
+            "Recall": 0.6470588235294118,
+            "F1": 0.7213114754098361
+        },
+        "size_small": {
+            "Precision": 0.5703703703703704,
+            "Recall": 0.5703703703703704,
+            "F1": 0.5703703703703704
+        },
+        "size_medium": {
+            "Precision": 0.5523809523809524,
+            "Recall": 0.6090909090909091,
+            "F1": 0.5744810744810744
+        },
+        "size_large": {
+            "Precision": 0.6150793650793651,
+            "Recall": 0.7166666666666667,
+            "F1": 0.6590909090909091
+        }
+    },
+    "fp_categorization": {
+        "localization": 2,
+        "similar": 0,
+        "other": 4,
+        "background": 7
+    }
+}
