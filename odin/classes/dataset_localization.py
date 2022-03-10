@@ -40,7 +40,8 @@ class DatasetLocalization(DatasetInterface):
                  for_analysis=True,
                  load_properties=True,
                  match_on_filename=False,
-                 save_graphs_as_png=True):
+                 save_graphs_as_png=True,
+                 ignore_proposals_threshold=0.01):
         """
         The DatasetLocalization class can be used to store the ground truth and predictions for localization models, such as object detection and instance segmentation.
 
@@ -70,6 +71,8 @@ class DatasetLocalization(DatasetInterface):
             Indicates whether the predictions refer to the ground truth by file_name (set to True) or by id (set to False). (default is False)
         save_graphs_as_png: bool, optional
             Indicates whether plots should be saved as .png images. (default is True)
+        ignore_proposals_threshold: float, optional
+            All the proposals with a confidence score lower than the threshold are not loaded. (Default is 0.01)
         """
         if not isinstance(dataset_gt_param, str):
             raise TypeError(err_type.format("dataset_gt_param"))
@@ -108,8 +111,17 @@ class DatasetLocalization(DatasetInterface):
         if not isinstance(save_graphs_as_png, bool):
             raise TypeError(err_type.format("save_graphs_as_png"))
 
+        if not isinstance(ignore_proposals_threshold, Number):
+            raise TypeError(err_type.format("ignore_proposals_threshold"))
+        elif ignore_proposals_threshold < 0 or ignore_proposals_threshold > 1:
+            raise ValueError(err_value.format("ignore_proposals_threshold", "0 <= x <= 1"))
+
         super().__init__(dataset_gt_param, proposals_paths, task_type, images_set_name, images_abs_path,
                          result_saving_path, similar_classes, properties_file, match_on_filename, save_graphs_as_png)
+
+        self._ignore_proposals_threshold = ignore_proposals_threshold
+        self._aspect_ratio_boundaries = []
+        self._area_size_boundaries = []
 
         self.for_analysis = for_analysis
         self.load(load_properties=load_properties)
@@ -755,6 +767,18 @@ class DatasetLocalization(DatasetInterface):
 
         return self.annotations.loc[self.annotations.index.get_level_values(property_name) == value]
 
+    def get_area_size_label(self, area_size):
+        for i, label in zip(range(0, len(self._area_size_boundaries)-1), ["XS", "S", "M", "L"]):
+            if area_size <= self._area_size_boundaries[i]:
+                return label
+        return "XL"
+
+    def get_aspect_ratio_label(self, aspect_ratio):
+        for i, label in zip(range(0, len(self._aspect_ratio_boundaries)-1), ['XT', 'T', 'M', 'W']):
+            if aspect_ratio <= self._aspect_ratio_boundaries[i]:
+                return label
+        return "XW"
+
     def compute_area_size(self):
         """
         Computes the area size of each annotation
@@ -788,6 +812,7 @@ class DatasetLocalization(DatasetInterface):
                 real_index = areas[j][1]
                 anns[real_index]["AreaSize"] = labels[i]
             prev = pos
+            self._area_size_boundaries.append(areas[pos-1][0])
         self.area_size_computed = True
         self.annotations = pd.DataFrame(anns)
 
@@ -823,6 +848,7 @@ class DatasetLocalization(DatasetInterface):
                 real_index = areas[j][1]
                 anns[real_index]["AspectRatio"] = labels[i]
             prev = pos
+            self._aspect_ratio_boundaries.append(areas[pos-1][0])
         self.aspect_ratio = True
         self.annotations = pd.DataFrame(anns)
 
@@ -1053,6 +1079,11 @@ class DatasetLocalization(DatasetInterface):
         return self.proposals[model_name].loc[(self.proposals[model_name]["category_id"] == cat_id) &
                                               (self.proposals[model_name]["id"].isin(ids))]
 
+    def get_proposals_ids_by_category_and_property(self, category_id, property_name, property_value, model_name):
+        return self.proposals[model_name].loc[(self.proposals[model_name][property_name] == property_value) &
+                                              (self.proposals[model_name]["category_id"] == category_id)]["id"].values
+
+
     def _load_proposals(self, model_name, path):
         """
         Loads the proposals into memory
@@ -1082,13 +1113,28 @@ class DatasetLocalization(DatasetInterface):
                                 if confidence < 0 or confidence > 1:
                                     raise ValueError
 
+                                # filter applied to proposals based on confidence
+                                if confidence < self._ignore_proposals_threshold:
+                                    continue
+
                                 if not self.match_on_filename:
                                     match_param = int(match_param)
+                                    img_id = match_param
+                                else:
+                                    img_id = self.get_image_id_from_image_name(match_param)
                                 segmentation = [float(v) for v in arr[2:]]
+
+                                aspect_ratio_label = self.get_aspect_ratio_label(compute_aspect_ratio_of_segmentation(segmentation))
+                                img = self.get_image_from_id(img_id)
+                                encoded_mask = encode_segmentation(segmentation, img["height"], img["width"])
+                                area = mask.area(encoded_mask)
+                                area_size_label = self.get_area_size_label(area)
+
                                 counter += 1
                                 proposals.append(
                                     {"confidence": confidence, "segmentation": segmentation, self.match_param_props: match_param,
-                                     "category_id": c_id, "id": counter})
+                                     "category_id": c_id, "id": counter,
+                                     "AspectRatio": aspect_ratio_label, "AreaSize": area_size_label})
                             else:
                                 match_param, confidence, x1, y1, w, h = line.split(" ")
                                 if not self.match_on_filename:
@@ -1096,11 +1142,21 @@ class DatasetLocalization(DatasetInterface):
                                 confidence = float(confidence)
                                 if confidence < 0 or confidence > 1:
                                     raise ValueError
+
+                                # filter applied to proposals based on confidence
+                                if confidence < self._ignore_proposals_threshold:
+                                    continue
+
                                 x1, y1, w, h = float(x1), float(y1), float(w), float(h)
+
+                                aspect_ratio_label = self.get_aspect_ratio_label((w + 1) / (h + 1))
+                                area_size_label = self.get_area_size_label(w*h)
+
                                 counter += 1
                                 proposals.append(
                                     {"confidence": confidence, "bbox": [x1, y1, w, h], self.match_param_props: match_param,
-                                 "category_id": c_id, "id": counter})
+                                     "category_id": c_id, "id": counter,
+                                     "AspectRatio": aspect_ratio_label, "AreaSize": area_size_label})
                         except:
                             if "." in match_param and not self.match_on_filename:
                                 matching_parameter_issues += 1

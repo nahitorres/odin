@@ -66,3 +66,45 @@ def compute_aspect_ratio_of_segmentation(seg):
         if height == 0:
             return 0
         return width / height
+
+
+def mask_to_boundary(seg, h, w, dilation_ratio=0.02):
+    """
+    Convert binary mask to boundary mask.
+    :param mask (numpy array, uint8): binary mask
+    :param dilation_ratio (float): ratio to calculate dilation = dilation_ratio * image_diagonal
+    :return: boundary mask (numpy array)
+    """
+    mask = np.zeros((h, w), np.uint8)
+    mask = decode_segmentation(mask, seg)
+    h, w = mask.shape
+    img_diag = np.sqrt(h ** 2 + w ** 2)
+    dilation = int(round(dilation_ratio * img_diag))
+    if dilation < 1:
+        dilation = 1
+    # Pad image so mask truncated by the image border is also considered as boundary.
+    new_mask = cv2.copyMakeBorder(mask, 1, 1, 1, 1, cv2.BORDER_CONSTANT, value=0)
+    kernel = np.ones((3, 3), dtype=np.uint8)
+    new_mask_erode = cv2.erode(new_mask, kernel, iterations=dilation)
+    mask_erode = new_mask_erode[1 : h + 1, 1 : w + 1]
+    # G_d intersects G in the paper.
+    return mask - mask_erode
+
+
+def decode_segmentation(mask, seg):
+    pts = [
+        np
+            .array(seg)
+            .reshape(-1, 2)
+            .round()
+            .astype(int)
+    ]
+    mask = cv2.fillPoly(mask, pts, 1)
+
+    return mask
+
+
+def intersection_over_union(gt, det):
+    gt_intersection_det = np.bitwise_and(gt, det).sum()
+    gt_union_det = gt_intersection_det + np.bitwise_and(gt, np.logical_not(det)).sum() + np.bitwise_and(np.logical_not(gt), det).sum()
+    return gt_intersection_det / gt_union_det

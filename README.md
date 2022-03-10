@@ -4,6 +4,13 @@ ODIN  is an open source diagnosis framework for generic ML classification tasks 
 
 ODIN  is agnostic to the training platform and  input formats and can be extended with application- and domain-specific meta-annotations and metrics with almost no coding. It integrates a rapid annotation tool for classification, object detection and instance segmentation data sets.
 
+## NEW !
+We have added support to the Time Series analysis. The documentation will be soon available!
+
+## Documentation
+For the complete documentation, please visit the [Odin website](https://rnt-pmi.github.io/odin-docs/)
+
+
 ### Analyzer
 
 Developers can run all metrics, or a subset thereof, for a single class or a set of classes. The values of all metrics are reported using diagrams of multiple types, which can be visualized and saved. It is also possible to compare multiple models on the same analysis.
@@ -367,9 +374,6 @@ Once the 'odin' image has been created, just run:
 ```
   docker run -it -p 8888:8888 odin
 ```
-
-## Documentation
-For the complete documentation, please visit the [Odin website](https://rnt-pmi.github.io/odin-docs/)
 
 ## Cite this work
 If you use ODIN or wish to refer it, please use the following BibTex entry.

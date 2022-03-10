@@ -2,7 +2,10 @@ from enum import Enum
 
 
 class ErrorType(Enum):
-    BACKGROUND = 0
-    LOCALIZATION = 1
-    SIMILAR_CLASSES = 2
-    OTHER = 3
+    BACKGROUND = "background"
+    LOCALIZATION = "localization"
+    SIMILAR_CLASSES = "sim"
+    DUPLICATED = "duplicated"
+    LOC_SIM = "loc+sim"
+    LOC_CLASS = "loc+class"
+    CLASSIFICATION = "class"

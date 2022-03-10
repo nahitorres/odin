@@ -302,11 +302,20 @@ class AnnotatorClassification(AnnotatorInterface):
                         names_prop_in_file[k_name] == new_mp:
                     # we don't append because it's already there
                     pass
+                elif names_prop_in_file is not None and k_name in names_prop_in_file.keys() and \
+                        names_prop_in_file[k_name] != new_mp and names_prop_in_file[k_name]['type'] == new_mp['type']:
+                    tmp_meta_prop = []
+                    for p in meta_prop:
+                        if p['name'] == new_mp['name']:
+                            continue
+                        tmp_meta_prop.append(p)
+                    tmp_meta_prop.append(new_mp)
+                    meta_prop = tmp_meta_prop
 
                 else:
-                    raise NameError("An annotation with the same name {} "
-                                    "already exist in dataset {}, and it has different structure. Check properties.".format(
-                        k_name, self.dataset_orig.dataset_root_param))
+                    raise NameError("An annotation with the same name '{}' "
+                                    "already exist in dataset, and it has different structure. Please, check the properties.".format(
+                        k_name))
             dataset['meta_properties'] = meta_prop
 
         return mapping, dataset

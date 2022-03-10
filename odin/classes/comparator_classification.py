@@ -1,4 +1,5 @@
 import copy
+from numbers import Number
 
 from odin.classes import Metrics, TaskType, DatasetClassification, AnalyzerClassification, Curves
 from odin.classes.comparator_interface import ComparatorInterface
@@ -100,7 +101,7 @@ class ComparatorClassification(ComparatorInterface):
             raise TypeError(err_type.format("norm_factors_properties"))
 
         if conf_thresh is not None:
-            if not isinstance(conf_thresh, float):
+            if not isinstance(conf_thresh, Number):
                 raise TypeError(err_type.format("conf_thresh"))
             if conf_thresh < 0 or conf_thresh > 1:
                 raise ValueError(err_value.format("conf_thresh", "0 <= x >= 1"))

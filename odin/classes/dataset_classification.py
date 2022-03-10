@@ -321,7 +321,8 @@ class DatasetClassification(DatasetInterface):
         results = {}
         for name in self.get_categories_names():
             display_names.append(self.get_display_name_of_category(name))
-            value = count[self.get_category_id_from_name(name)]
+            cat_id = self.get_category_id_from_name(name)
+            value = count[cat_id] if cat_id in count.keys() else 0
             sizes.append(value)
             results[name] = value
         if not show:

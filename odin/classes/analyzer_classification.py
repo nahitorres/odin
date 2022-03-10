@@ -282,7 +282,7 @@ class AnalyzerClassification(AnalyzerInterface):
             values = self._calculate_metric_for_category(category, metric)
 
             category_metric_value = values['value']
-            errors = ["similar", "background", "other"] if self.dataset.task_type == TaskType.CLASSIFICATION_MULTI_LABEL else ["similar", "other"]
+            errors = ["sim", "background", "class"] if self.dataset.task_type == TaskType.CLASSIFICATION_MULTI_LABEL else ["sim", "class"]
             error_values = []
 
             for error in errors:
@@ -1905,23 +1905,23 @@ class AnalyzerClassification(AnalyzerInterface):
                         fp_ids_cat["background"] = {"gt": match_no_gt["id_x"].tolist(),
                                                           "props": match_no_gt["id_y"].tolist()}
                     matching = matching.loc[matching["categories"].str.len() != 0]
-                    matching["similar"] = np.where(matching["categories"].apply(
+                    matching["sim"] = np.where(matching["categories"].apply(
                         lambda x: self.dataset.is_similar(cat_id, x)), 1, 0)
 
                 else:
-                    matching["similar"] = np.where(matching["category"].apply(
+                    matching["sim"] = np.where(matching["category"].apply(
                         lambda x: self.dataset.is_similar(cat_id, x)), 1, 0)
 
-                fp_ids_cat["similar"] = {"gt": matching.loc[matching["similar"] == 1]["id_x"].tolist(),
-                                               "props": matching.loc[matching["similar"] == 1]["id_y"].tolist()}
-                fp_ids_cat["other"] = {"gt": matching[matching["similar"] == 0]["id_x"].tolist(),
-                                             "props": matching.loc[matching["similar"] == 0]["id_y"].tolist()}
-                similar_indexes = matching[matching["similar"] == 1]["id_y"].tolist()
-                other_indexes = matching[matching["similar"] == 0]["id_y"].tolist()
+                fp_ids_cat["sim"] = {"gt": matching.loc[matching["sim"] == 1]["id_x"].tolist(),
+                                               "props": matching.loc[matching["sim"] == 1]["id_y"].tolist()}
+                fp_ids_cat["class"] = {"gt": matching[matching["sim"] == 0]["id_x"].tolist(),
+                                             "props": matching.loc[matching["sim"] == 0]["id_y"].tolist()}
+                similar_indexes = matching[matching["sim"] == 1]["id_y"].tolist()
+                other_indexes = matching[matching["sim"] == 0]["id_y"].tolist()
 
-                self.saved_analyses["false_positive_errors"][str(threshold)]["errors"][category] = {"similar": similar_indexes,
+                self.saved_analyses["false_positive_errors"][str(threshold)]["errors"][category] = {"sim": similar_indexes,
                                                                                      "background": without_gt_indexes,
-                                                                                     "other": other_indexes}
+                                                                                     "class": other_indexes}
                 self.saved_analyses["false_positive_errors"][str(threshold)]["ids"][category] = fp_ids_cat
 
             fp_errors[category] = self.saved_analyses["false_positive_errors"][str(threshold)]["errors"][category]
@@ -2218,6 +2218,7 @@ class AnalyzerClassification(AnalyzerInterface):
                                                                                     matching["categories"])])
             else:
                 cat_id = self.dataset.get_category_id_from_name(category)
+                matching = matching.loc[matching["category_id"] == cat_id].copy()
                 matching["is_correct"] = np.where((matching["categories"].apply(lambda x: cat_id in x)) &
                                                   (matching["category_id"] == cat_id), 1, 0)
             y_pred = matching["is_correct"].tolist()
@@ -2226,7 +2227,7 @@ class AnalyzerClassification(AnalyzerInterface):
         else:
             if category is not None:
                 cat_id = self.dataset.get_category_id_from_name(category)
-                matching = matching.loc[matching["category_id"] == cat_id]
+                matching = matching.loc[matching["category_id"] == cat_id].copy()
             y_pred = matching["category_id"].tolist()
             y_true = matching["category"].tolist()
 

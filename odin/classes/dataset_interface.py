@@ -285,7 +285,7 @@ class DatasetInterface(metaclass=abc.ABCMeta):
             logger.error(err_type.format("ids"))
             return -1
 
-        return self.categories[self.categories["id"].isin(ids)]["name"].tolist()
+        return [self.get_category_name_from_id(id) for id in ids]
 
     def get_category_id_from_name(self, category):
         """Returns the category id from the category name
@@ -308,7 +308,6 @@ class DatasetInterface(metaclass=abc.ABCMeta):
         if len(cat) > 0:
             return cat[0]
 
-        return -1
 
     def get_categories_id_from_names(self, categories):
         """Returns the ids from the categories names
@@ -327,7 +326,7 @@ class DatasetInterface(metaclass=abc.ABCMeta):
             logger.error(err_type.format("categories"))
             return -1
 
-        return self.categories[self.categories["name"].isin(categories)]["id"].tolist()
+        return [self.get_category_id_from_name(name) for name in categories]
 
     def are_valid_categories(self, categories):
         """

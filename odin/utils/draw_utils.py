@@ -36,7 +36,7 @@ def pie_plot(values, labels, title, save_path, save, colors=None):
     for i, label in enumerate(labels):
         legend_labels.append(str(label) + " - {:.1f} %".format(percentages[i]))
     plt.legend(patches, legend_labels, frameon=True, bbox_to_anchor=(1.05, 0.5), loc='center left',
-               prop={'size': config["text_size"]["pie"]})
+               prop={'size': config["text_size"]["pie"]}, ncol=int(math.ceil(len(legend_labels)/10)))
     plt.title(title, fontsize=config["text_size"]["title"])
     if save:
         plt.savefig(save_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
@@ -54,9 +54,9 @@ def plot_class_distribution(dict_to_plot, labels, output_path, save, title, colo
 
 
 def plot_false_positive_errors(error_values, error_names, category_metric_value, category_name, metric, output_path, save):
-    labels = [label[:1].upper() for label in error_names]
+    labels = error_names
     total_errors = [err[1] for err in error_values]
-    colors = ['lightskyblue', 'lightgreen', 'orchid', 'coral']
+    colors = list(reversed(['orange', 'lightskyblue', 'yellow', 'lightgreen', 'red', 'orchid', 'silver'])) if len(total_errors) > 3 else ['yellow', 'silver', 'red']
     try:
         percentage_error = [e / sum(total_errors) * 100 for e in total_errors]
         title = "False Positive distribution of category {}".format(category_name)
@@ -183,6 +183,7 @@ def make_multi_category_plot(results, property_name, property_values_names, cate
     nobj = len(results.keys())
     rangex = np.zeros(1)
     maxy = 1
+    miny = 0
     xticks = np.asarray([])
     firsttick = np.zeros(nobj)
     for index, key in enumerate(results):
@@ -200,15 +201,18 @@ def make_multi_category_plot(results, property_name, property_values_names, cate
         rangex = rangex[-1] + space + np.arange(1, nres + 1)  # expand range x in plot according to the needed lines
         plot_ap_bars(result, rangex, drawline, ordered_values_names)
         ap = np.asarray([result[key]["value"] for key in result])
-        maxy = max(maxy, np.around((np.amax(ap) + 0.15) * 10) / 10)
+        # maxy = max(maxy, np.around((np.amax(ap) + 0.15) * 10) / 10)
+        maxy = max(maxy, np.around(np.amax(ap)))
+        miny = min(miny, np.around(np.amin(ap)))
         ap_cat = results[key]['all']["value"]
         plt.plot([rangex[0], rangex[-1]], np.asarray([1, 1]) * ap_cat, linestyle='dashed', lw=1.5, color='black')
         firsttick[index] = rangex[0]
         xticks = np.concatenate((xticks, rangex[0:rangex.size:xtickstep]))
 
-    maxy = min(maxy, 1)
+    maxy = max(maxy, 1)
+    miny = min(miny, 0)
     axes = plt.gca()
-    axes.set_ylim([0, maxy])
+    axes.set_ylim([miny, maxy])
     axes.set_xlim([0, rangex[-1] + 1])
     axes.tick_params(axis="x", labelsize=config["text_size"]["label"], labelrotation=-45)
     axes.tick_params(axis="y", labelsize=config["text_size"]["label"])
@@ -814,9 +818,8 @@ def plot_models_comparison_on_property(results, models, category, property_name,
 
 
 def plot_models_comparison_on_error_impact(results, errors, category, metric, save_plot, output_path):
-    fig = make_subplots(rows=1, cols=2, subplot_titles=('Errors impact', 'Errors count'))
+    fig = make_subplots(rows=1, cols=2, subplot_titles=('Errors impact', 'Errors count'), horizontal_spacing = 0.25)
     colors = plotly.colors.qualitative.Plotly
-    errors = [e[0] for e in errors]
     for i, model in enumerate(results):
         fig.add_trace(
             go.Bar(name=model, x=np.array(results[model])[:, 0], y=errors, legendgroup=model, showlegend=False,
@@ -828,7 +831,7 @@ def plot_models_comparison_on_error_impact(results, errors, category, metric, sa
     xaxis_title = metric.value.replace("_", " ")
     fig.update_xaxes(title_text=xaxis_title, row=1, col=1)
     fig.update_xaxes(title_text="count", row=1, col=2)
-    fig.update_layout(barmode='group', width=800, height=500, title_text=f"<b>{category}</b>", font=dict(size=14))
+    fig.update_layout(barmode='group', width=900, height=500, title_text=f"<b>{category}</b>", font=dict(size=14))
     if save_plot:
         plot_path = os.path.join(output_path, f"Comparison_{category}_errors.png")
         fig.write_image(plot_path)
@@ -856,10 +859,13 @@ def plot_false_positive_trend(results, title, save_plot, output_path):
 
     ordered = dict(sorted(ordered.items(), key=lambda item: item[1]))
 
-    colors = {"localization": 'lightskyblue',
-              "similar": 'lightgreen',
-              "other": 'orchid',
-              "background": 'coral',
+    colors = {"background": 'silver',
+              "loc+class": 'orchid',
+              "class": 'red',
+              "loc+sim": 'lightgreen',
+              "sim": 'yellow',
+              "localization": 'lightskyblue',
+              "duplicated": 'orange',
               "correct": 'seashell'}
 
     for error in ordered:
@@ -876,3 +882,184 @@ def plot_false_positive_trend(results, title, save_plot, output_path):
         plot_path = os.path.join(output_path, f"{title}.png")
         fig.write_image(plot_path)
     fig.show()
+
+
+def plot_seasonality_trend(results, title, save_plot, output_path):
+    plt.style.use('default')
+    subtitles = ['Observed', 'Trend', 'Seasonal', 'Residual']
+    fig, axs = plt.subplots(4, 1, sharex=True, figsize=(15, 10))
+    for i, r in enumerate(results):
+        axs[i].plot(r.index, r.values)
+        axs[i].set_title(subtitles[i])
+    fig.suptitle(title)
+
+    if save_plot:
+        plt.savefig(output_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
+    plt.show()
+    plt.close()
+
+
+def plot_threshold_analysis(results, title, save_plot, output_path):
+    fig = go.Figure()
+    for metric in results['y'].keys():
+        fig.add_trace(go.Scatter(x=results["x"], y=results["y"][metric], mode="lines", name=metric.value))
+
+    fig.update_layout(
+        xaxis_title="Threshold",
+        yaxis_title='score',
+        yaxis_range=[0, 1.05],
+        title=title
+    )
+    if save_plot:
+        plot_path = os.path.join(output_path, f"{title}.png")
+        fig.write_image(plot_path)
+    fig.show()
+
+
+def plot_distribution(data, bins, x_label, title, save_plot, output_path):
+    plt.style.use('default')
+    all_data = []
+    for k in data:
+        all_data.extend(data[k])
+    min_v = min(all_data)
+    max_v = max(all_data)
+    if min_v > 0 or max_v < 0:
+        sns.displot(data, bins=bins, multiple='stack', hue_order=['continuous', 'affected', 'generic'],
+                    palette=['forestgreen', 'darkorange', 'royalblue'])
+    else:
+        perc = np.abs(min_v)/np.abs(min_v - max_v)
+        left_bins = math.ceil(bins*perc)
+        right_bins = bins - left_bins
+        bin_w = max_v / right_bins
+        min_range = -bin_w * left_bins
+        sns.displot(data, binwidth=bin_w, binrange=(min_range, max_v), multiple='stack', hue_order=['continuous', 'affected', 'generic'],
+                    palette=['forestgreen', 'darkorange', 'royalblue'])
+
+    plt.title(title)
+    plt.xlabel(x_label)
+    if save_plot:
+        plot_path = os.path.join(output_path, f"{title}.png")
+        plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
+    plt.show()
+    plt.close()
+
+
+def plot_RUL_trend(data, save_plot, output_path):
+    plt.style.use('default')
+    np_data = np.array(data)
+
+    result = {'optimal': np_data[(np_data>= -1) & (np_data <=0)],
+              'warning': np_data[(np_data> -5) & (np_data <-1)],
+              'bad': np_data[(np_data<= -5) | (np_data >0)]}
+    g = sns.displot(result, binwidth=1, binrange=(round(min(data)), round(max(data))),
+                palette=['green', 'orange', 'red'])
+    g._legend.remove()
+    plt.title('RUL variation distribution')
+    plt.xlabel('RUL variation')
+    if save_plot:
+        plot_path = os.path.join(output_path, "RUL_trend_distribution.png")
+        plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
+    plt.show()
+    plt.close()
+
+
+def plot_gain_chart(data, save_plot, output_path):
+    x = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    values = np.array([0] + data['values'])
+
+    plt.style.use('default')
+
+    plt.plot(x, values*100, marker='o', label=data['model'])
+    plt.plot(x, x, marker='o', label='random')
+    plt.title("Gain chart")
+    plt.xticks(x)
+    plt.xlabel('% of data sets')
+    plt.ylabel('% of positive samples')
+
+    plt.legend(loc='lower right')
+    plt.grid()
+
+    if save_plot:
+        plot_path = os.path.join(output_path, "Gain_chart.png")
+        plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
+    plt.show()
+    plt.close()
+
+
+def plot_lift_chart(data, save_plot, output_path):
+    x = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    values = np.array(data['values'])
+
+    plt.style.use('default')
+
+    plt.plot(x, values, marker='o', label=data['model'])
+    plt.plot(x, [1]*10, marker='o', label='random')
+    plt.title("Lift chart")
+    plt.xticks(x)
+    plt.xlabel('% of data sets')
+    plt.ylabel('lift')
+
+    plt.legend(loc='upper right')
+    plt.grid()
+
+    if save_plot:
+        plot_path = os.path.join(output_path, "Lift_chart.png")
+        plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
+    plt.show()
+    plt.close()
+
+
+def plot_predicted_vs_actual(data, save_plot, output_path, id_name=None):
+    plt.style.use('default')
+
+    min_v = []
+    max_v = []
+    for k in data.keys():
+        plt.scatter(data[k]['predicted'], data[k]['actual'])
+        min_v.append(min(data[k]['actual']))
+        max_v.append(max(data[k]['actual']))
+
+    plt.plot([min(min_v), max(max_v)], [min(min_v), max(max_v)], linestyle='--', color='black')
+    plt.xlabel('Predicted RUL')
+    plt.ylabel('Actual RUL')
+
+    if id_name is None:
+        title = "Predicted VS Actual"
+    else:
+        title = f"Predicted VS Actual_{str(id_name)}"
+
+    plt.title(title)
+
+    if save_plot:
+        plot_path = os.path.join(output_path, f"{title}.png")
+        plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
+    plt.show()
+    plt.close()
+
+
+def plot_regression_residuals(data, save_plot, output_path, id_name=None):
+    plt.style.use('default')
+
+    max_len = []
+    for k in data.keys():
+        plt.scatter(data[k]['predicted'], data[k]['residuals'])
+        max_len.append(max(data[k]['predicted']))
+    plt.plot([0]*round(max(max_len)), linestyle='--', color='black')
+    plt.title("Residuals")
+    plt.xlabel('Predicted RUL')
+    plt.ylabel('Residuals')
+
+    if id_name is None:
+        title = "Residuals"
+    else:
+        title = f"Residuals_{str(id_name)}"
+
+    plt.title(title)
+
+    if save_plot:
+        plot_path = os.path.join(output_path, f"{title}.png")
+        plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
+    plt.show()
+    plt.close()
+
+

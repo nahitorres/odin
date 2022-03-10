@@ -250,7 +250,7 @@ class DatasetLocalizationTest(unittest.TestCase):
         self.assertEqual(-1, error)
 
         result = self.dataset.get_categories_names_from_ids([10, 12])
-        self.assertEqual([], result)
+        self.assertEqual([None, None], result)
 
         result = self.dataset.get_categories_names_from_ids([1, 2])
         self.assertEqual(["cat", "dog"], result)
@@ -260,7 +260,7 @@ class DatasetLocalizationTest(unittest.TestCase):
         self.assertEqual(-1, error)
 
         error = self.dataset.get_category_id_from_name("10")
-        self.assertEqual(-1, error)
+        self.assertEqual(None, error)
 
         result = self.dataset.get_category_id_from_name("cat")
         self.assertEqual(1, result)
@@ -270,7 +270,7 @@ class DatasetLocalizationTest(unittest.TestCase):
         self.assertEqual(-1, error)
 
         result = self.dataset.get_categories_id_from_names(["aaa"])
-        self.assertEqual([], result)
+        self.assertEqual([None], result)
 
         result = self.dataset.get_categories_id_from_names(["cat", "fox"])
         self.assertEqual([1, 3], result)

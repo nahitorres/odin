@@ -31,7 +31,8 @@ class ComparatorLocalization(ComparatorInterface):
                  similar_classes=None,
                  load_properties=True,
                  match_on_filename=False,
-                 save_graph_as_png=True
+                 save_graph_as_png=True,
+                 ignore_proposals_threshold=0.01
                  ):
         """
         The ComparatorLocalization class can be used to perform comparison of localization models, such as object detection and instance segmentation.
@@ -69,7 +70,9 @@ class ComparatorLocalization(ComparatorInterface):
         match_on_filename: bool, optional
             Indicates whether the predictions refer to the ground truth by file_name (set to True) or by id (set to False). (default is False)
         save_graph_as_png: bool, optional
-            Indicates whether plots should be saved as .png< images. (default is True)
+            Indicates whether plots should be saved as .png images. (default is True)
+        ignore_proposals_threshold: float, optional
+            All the proposals with a confidence score lower than the threshold are not loaded. (Default is 0.01)
         """
         if not isinstance(dataset_gt_param, str):
             raise TypeError(err_type.format("dataset_gt_param"))
@@ -116,7 +119,7 @@ class ComparatorLocalization(ComparatorInterface):
             raise ValueError(err_value.format("iou_weak", "iou_weak < iou"))
 
         if conf_thresh is not None:
-            if not isinstance(conf_thresh, float):
+            if not isinstance(conf_thresh, Number):
                 raise TypeError(err_type.format("conf_thresh"))
             if conf_thresh < 0 or conf_thresh > 1:
                 raise ValueError(err_value.format("conf_thresh", "0 <= x >= 1"))
@@ -144,7 +147,8 @@ class ComparatorLocalization(ComparatorInterface):
                                                     similar_classes=similar_classes,
                                                     for_analysis=False,
                                                     match_on_filename=match_on_filename,
-                                                    save_graphs_as_png=save_graph_as_png)
+                                                    save_graphs_as_png=save_graph_as_png,
+                                                    ignore_proposals_threshold=ignore_proposals_threshold)
         self.iou = iou
         self.iou_weak = iou_weak
         super().__init__(task_type, multiple_proposals_path, result_saving_path, use_normalization,

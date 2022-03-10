@@ -8,8 +8,9 @@ from matplotlib.patches import Polygon as Poly
 import matplotlib.cm as cm
 import numpy as np
 from IPython.core.display import display
-from ipyleaflet import Map, projections, LocalTileLayer, DrawControl, Rectangle, ImageOverlay, Polygon
-from ipywidgets import HTML, Label, VBox, HBox, RadioButtons, Checkbox, BoundedFloatText, Textarea, Output
+from ipyleaflet import Map, projections, LocalTileLayer, DrawControl, Rectangle, ImageOverlay, Polygon, WidgetControl
+from ipywidgets import HTML, Label, VBox, HBox, RadioButtons, Checkbox, BoundedFloatText, Textarea, Output, Button, \
+    Layout
 from tabulate import tabulate
 
 from odin.annotator import MetaPropertiesType
@@ -20,7 +21,6 @@ from odin.annotator import AnnotatorInterface
 
 
 class AnnotatorLocalization(AnnotatorInterface):
-
     supported_types = [TaskType.OBJECT_DETECTION,
                        TaskType.INSTANCE_SEGMENTATION]
 
@@ -81,7 +81,8 @@ class AnnotatorLocalization(AnnotatorInterface):
         if dataset is None:  # create new dataset
 
             if task_type is None or images is None or classes_to_annotate is None or output_path is None or ds_name is None:
-                raise Exception(f"Invalid parameters. Please be sure to specify the following parameters: {self.__mandatory_params_no_dataset}")
+                raise Exception(
+                    f"Invalid parameters. Please be sure to specify the following parameters: {self.__mandatory_params_no_dataset}")
 
             if not isinstance(task_type, TaskType):
                 raise TypeError(err_type.format("task_type"))
@@ -128,21 +129,21 @@ class AnnotatorLocalization(AnnotatorInterface):
             self.__create_map()
             self.__disable_check_radio_boxes_value()
             self.all_widgets = VBox(
-                                [HBox([self.text_index, self.label_total]),
-                                 HBox(self.buttons),
-                                 self.title_lbl,
-                                 HBox([self.map,
-                                       VBox(self.output_layout)])])
+                [HBox([self.text_index, self.label_total]),
+                 HBox(self.buttons),
+                 self.title_lbl,
+                 HBox([self.map,
+                       VBox(self.output_layout)])])
         else:
             self.out = Output()
             self.out.add_class(self.name)
             self.all_widgets = VBox(
-                                    [HBox([self.text_index, self.label_total]),
-                                     HBox(self.buttons),
-                                     self.validation_show,
-                                     self.title_lbl,
-                                     HBox([self.out,
-                                           VBox(self.output_layout)])])
+                [HBox([self.text_index, self.label_total]),
+                 HBox(self.buttons),
+                 self.validation_show,
+                 self.title_lbl,
+                 HBox([self.out,
+                       VBox(self.output_layout)])])
             self._load_js()
 
     def _set_display_function(self, custom_display_function):
@@ -314,7 +315,8 @@ class AnnotatorLocalization(AnnotatorInterface):
                     self.checkboxes[k_name] = [Checkbox(False, indent=False, name=k_name, disabled=False,
                                                         description=prop_name) for prop_name in v[1]]
                 elif MetaPropertiesType.CONTINUE.value == v[0].value:
-                    self.bounded_text[k_name] = BoundedFloatText(disabled=False, value=v[1][0], min=v[1][0], max=v[1][1])
+                    self.bounded_text[k_name] = BoundedFloatText(disabled=False, value=v[1][0], min=v[1][0],
+                                                                 max=v[1][1])
 
                 elif MetaPropertiesType.TEXT.value == v[0].value:
                     self.box_text[k_name] = Textarea(disabled=False)
@@ -401,7 +403,8 @@ class AnnotatorLocalization(AnnotatorInterface):
             self.delete_button.disabled = False
             self.radiobuttons["categories"].unobserve(self._checkbox_changed)
             self.radiobuttons["categories"].disabled = False
-            self.radiobuttons["categories"].value = self.mapping["categories_id"][current_ann["category_id"]] if "category_id" in current_ann.keys() else None
+            self.radiobuttons["categories"].value = self.mapping["categories_id"][
+                current_ann["category_id"]] if "category_id" in current_ann.keys() else None
             self.radiobuttons["categories"].observe(self._checkbox_changed)
         if self.annotate_meta_properties:
             for m_k, m_v in self.properties_and_values.items():
@@ -452,7 +455,9 @@ class AnnotatorLocalization(AnnotatorInterface):
         else:
             if self.properties_and_values[annotation_name][0].value in [MetaPropertiesType.COMPOUND.value]:
                 if annotation_name not in self.mapping["annotations"][self.selected_ann_id].keys():
-                    self.mapping["annotations"][self.selected_ann_id][annotation_name] = {p: False for p in self.properties_and_values[annotation_name][1]}
+                    self.mapping["annotations"][self.selected_ann_id][annotation_name] = {p: False for p in
+                                                                                          self.properties_and_values[
+                                                                                              annotation_name][1]}
                 self.mapping["annotations"][self.selected_ann_id][annotation_name][class_name] = value
             else:
                 self.mapping["annotations"][self.selected_ann_id][annotation_name] = value
@@ -515,7 +520,7 @@ class AnnotatorLocalization(AnnotatorInterface):
             # draws the bbox
             ax.add_patch(
                 Poly(np_poly, linestyle='-', facecolor=(c[0], c[1], c[2], 0.0),
-                        edgecolor=(c[0], c[1], c[2], 1.0), linewidth=2))
+                     edgecolor=(c[0], c[1], c[2], 1.0), linewidth=2))
         else:
             seg_points = annotation['segmentation']
             for pol in seg_points:
@@ -523,7 +528,7 @@ class AnnotatorLocalization(AnnotatorInterface):
                 np_poly = np.array(poly)  # .reshape((len(pol), 2))
                 ax.add_patch(
                     Poly(np_poly, linestyle='-', facecolor=(c[0], c[1], c[2], 0.25),
-                            edgecolor=(c[0], c[1], c[2], 1.0), linewidth=2))
+                         edgecolor=(c[0], c[1], c[2], 1.0), linewidth=2))
             # set the first XY point for printing the text
             bbox_x1 = seg_points[0][0]
             bbox_y1 = seg_points[0][1]
@@ -558,7 +563,8 @@ class AnnotatorLocalization(AnnotatorInterface):
                 self.current_img_id = self.dataset_annotated["annotations"][self.current_pos]["image_id"]
                 self.image_display_function(self.mapping["images"][self.current_img_id],
                                             self.selected_ann_id)
-                self.mapping["annotations"][self.selected_ann_id] = self.dataset_annotated["annotations"][self.current_pos]
+                self.mapping["annotations"][self.selected_ann_id] = self.dataset_annotated["annotations"][
+                    self.current_pos]
                 self.__change_check_radio_boxes_value()
                 self._execute_validation()
 
@@ -581,10 +587,26 @@ class AnnotatorLocalization(AnnotatorInterface):
         """
         Create a layer Map to display the image in order to be able to draw annotations
         """
+
         self.map = Map(center=(50, 50), zoom=2, crs=projections.Simple, dragging=True,
-                         zoom_control=True, double_click_zoom=False,
-                         layers=[LocalTileLayer(path='white.png')], layout=dict(width='600px', height='600px'))
+                       zoom_control=True, double_click_zoom=True,
+                       layers=[LocalTileLayer(path='white.png')], layout=dict(width='600px', height='600px'))
+
+        button = Button(
+            disabled=False,
+            button_style='',
+            icon='arrows-alt',
+            layout=Layout(width='25px', height='25px')
+        )
+
+        def function(b):
+            self.map.center = center = (50, 50)
+            self.map.zoom = 2
+
         self.__create_draw_control()
+        button.on_click(function)
+        recenter_control = WidgetControl(widget=button, position='topleft')
+        self.map.add_control(recenter_control)
 
     def __on_delete_clicked(self, b):
         """
@@ -667,14 +689,12 @@ class AnnotatorLocalization(AnnotatorInterface):
                 ws = [c[0] for c in coordinates]
                 min_h, max_h = min(hs), max(hs)
                 min_w, max_w = min(ws), max(ws)
-
                 # coordinates only inside image
                 hh, ww, offset_h, offset_w = self.img_coords[2:]
                 max_h = max(0, min(hh + offset_h, max_h))
                 max_w = max(0, min(ww + offset_w, max_w))
                 min_h = max(offset_h, min(hh + offset_h, min_h))
                 min_w = max(offset_w, min(ww + offset_w, min_w))
-
                 # remove draw
                 dc.clear()
 
@@ -685,9 +705,9 @@ class AnnotatorLocalization(AnnotatorInterface):
                 coor = []
                 for c in coordinates:
                     w_c, h_c = c
-                    h_c = max(0, min(hh + offset_h, h_c))
+                    # h_c = max(0, min(hh + offset_h, h_c))
                     h_c = max(offset_h, min(hh + offset_h, h_c))
-                    w_c = max(0, min(ww + offset_w, w_c))
+                    # w_c = max(0, min(ww + offset_w, w_c))
                     w_c = max(offset_w, min(ww + offset_w, w_c))
                     coor.append((h_c, w_c))
                 segmentation = self.__create_segmentation(coor)
@@ -884,7 +904,8 @@ class AnnotatorLocalization(AnnotatorInterface):
         """
         img_ov, h, w, hh, ww, off_h, off_w = self.__get_img_overlay(self.images[self.current_pos])
         self.img_coords = (h, w, hh, ww, off_h, off_w)
-        self.last_ann_id = max(self.dataset_annotated["annotations"], key=lambda x: x['id'])['id'] if len(self.dataset_annotated["annotations"]) > 0 else 0
+        self.last_ann_id = max(self.dataset_annotated["annotations"], key=lambda x: x['id'])['id'] if len(
+            self.dataset_annotated["annotations"]) > 0 else 0
         self.current_img_id = self.mapping["images"][os.path.basename(self.images[self.current_pos])]
         self.map.add_layer(img_ov)
         self.__show_existing_annotations()
@@ -901,7 +922,8 @@ class AnnotatorLocalization(AnnotatorInterface):
         for ann in self.dataset_annotated["annotations"]:
             if ann["image_id"] == self.current_img_id:
                 if self.task_type == TaskType.OBJECT_DETECTION and "bbox" in ann:
-                    coordinates = self.__get_coordinates_from_image_bbox(ann["bbox"], h_i, w_i, hh, ww, offset_h, offset_w)
+                    coordinates = self.__get_coordinates_from_image_bbox(ann["bbox"], h_i, w_i, hh, ww, offset_h,
+                                                                         offset_w)
                     rectangle = self.__create_rectangle(coordinates)
                     rectangle.color = "green"
                     rectangle.fill_color = "green"
@@ -910,7 +932,8 @@ class AnnotatorLocalization(AnnotatorInterface):
                     self.map.add_layer(rectangle)
 
                 elif self.task_type == TaskType.INSTANCE_SEGMENTATION and "segmentation" in ann:
-                    coordinates = self.__get_coordinates_from_image_segmentation(ann["segmentation"][0], h_i, w_i, hh, ww, offset_h, offset_w)
+                    coordinates = self.__get_coordinates_from_image_segmentation(ann["segmentation"][0], h_i, w_i, hh,
+                                                                                 ww, offset_h, offset_w)
                     polygon = self.__create_segmentation(coordinates)
                     polygon.color = "green"
                     polygon.fill_color = "green"
@@ -918,19 +941,23 @@ class AnnotatorLocalization(AnnotatorInterface):
 
                     self.map.add_layer(polygon)
 
-                self.mapping["annotations"][ann["id"]] = ann
+                if "polygon" in ann.keys():
+                    self.mapping["annotations"][ann["id"]] = ann
 
     def __save_state_class_annotations(self):
         """
         Create the json dataset file
         """
-        self.dataset_annotated["annotations"] = list(filter(lambda x: x['image_id'] != self.current_img_id, self.dataset_annotated["annotations"]))
-        self.dataset_annotated["images"] = list(filter(lambda x: x['id'] != self.current_img_id, self.dataset_annotated["images"]))
+        self.dataset_annotated["annotations"] = list(
+            filter(lambda x: x['image_id'] != self.current_img_id, self.dataset_annotated["annotations"]))
+        self.dataset_annotated["images"] = list(
+            filter(lambda x: x['id'] != self.current_img_id, self.dataset_annotated["images"]))
 
         h, w, hh, ww, off_h, off_w = self.img_coords[:]
         for ann_id in self.mapping["annotations"].keys():
             ann = self.mapping["annotations"][ann_id]
-            coordinates = ann["polygon"].bounds if self.task_type == TaskType.OBJECT_DETECTION else ann["polygon"].locations
+            coordinates = ann["polygon"].bounds if self.task_type == TaskType.OBJECT_DETECTION else ann[
+                "polygon"].locations
 
             ann_info = {}
             for k in ann.keys():
@@ -939,7 +966,8 @@ class AnnotatorLocalization(AnnotatorInterface):
                         bbox = self.__get_image_bbox_from_coordinates(coordinates, h, w, hh, ww, off_h, off_w)
                         ann_info["bbox"] = bbox
                     else:
-                        segmentation = self.__get_image_segmentation_from_coordinates(coordinates, h, w, hh, ww, off_h, off_w)
+                        segmentation = self.__get_image_segmentation_from_coordinates(coordinates, h, w, hh, ww, off_h,
+                                                                                      off_w)
                         ann_info["segmentation"] = [segmentation]
                 else:
                     ann_info[k] = ann[k]

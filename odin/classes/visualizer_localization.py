@@ -97,7 +97,9 @@ class VisualizerLocalization(VisualizerInterface):
         if self.__show_predictions:
             for model in self.__show_model_predictions:
                 if self.__show_model_predictions[model]:
+                    matching = self.analyzers[model].get_matching_dataframe() if self.analyzers else None
                     for i, pred, in predictions[model].iterrows():
+                        iou = matching.loc[matching["det_id"] == pred["id"]]["iou"].values[0] if matching is not None else None
                         seg_points = pred["segmentation"]
                         poly = [[float(seg_points[i]), float(seg_points[i + 1])] for i in range(0, len(seg_points), 2)]
                         np_poly = np.array(poly)
@@ -107,10 +109,14 @@ class VisualizerLocalization(VisualizerInterface):
                                     edgecolor=self.__colors[model],
                                     linewidth=2))
                         idx = int(len(seg_points) / 2)
-                        if idx%2 == 0:
+                        if idx % 2 == 0:
                             idx += 1
+
+                        bbox_str = f"{pred['category_id']}, conf:{pred['confidence']:.2f}"
+                        if iou is not None:
+                            bbox_str += f", iou:{iou:.2f}"
                         ax.text(x=seg_points[idx - 1], y=seg_points[idx],
-                                s=f"{pred['category_id']}, conf:{pred['confidence']:.2f}", color='white', fontsize=9,
+                                s=bbox_str, color='white', fontsize=9,
                                 horizontalalignment='left', verticalalignment='top',
                                 bbox=dict(facecolor=self.__colors[model]))
 
@@ -130,14 +136,21 @@ class VisualizerLocalization(VisualizerInterface):
         if self.__show_predictions:
             for model in self.__show_model_predictions:
                 if self.__show_model_predictions[model]:
+                    matching = self.analyzers[model].get_matching_dataframe() if self.analyzers else None
                     for i, pred in predictions[model].iterrows():
+                        iou = matching.loc[matching["det_id"] == pred["id"]]["iou"].values[0] if matching is not None else None
                         bbox_x, bbox_y, bbox_w, bbox_h = pred['bbox']
                         poly = [[bbox_x, bbox_y], [bbox_x, bbox_y + bbox_h], [bbox_x + bbox_w, bbox_y + bbox_h],
                                 [bbox_x + bbox_w, bbox_y]]
                         np_poly = np.array(poly).reshape((4, 2))
 
-                        ax.add_patch(Polygon(np_poly, linestyle='--', facecolor='none', edgecolor=self.__colors[model], linewidth=3))
-                        ax.text(x=bbox_x + bbox_w, y=bbox_y, s=f"{pred['category_id']}, conf:{pred['confidence']:.2f}",
+                        ax.add_patch(Polygon(np_poly, linestyle='--', facecolor='none', edgecolor=self.__colors[model],
+                                             linewidth=3))
+                        bbox_str = f"{pred['category_id']}, conf:{pred['confidence']:.2f}"
+                        if iou is not None:
+                            bbox_str += f", iou:{iou:.2f}"
+                        ax.text(x=bbox_x + bbox_w, y=bbox_y,
+                                s=bbox_str,
                                 color='white', fontsize=9, horizontalalignment='left', verticalalignment='top',
                                 bbox=dict(facecolor=self.__colors[model]))
 
@@ -156,7 +169,7 @@ class VisualizerLocalization(VisualizerInterface):
 
         print("Image with id:{}".format(im_id))
         if not os.path.exists(image_path):
-            print("Image path does not exist: " + image_path )
+            print("Image path does not exist: " + image_path)
         else:
             plt.figure(figsize=(10, 10))
             img = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
@@ -174,26 +187,26 @@ class VisualizerLocalization(VisualizerInterface):
                     if self.__show_predictions:
                         for model in self.dataset.proposals:
                             predictions[model] = self.dataset.get_proposals_from_image_id_and_categories(im_id,
-                                                                                              self.__current_category, model)
+                                                                                                         self.__current_category,
+                                                                                                         model)
                 else:
                     anns = self.dataset.get_annotations_from_image_and_categories(im_id, [self.__current_category])
                     if self.__show_predictions:
                         for model in self.dataset.proposals:
                             predictions[model] = self.dataset.get_proposals_from_image_id_and_categories(im_id,
-                                                                                              [self.__current_category], model)
+                                                                                                         [
+                                                                                                             self.__current_category],
+                                                                                                         model)
 
                 if self.__current_meta_anotation is not None and self.__meta_annotation_value is not None:
-                    anns = anns[anns.index.get_level_values(self.__current_meta_anotation) == self.__meta_annotation_value]
+                    anns = anns[
+                        anns.index.get_level_values(self.__current_meta_anotation) == self.__meta_annotation_value]
             else:
                 img_anns = self.dataset.get_annotations_from_image(im_id).copy()
                 anns = img_anns.loc[img_anns["id"].isin(self.__ids_to_show["gt"])]
                 for model in self.dataset.proposals:
                     img_predictions = self.dataset.get_proposals_from_image_id(im_id, model).copy()
                     predictions[model] = img_predictions.loc[img_predictions["id"].isin(self.__ids_to_show["props"])]
-
-            if len(anns) == 0:
-                plt.show()
-                return 0
 
             if self.dataset.task_type == TaskType.INSTANCE_SEGMENTATION and 'segmentation' in anns.columns.values:
                 self.__show_segmentation_annotations(anns, predictions)
@@ -204,6 +217,8 @@ class VisualizerLocalization(VisualizerInterface):
             plt.show()
 
     def visualize_annotations_for_ids(self, gt_ids, show_predictions=False):
+        self.__ids_to_show = None
+        self.__reset_show_models_predictions()
         if isinstance(gt_ids, int):
             gt_ids = [gt_ids]
         elif not isinstance(gt_ids, list):
@@ -252,7 +267,7 @@ class VisualizerLocalization(VisualizerInterface):
                     continue
                 images.append(v)
                 added_img_ids.append(v['id'])
-        
+
         category_ids = [self.dataset.get_category_id_from_name(c) for c in categories]
 
         self.__start_iterator(images, category=category_ids, show_predictions=show_predictions)
@@ -294,7 +309,7 @@ class VisualizerLocalization(VisualizerInterface):
             return -1
 
         images = self.dataset.get_images_id_with_path_with_property_value(meta_annotation, meta_annotation_value)
-        
+
         self.__start_iterator(images, meta_annotation=meta_annotation, meta_annotation_value=meta_annotation_value,
                               show_predictions=show_predictions)
 
@@ -347,7 +362,8 @@ class VisualizerLocalization(VisualizerInterface):
         images = self.dataset.get_images_id_with_path_for_category_with_property_value(category, meta_annotation,
                                                                                        meta_annotation_value)
         category_id = self.dataset.get_category_id_from_name(category)
-        self.__start_iterator(images, category=category_id, meta_annotation=meta_annotation, meta_annotation_value=meta_annotation_value, show_predictions=show_predictions)
+        self.__start_iterator(images, category=category_id, meta_annotation=meta_annotation,
+                              meta_annotation_value=meta_annotation_value, show_predictions=show_predictions)
 
     def visualize_annotations_for_true_positive(self, categories=None, model=None):
         """
@@ -445,7 +461,6 @@ class VisualizerLocalization(VisualizerInterface):
         self.__reset_show_models_predictions(value=False)
         self.__show_model_predictions[model] = True
 
-
         if categories is not None and not isinstance(categories, list):
             get_root_logger().error(labels_str.err_type.format("categories"))
             return -1
@@ -497,20 +512,9 @@ class VisualizerLocalization(VisualizerInterface):
         ids_per_cat = self.analyzers[model].get_false_positive_errors_ids(categories)
         ids = {"gt": [], "props": []}
         for cat in categories:
-            if error_type == ErrorType.BACKGROUND:
-                ids["gt"].extend(ids_per_cat[cat]["background"]["gt"])
-                ids["props"].extend(ids_per_cat[cat]["background"]["props"])
-            elif error_type == ErrorType.LOCALIZATION:
-                ids["gt"].extend(ids_per_cat[cat]["localization"]["gt"])
-                ids["props"].extend(ids_per_cat[cat]["localization"]["props"])
-            elif error_type == ErrorType.SIMILAR_CLASSES:
-                ids["gt"].extend(ids_per_cat[cat]["similar"]["gt"])
-                ids["props"].extend(ids_per_cat[cat]["similar"]["props"])
-            elif error_type == ErrorType.OTHER:
-                ids["gt"].extend(ids_per_cat[cat]["other"]["gt"])
-                ids["props"].extend(ids_per_cat[cat]["other"]["props"])
-            else:
-                print("Invalid Error Type.")
+            ids["gt"].extend(ids_per_cat[cat][error_type.value]["gt"])
+            ids["props"].extend(ids_per_cat[cat][error_type.value]["props"])
+
         self.__ids_to_show = ids
         if error_type == ErrorType.BACKGROUND:
             images = self.dataset.get_images_id_with_path_from_proposals_ids(ids["props"], model)
@@ -543,8 +547,9 @@ class VisualizerLocalization(VisualizerInterface):
         images = self.dataset.get_images_id_with_path_from_annotation_ids(ids["gt"])
 
         self.__start_iterator(images, show_predictions=True)
-            
-    def __start_iterator(self,  images, category=None, meta_annotation=None, meta_annotation_value=None, show_predictions=False):
+
+    def __start_iterator(self, images, category=None, meta_annotation=None, meta_annotation_value=None,
+                         show_predictions=False):
         """
         Starts the iteration over the images
 

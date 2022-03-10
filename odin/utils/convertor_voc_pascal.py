@@ -73,7 +73,7 @@ class VOCtoCoco:
                             coco_ann[key] = obj[key]
                     coco_ds["annotations"].append(coco_ann)
                     anns_counter += 1
-                    break
+
                 imgs_counter += 1
         json.dump(coco_ds, open(self.output_path, "w"), indent=4)
         return coco_ds

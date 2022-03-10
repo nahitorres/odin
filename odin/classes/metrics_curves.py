@@ -7,6 +7,8 @@ class Metrics(Enum):
     PRECISION_SCORE = "Precision"
     RECALL_SCORE = "Recall"
     F1_SCORE = "F1"
+    FALSE_ALARM_RATE = "False alarm rate"
+    MISS_ALARM_RATE = "Miss alarm rate"
     AVERAGE_PRECISION_SCORE = "Average_Precision"
     AVERAGE_PRECISION_INTERPOLATED = "Average_Precision_Interpolated"
     ROC_AUC = "ROC_AUC"
@@ -16,6 +18,11 @@ class Metrics(Enum):
     CAM_GLOBAL_IOU = "Global_IoU"
     CAM_BBOX_COVERAGE = "Bbox_coverage"
     CAM_IRRELEVANT_ATTENTION = "Irrelevant attention"
+    MAE = "Mean absolute error"
+    MSE = "Mean squared error"
+    NAB_SCORE = "NAB score"
+    RMSE = "Root mean squared error"
+    MAPE = "Mean absolute percentage error"
 
 
 class Curves(Enum):

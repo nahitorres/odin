@@ -1,6 +1,7 @@
+import os
 import copy
 import math
-from collections import defaultdict
+from collections import defaultdict, Counter
 from numbers import Number
 from statistics import mean
 
@@ -17,7 +18,8 @@ from odin.utils import get_root_logger
 from odin.utils.draw_utils import plot_reliability_diagram, plot_false_positive_errors, plot_iou_analysis, pie_plot, \
     plot_false_positive_trend
 from odin.utils.env import is_notebook
-from odin.utils.utils import sg_intersection_over_union, bb_intersection_over_union
+from odin.utils.utils import sg_intersection_over_union, bb_intersection_over_union, mask_to_boundary, \
+    intersection_over_union
 
 logger = get_root_logger()
 
@@ -41,6 +43,8 @@ class AnalyzerLocalization(AnalyzerInterface):
 
     _valid_cams_metrics = []
 
+    _use_boundary_iou = False
+
     def __init__(self,
                  detector_name,
                  dataset,
@@ -50,6 +54,7 @@ class AnalyzerLocalization(AnalyzerInterface):
                  norm_factors_properties=None,
                  iou=None,
                  iou_weak=None,
+                 use_boundary_iou=False,
                  conf_thresh=None,
                  metric=Metrics.AVERAGE_PRECISION_SCORE,
                  save_graphs_as_png=True):
@@ -78,6 +83,8 @@ class AnalyzerLocalization(AnalyzerInterface):
             Intersection Over Union threshold. All the predictions with a iou value less than the threshold are considered False Positives. If not specified, the default value is 0.5. (default is None)
         iou_weak: float, optional
             Intersection Over Union weak threshold. Used for the identification of the localization errors. If not specified, the default value is 0.1. (default is None)
+        use_boundary_iou: bool, optional
+            Specifies whether or not to use the Boundary Intesection Over Union metric or the default Mask Intersection Over Union metric. The default value is False
         conf_thresh: float, optional
             Confidence threshold. All the predictions with a confidence value less than the threshold are ignored. If not specified, the default value is 0.5. (default is None)
         metric: Metrics
@@ -131,8 +138,12 @@ class AnalyzerLocalization(AnalyzerInterface):
         elif iou_weak >= iou:
             raise ValueError(err_value.format("iou_weak", "iou_weak < iou"))
 
+        if not isinstance(use_boundary_iou, bool):
+            raise TypeError(err_type.format("use_boundary_iou"))
+
         self._iou_thresh_strong = iou
         self._iou_thresh_weak = iou_weak
+        self._use_boundary_iou = use_boundary_iou
 
         if conf_thresh is not None:
             if not isinstance(conf_thresh, Number):
@@ -165,6 +176,23 @@ class AnalyzerLocalization(AnalyzerInterface):
 
         super().__init__(detector_name, dataset, result_saving_path, use_normalization, norm_factor_categories,
                          norm_factors_properties, conf_thresh, metric)
+
+    def save_matching(self, path):
+        if not self.matching_dict:
+            logger.error("No matching data available")
+            return -1
+        for match in self.matching_dict:
+            save_path = path + "{}_matching_{}.pkl".format(self._model_name, match)
+            self.matching_dict[match].to_pickle(save_path)
+
+    def load_matching(self, path, type="all"):
+        if type != "all" and type != "iou":
+            logger.error("Invalid matching type. Possible matching type: ['all', 'iou']")
+            return -1
+        if not os.path.exists(path):
+            logger.error("Invalid path")
+            return -1
+        self.matching_dict[type] = pd.read_pickle(path)
 
     def analyze_intersection_over_union(self, categories=None, metric=None, show=True):
         """
@@ -225,6 +253,12 @@ class AnalyzerLocalization(AnalyzerInterface):
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
+        def __check_duplicated(pred, used_anns):
+            if pred["ann_id"] in used_anns:
+                return -1
+            used_anns.append(pred["ann_id"])
+            return 1
+
         if not isinstance(category, str):
             logger.error(err_type.format("category"))
             return -1
@@ -255,6 +289,7 @@ class AnalyzerLocalization(AnalyzerInterface):
                 self.matching_dict["iou"] = self._match_detection_with_ground_truth(annotations, proposals, 0).copy()
 
             matching = self.matching_dict["iou"].copy()
+            matching["label"] = np.where(matching["category_det"] != matching["category_ann"], -1, 0)
 
             cat_id = self.dataset.get_category_id_from_name(category)
             matching = matching.loc[matching["category_det"] == cat_id]
@@ -264,8 +299,11 @@ class AnalyzerLocalization(AnalyzerInterface):
             ious_unique = np.arange(0, 1.001, 0.05).round(5)
             metric_values = []
             for iou in ious_unique:
-                matching['label'] = np.where((matching['label'] == 1) & (matching['iou'] < iou), -1, matching['label'])
-                value, _ = self._compute_metric(category_anns, proposals, matching, metric)
+                matching_iou = matching.copy()
+                matching_iou.loc[matching_iou['iou'] < iou, 'label'] = -1
+                duplicated_list = []
+                matching_iou.loc[matching_iou["label"] == 0, 'label'] = matching_iou.loc[matching_iou["label"]==0].apply(lambda x: __check_duplicated(x, duplicated_list), axis=1)
+                value, _ = self._compute_metric(category_anns, proposals, matching_iou, metric)
                 metric_values.append(value)
             result = {"iou": ious_unique, "metric_values": metric_values}
             self.saved_analyses[category] = result
@@ -503,10 +541,9 @@ class AnalyzerLocalization(AnalyzerInterface):
         if metric not in self.saved_analyses["false_positive_analysis"]:
             self.saved_analyses["false_positive_analysis"][metric] = {}
 
+        threshold = self._conf_thresh if metric in self._get_metrics_with_threshold() else 0
+        error_dict_total, error_ids = self._analyze_false_positive_errors([category], threshold)
         if category not in self.saved_analyses["false_positive_analysis"][metric]:
-            threshold = self._conf_thresh if metric in self._get_metrics_with_threshold() else 0
-
-            error_dict_total, _ = self._analyze_false_positive_errors([category], threshold)
             error_dict = error_dict_total[category]
 
             values = self._calculate_metric_for_category(category, metric)
@@ -514,7 +551,7 @@ class AnalyzerLocalization(AnalyzerInterface):
             category_metric_value = values['value']
             matching = values["matching"]
 
-            errors = ["localization", "similar", "other", "background"]
+            errors = list(error_dict.keys())
             error_values = []
 
             for error in errors:
@@ -549,6 +586,7 @@ class AnalyzerLocalization(AnalyzerInterface):
         plot_false_positive_errors(error_values, errors, category_metric_value,
                                    self.dataset.get_display_name_of_category(category), metric,
                                    self.result_saving_path, self._SAVE_PNG_GRAPHS)
+        self._show_classification_confusion_distribution(error_ids)
 
     def analyze_false_negative_errors_for_category(self, category, show=True):
         """
@@ -590,6 +628,8 @@ class AnalyzerLocalization(AnalyzerInterface):
                 matching = self.matching_dict["all"].copy()
 
             matching = matching.loc[matching["ann_id"].isin(fn_ids[category]["gt"])]
+            matching.sort_values(by="confidence", ascending=False, inplace=True)
+            matching = matching.groupby("ann_id").first()
             self.saved_analyses["false_negative_errors"][category]["localization"] = len(matching.loc[(matching["category_det"] == cat_id) &
                                                                          (matching["iou"] >= self._iou_thresh_weak)].index)
 
@@ -597,9 +637,9 @@ class AnalyzerLocalization(AnalyzerInterface):
                                                                     (matching["iou"] >= self._iou_thresh_weak) &
                                                                     (matching["category_det"].apply(lambda x: self.dataset.is_similar(cat_id, x)))].index)
 
-            self.saved_analyses["false_negative_errors"][category]["no_prediction"] = len(matching.loc[matching["iou"] < self._iou_thresh_weak].index)
+            self.saved_analyses["false_negative_errors"][category]["no_prediction"] = len(matching.loc[matching["iou"] < self._iou_thresh_weak].index) + (len(fn_ids[category]["gt"]) - len(matching.index))
 
-            self.saved_analyses["false_negative_errors"][category]["other"] = len(matching.index) - \
+            self.saved_analyses["false_negative_errors"][category]["other"] = len(fn_ids[category]["gt"]) - \
                                                                               (self.saved_analyses["false_negative_errors"][category]["localization"] +
                                                                                self.saved_analyses["false_negative_errors"][category]["similar"] +
                                                                                self.saved_analyses["false_negative_errors"][category]["no_prediction"])
@@ -924,6 +964,8 @@ class AnalyzerLocalization(AnalyzerInterface):
                           dtype=np.float64)  # create an array of zeros for missed for the sake of calculation
         np.warnings.filterwarnings('ignore')  # just to not print warnings when there are NaN
 
+        if  len(recall) == 0:
+            return 0, 0
         ap = np.mean(precision[is_tp]) * recall[-1]  # avg precision
         ap_std = np.std(np.concatenate((precision[is_tp], missed))) / np.sqrt(
             n_anns)  # avg precision standard error
@@ -1023,7 +1065,6 @@ class AnalyzerLocalization(AnalyzerInterface):
         tp: array-like
             Cumsum of True Positive
         fp: array-like
-            Cumsum of False Positive
         threshold: float
             Threshold value
 
@@ -1105,6 +1146,8 @@ class AnalyzerLocalization(AnalyzerInterface):
                     # Corroborate is correct detection
                     if iou >= iou_thres:
                         # Difficult annotations are ignored
+
+                        # TODO add flag for ignoring
                         if "difficult" in ann.keys() and ann["difficult"] == 1:
                             match_info = {"confidence": det["confidence"], "difficult": 1, "label": 0, "iou": iou,
                                           "det_id": det["id"], "ann_id": ann["id_x"],
@@ -1146,11 +1189,23 @@ class AnalyzerLocalization(AnalyzerInterface):
         """
         if self.dataset.task_type == TaskType.INSTANCE_SEGMENTATION:
             if "height" in ann.keys() and "width" in ann.keys():
-                iou = sg_intersection_over_union(ann['segmentation'][0], det['segmentation'], ann["height"],
-                                                 ann["width"])
+                if self._use_boundary_iou:
+                    iou = intersection_over_union(mask_to_boundary(ann['segmentation'][0], h=ann["height"],
+                                                                   w=ann["width"], dilation_ratio=0.02),
+                                                  mask_to_boundary(det['segmentation'], h=ann["height"],
+                                                                   w=ann["width"], dilation_ratio=0.02))
+                else:
+                    iou = sg_intersection_over_union(ann['segmentation'][0], det['segmentation'], ann["height"],
+                                                     ann["width"])
             else:
                 h, w = self.dataset.get_height_width_from_image(ann["image_id"])
-                iou = sg_intersection_over_union(ann['segmentation'][0], det['segmentation'], h, w)
+                if self._use_boundary_iou:
+                    iou = intersection_over_union(mask_to_boundary(ann['segmentation'][0], h=h,
+                                                                   w=w, dilation_ratio=0.02),
+                                                  mask_to_boundary(det['segmentation'], h=h,
+                                                                   w=w, dilation_ratio=0.02))
+                else:
+                    iou = sg_intersection_over_union(ann['segmentation'][0], det['segmentation'], h, w)
         else:
             bbox = ann['bbox'][0], ann['bbox'][1], ann['bbox'][0] + ann['bbox'][2], ann['bbox'][1] + \
                    ann['bbox'][3]
@@ -1403,8 +1458,14 @@ class AnalyzerLocalization(AnalyzerInterface):
                 anns = self.dataset.get_annotations_of_class_with_property(category_id, property_name, value)
                 ann_ids = anns["id"].tolist()
 
-                property_match = matching[((matching["label"] != 1) & (matching["category_det"] == category_id)) |
-                                          (matching["ann_id"].isin(ann_ids))]
+                if property_name in ["AreaSize", "AspectRatio"]:
+                    det_ids = self.dataset.get_proposals_ids_by_category_and_property(category_id, property_name, value, self._model_name)
+                    property_match = matching[((matching["label"] != 1) & (matching["det_id"].isin(det_ids))) |
+                                              (matching["ann_id"].isin(ann_ids))]
+                else:
+                    property_match = matching[((matching["label"] != 1) & (matching["category_det"] == category_id)) |
+                                              (matching["ann_id"].isin(ann_ids))]
+
                 list_ids = property_match["det_id"].tolist()
 
                 det = self.dataset.get_proposals_by_category_and_ids(category_name, list_ids, self._model_name)
@@ -1533,6 +1594,25 @@ class AnalyzerLocalization(AnalyzerInterface):
 
         return classes, ids
 
+    def _show_classification_confusion_distribution(self, fp_ids):
+        """
+        For each category, it shows the classes which it has been confused with.
+        Parameters
+        ----------
+        fp_ids: dict
+            For each category and for each error type, contains the annotation ids and the related prediction ids
+        """
+        anns = self.dataset.get_annotations()
+
+        for category in fp_ids:
+            matrix = anns.loc[anns["id"].isin(fp_ids[category]["class"]["gt"])]["category_id"].tolist()
+            matrix2 = anns.loc[anns["id"].isin(fp_ids[category]["sim"]["gt"])]["category_id"].tolist()
+            matrix2.extend(matrix)
+            n_matrix = Counter(matrix2)
+            n_matrix = dict(sorted(n_matrix.items(), key=lambda item: item[1], reverse=True))
+            pie_plot(list(n_matrix.values()), self.dataset.get_categories_names_from_ids(list(n_matrix.keys())),
+                     f"Classification error distribution - {category}", "a", False, colors=None)
+
     def _analyze_false_positive_errors(self, categories, threshold):
         """
         Analyzes the False Positive for each category by dividing the errors in four tags: background, similar (if the
@@ -1579,26 +1659,74 @@ class AnalyzerLocalization(AnalyzerInterface):
 
                 # localization errors
                 matching = matching[matching["iou"] >= self._iou_thresh_weak]
-                matching["loc_error"] = np.where((matching["category_det"] == matching["category_ann"]), 1, 0)
+                matching["loc_error"] = np.where((matching["category_det"] == matching["category_ann"]) &
+                                                 (matching["iou"] < self._iou_thresh_strong), 1, 0)
+                matching["dup_error"] = np.where((matching["category_det"] == matching["category_ann"]) &
+                                                 (matching["iou"] >= self._iou_thresh_strong), 1, 0)
+                # filtro strong --> duplicati
                 localization_indexes = matching[matching["loc_error"] == 1]["det_id"].tolist()
+                duplicated_indexes =  matching[matching["dup_error"] == 1]["det_id"].tolist()
+
                 fp_ids_cat["localization"] = {"gt": matching[matching["loc_error"] == 1]["ann_id"].tolist(),
                                                     "props": matching[matching["loc_error"] == 1]["det_id"].tolist()}
+
+                fp_ids_cat["duplicated"] = {"gt": matching[matching["dup_error"] == 1]["ann_id"].tolist(),
+                                              "props": matching[matching["dup_error"] == 1]["det_id"].tolist()}
 
                 # similar and other errors
                 matching = matching[(matching["category_det"] != matching["category_ann"])]
                 cat_id = self.dataset.get_category_id_from_name(category)
-                matching["similar_others_error"] = np.where(matching["category_ann"].apply(lambda x: self.dataset.is_similar(cat_id, x)), 1, 2)
-                similar_indexes = matching[matching["similar_others_error"] == 1]["det_id"].tolist()
-                other_indexes = matching[matching["similar_others_error"] == 2]["det_id"].tolist()
-                fp_ids_cat["similar"] = {"gt": matching[matching["similar_others_error"] == 1]["ann_id"].tolist(),
-                                               "props": matching[matching["similar_others_error"] == 1]["det_id"].tolist()}
-                fp_ids_cat["other"] = {"gt": matching[matching["similar_others_error"] == 2]["ann_id"].tolist(),
-                                             "props": matching[matching["similar_others_error"] == 2]["det_id"].tolist()}
 
-                self.saved_analyses["false_positive_errors"][str(threshold)]["errors"][category] = {"localization": localization_indexes,
-                                                                                    "similar": similar_indexes,
-                                                                                    "other": other_indexes,
-                                                                                    "background": bg_indexes}
+                matching["similar_others_error"] = np.where(matching["category_ann"].apply(lambda x: self.dataset.is_similar(cat_id, x)), 1, 2)
+
+                matching["loc_class_error"] = np.where((matching["similar_others_error"] == 2) &
+                                                       (matching["iou"] < self._iou_thresh_strong), 1, 0)
+
+                loc_class_indexes = matching[matching["loc_class_error"] == 1]["det_id"].tolist()
+                fp_ids_cat["loc+class"] = {"gt": matching[matching["loc_class_error"] == 1]["ann_id"].tolist(),
+                                            "props": matching[matching["loc_class_error"] == 1]["det_id"].tolist()}
+
+                matching["class_error"] = np.where((matching["similar_others_error"] == 2) &
+                                                       (matching["iou"] >= self._iou_thresh_strong), 1, 0)
+
+                class_indexes = matching[matching["class_error"] == 1]["det_id"].tolist()
+                fp_ids_cat["class"] = {"gt": matching[matching["class_error"] == 1]["ann_id"].tolist(),
+                                           "props": matching[matching["class_error"] == 1]["det_id"].tolist()}
+                
+                # anns = self.dataset.get_annotations()
+                # matrix = anns.loc[anns["id"].isin(fp_ids_cat["class"]["gt"])]["category_id"].tolist()
+
+                matching["loc_sim_error"] = np.where((matching["similar_others_error"] == 1) &
+                                                       (matching["iou"] < self._iou_thresh_strong), 1, 0)
+
+                loc_sim_indexes = matching[matching["loc_sim_error"] == 1]["det_id"].tolist()
+                fp_ids_cat["loc+sim"] = {"gt": matching[matching["loc_sim_error"] == 1]["ann_id"].tolist(),
+                                       "props": matching[matching["loc_sim_error"] == 1]["det_id"].tolist()}
+
+                matching["sim_error"] = np.where((matching["similar_others_error"] == 1) &
+                                                     (matching["iou"] >= self._iou_thresh_strong), 1, 0)
+
+                sim_indexes = matching[matching["sim_error"] == 1]["det_id"].tolist()
+                fp_ids_cat["sim"] = {"gt": matching[matching["sim_error"] == 1]["ann_id"].tolist(),
+                                         "props": matching[matching["sim_error"] == 1]["det_id"].tolist()}
+                
+                
+                # matrix2 = anns.loc[anns["id"].isin(fp_ids_cat["sim"]["gt"])]["category_id"].tolist()
+                # matrix2.extend(matrix)
+                # n_matrix = Counter(matrix2)
+                # n_matrix = dict(sorted(n_matrix.items(), key=lambda item: item[1], reverse=True))
+                # pie_plot(list(n_matrix.values()), self.dataset.get_categories_names_from_ids(list(n_matrix.keys())), f"Classification error distribution - {category}", "a", False, colors=None)
+
+
+                self.saved_analyses["false_positive_errors"][str(threshold)]["errors"][category] = {"background": bg_indexes,
+                                                                                                    "loc+class": loc_class_indexes,
+                                                                                                    "class": class_indexes,
+                                                                                                    "loc+sim": loc_sim_indexes,
+                                                                                                    "sim": sim_indexes,
+                                                                                                    "localization": localization_indexes,
+                                                                                                    "duplicated": duplicated_indexes
+                                                                                                    }
+
                 self.saved_analyses["false_positive_errors"][str(threshold)]["ids"][category] = fp_ids_cat
 
             fp_errors[category] = self.saved_analyses["false_positive_errors"][str(threshold)]["errors"][category]
@@ -1633,9 +1761,8 @@ class AnalyzerLocalization(AnalyzerInterface):
         fn_p_values = defaultdict(int)
         fn_ids = {}
 
-        annotations = self.dataset.get_annotations()
         if not self.matching_dict or "all" not in self.matching_dict.keys():
-            self.matching_dict["all"] = self._match_detection_with_ground_truth(annotations,
+            self.matching_dict["all"] = self._match_detection_with_ground_truth(self.dataset.get_annotations(),
                                                                                 self.dataset.get_proposals(self._model_name),
                                                                                 self._iou_thresh_strong).copy()
         matching = self.matching_dict["all"].copy()
@@ -1643,12 +1770,13 @@ class AnalyzerLocalization(AnalyzerInterface):
         cat_id = self.dataset.get_category_id_from_name(category)
 
         for p_value in property_values:
-            anns_p = annotations.loc[annotations.index.get_level_values(property_name) == p_value]
+            anns_p = self.dataset.get_annotations_of_class_with_property(cat_id, property_name, p_value)
             anns_p_ids = anns_p["id"].tolist()
             match = matching.loc[(matching["label"] == 1) & (matching["confidence"] >= self._conf_thresh) &
                                  (matching["ann_id"].isin(anns_p_ids)) & (matching["category_det"] == cat_id)]
+
             fn_p_values[p_value] = len(anns_p.index) - len(match.index)
-            fn_ids[p_value] = {"gt": anns_p.loc[~anns_p["id"].isin(matching["ann_id"])]["id"].tolist() if not match.empty else [],
+            fn_ids[p_value] = {"gt": anns_p.loc[~anns_p["id"].isin(match["ann_id"])]["id"].tolist() if not match.empty else [],
                                "props": []}
 
         return fn_p_values, fn_ids

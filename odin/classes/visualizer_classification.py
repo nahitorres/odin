@@ -304,6 +304,11 @@ class VisualizerClassification(VisualizerInterface):
         plt.show()
 
     def visualize_annotations_for_ids(self, gt_ids, show_predictions=False):
+        self.__ids_to_show = None
+        self.__cam_visualization = False
+
+        self.__models_predictions = list(self.dataset.proposals.keys())
+
         if isinstance(gt_ids, int):
             gt_ids = [gt_ids]
         elif not isinstance(gt_ids, list):
@@ -635,18 +640,9 @@ class VisualizerClassification(VisualizerInterface):
         fp_ids_per_cat = self.analyzers[model].get_false_positive_errors_ids(categories)
         fp_ids = {"gt": [], "props": []}
         for cat in categories:
-            if error_type == ErrorType.BACKGROUND:
-                if "background" in fp_ids_per_cat[cat]:
-                    fp_ids["gt"].extend(fp_ids_per_cat[cat]["background"]["gt"])
-                    fp_ids["props"].extend(fp_ids_per_cat[cat]["background"]["props"])
-            elif error_type == ErrorType.SIMILAR_CLASSES:
-                fp_ids["gt"].extend(fp_ids_per_cat[cat]["similar"]["gt"])
-                fp_ids["props"].extend(fp_ids_per_cat[cat]["similar"]["props"])
-            elif error_type == ErrorType.OTHER:
-                fp_ids["gt"].extend(fp_ids_per_cat[cat]["other"]["gt"])
-                fp_ids["props"].extend(fp_ids_per_cat[cat]["other"]["props"])
-            else:
-                get_root_logger().error("Invalid Error Type.")
+            if error_type.value in fp_ids_per_cat[cat]:
+                fp_ids["gt"].extend(fp_ids_per_cat[cat][error_type.value]["gt"])
+                fp_ids["props"].extend(fp_ids_per_cat[cat][error_type.value]["props"])
         observations = self.dataset.get_observations_from_ids(fp_ids["gt"])
         categories_ids = self.dataset.get_categories_id_from_names(categories)
         self.__ids_to_show = fp_ids
