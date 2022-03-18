@@ -1,6 +1,5 @@
 import os
 
-
 import cv2
 import imageio
 import numpy as np
@@ -19,7 +18,6 @@ from odin.classes import strings as labels_str, TaskType, AnalyzerClassification
 
 
 class VisualizerClassification(VisualizerInterface):
-
     __cam_visualization = False
     __heatmap = True
     __cam_threshold = 0.5
@@ -53,7 +51,8 @@ class VisualizerClassification(VisualizerInterface):
                 if isinstance(dataset, DatasetClassification) and not isinstance(analyzer, AnalyzerClassification):
                     raise TypeError("Invalid analyzers instances. Please, provide 'AnalyzerClassification' type")
                 if not isinstance(analyzer, AnalyzerClassification) and not isinstance(analyzer, AnalyzerCAMs):
-                    raise TypeError("Invalid analyzers instances. Please, provide 'AnalyzerClassification' or 'AnalyzerCAMs' type")
+                    raise TypeError(
+                        "Invalid analyzers instances. Please, provide 'AnalyzerClassification' or 'AnalyzerCAMs' type")
 
                 analyzers_dict[analyzer._model_name] = analyzer
 
@@ -69,7 +68,7 @@ class VisualizerClassification(VisualizerInterface):
         self.__gt_preds_labels = HBox()
 
         self.__iterator = None
-        
+
         if custom_display_function is not None:
             self.__display_function = custom_display_function
         elif not is_image:
@@ -77,10 +76,11 @@ class VisualizerClassification(VisualizerInterface):
 
     def __create_cams_widgets(self):
         heatmap_chkbox = Checkbox(value=self.__heatmap, description="HeatMap")
-        threshold_slider = FloatSlider(value=self.__cam_threshold, min=0, max=1.0, step=0.05, description='CAM threshold', disabled=False,
-                                       continuous_update=False, orientation='horizontal', readout=True, readout_format='.2f')
+        threshold_slider = FloatSlider(value=self.__cam_threshold, min=0, max=1.0, step=0.05,
+                                       description='CAM threshold', disabled=False,
+                                       continuous_update=False, orientation='horizontal', readout=True,
+                                       readout_format='.2f')
         predictions_chkbox = Checkbox(value=self.__show_predictions, description="Show predictions")
-
 
         heatmap_chkbox.observe(self.cams_widget_changed, names=['value'])
         threshold_slider.observe(self.cams_widget_changed, names=['value'])
@@ -117,7 +117,8 @@ class VisualizerClassification(VisualizerInterface):
             Image path
         """
 
-        categories = image["categories"] if self.dataset.task_type == TaskType.CLASSIFICATION_MULTI_LABEL else [image["category"]]
+        categories = image["categories"] if self.dataset.task_type == TaskType.CLASSIFICATION_MULTI_LABEL else [
+            image["category"]]
 
         orig_img = np.asarray(imageio.imread(path))
         annotations = self.dataset.masks_annotations.copy()
@@ -133,9 +134,9 @@ class VisualizerClassification(VisualizerInterface):
 
         y_size = 2
         x_size = int(len(cams.index) / 2) if len(cams.index) % 2 == 0 else int(len(cams.index) / 2) + 1
-        fig = plt.figure(figsize=(20, (x_size+1)*6))
+        fig = plt.figure(figsize=(20, (x_size + 1) * 6))
 
-        fig.add_subplot(x_size+1, y_size, 1)
+        fig.add_subplot(x_size + 1, y_size, 1)
         plt.imshow(orig_img)
         plt.title(f"{image['file_name']}")
         plt.axis('off')
@@ -150,7 +151,7 @@ class VisualizerClassification(VisualizerInterface):
             elif cam["category_id"] not in self.__cams_categories:
                 continue
 
-            fig.add_subplot(x_size+1, y_size, counter)
+            fig.add_subplot(x_size + 1, y_size, counter)
             plt.imshow(orig_img)
             if self.__heatmap:
                 if self.__cam_threshold > 0:
@@ -164,16 +165,14 @@ class VisualizerClassification(VisualizerInterface):
                     plt.imshow(cam["cam"] > 0, cmap='gray', alpha=0.5, vmin=0, vmax=1)
 
             if self.dataset.ann_type == AnnotationType.BBOX:
-                bboxes = \
-                annotations.loc[(annotations["image_id"] == image["id"])]["bbox"].tolist()
+                bboxes = annotations.loc[(annotations["image_id"] == image["id"])]["bbox"].tolist()
                 for bbox in bboxes:
                     bbox_x, bbox_y, bbox_w, bbox_h = bbox
                     np_poly = [[bbox_x, bbox_y], [bbox_x, bbox_y + bbox_h], [bbox_x + bbox_w, bbox_y + bbox_h],
                                [bbox_x + bbox_w, bbox_y]]
                     plt.gca().add_patch(Polygon(np_poly, linestyle='-', facecolor='none', edgecolor='red', linewidth=2))
             else:
-                seg_points = \
-                annotations.loc[annotations["image_id"] == image["id"]]["segmentation"].tolist()
+                seg_points = annotations.loc[annotations["image_id"] == image["id"]]["segmentation"].tolist()
                 for pol in seg_points:
                     poly = [[float(pol[i]), float(pol[i + 1])] for i in range(0, len(pol), 2)]
                     np_poly = np.array(poly)

@@ -175,7 +175,7 @@ class ComparatorClassification(ComparatorInterface):
                                        "analyzer": tmp_analyzer}
         self._allow_analyses = True
 
-    def show_true_negative_distribution(self, categories=None, show=True):
+    def show_true_negative_distribution(self, categories=None, models=None, show=True):
         """
         It compares the true negatives of the models.
 
@@ -183,6 +183,8 @@ class ComparatorClassification(ComparatorInterface):
         ----------
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -203,13 +205,27 @@ class ComparatorClassification(ComparatorInterface):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
-        for model in self.models:
-            results[model] = self.models[model]["analyzer"].show_true_negative_distribution(categories, show=False)
+        if len(models) == 1:
+            results[models[0]] = self.models[models[0]]["analyzer"].show_true_negative_distribution(categories, show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                results[model] = self.models[model]["analyzer"].show_true_negative_distribution(categories, show=False)
 
         if not show:
             return results
@@ -218,7 +234,7 @@ class ComparatorClassification(ComparatorInterface):
         plot_models_comparison_on_tp_fp_fn_tn(results, labels, "True Negative comparison", "Categories", self.save_graph_as_png,
                                               self.result_saving_path)
 
-    def show_true_negative_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, show=True):
+    def show_true_negative_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, models=None, show=True):
         """
         It compares the true negative distribution of the property values for each category of the models.
 
@@ -230,6 +246,8 @@ class ComparatorClassification(ComparatorInterface):
             Values of the property to be included in the analysis. If not specified, all the values are included. (default is None)
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -264,18 +282,35 @@ class ComparatorClassification(ComparatorInterface):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
         tmp_results = {}
-        for model in self.models:
-            tmp_results[model] = self.models[model]["analyzer"].show_true_negative_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
+        if len(models) == 1:
+            tmp_results[models[0]] = self.models[models[0]][
+                "analyzer"].show_true_negative_distribution_for_categories_for_property(property_name, property_values,
+                                                                                        categories=categories,
+                                                                                        show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                tmp_results[model] = self.models[model]["analyzer"].show_true_negative_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
 
         for c in categories:
             results[c] = {}
-            for model in self.models:
+            for model in models:
                 results[c][model] = tmp_results[model][c]
 
         if not show:
@@ -289,7 +324,7 @@ class ComparatorClassification(ComparatorInterface):
             plot_models_comparison_on_tp_fp_fn_tn(results[c], labels, f"True Negative comparison of {p_label} for {c_label}", "Property values", self.save_graph_as_png,
                                                   self.result_saving_path)
 
-    def show_false_positive_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, show=True):
+    def show_false_positive_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, models=None, show=True):
         """
         It compares the false positive distribution of the property values for each category of the models.
 
@@ -301,6 +336,8 @@ class ComparatorClassification(ComparatorInterface):
             Values of the property to be included in the analysis. If not specified, all the values are included. (default is None)
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -335,18 +372,35 @@ class ComparatorClassification(ComparatorInterface):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
         tmp_results = {}
-        for model in self.models:
-            tmp_results[model] = self.models[model]["analyzer"].show_false_positive_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
+        if len(models) == 1:
+            tmp_results[models[0]] = self.models[models[0]][
+                "analyzer"].show_false_positive_distribution_for_categories_for_property(property_name, property_values,
+                                                                                         categories=categories,
+                                                                                         show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                tmp_results[model] = self.models[model]["analyzer"].show_false_positive_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
 
         for c in categories:
             results[c] = {}
-            for model in self.models:
+            for model in models:
                 results[c][model] = tmp_results[model][c]
 
         if not show:

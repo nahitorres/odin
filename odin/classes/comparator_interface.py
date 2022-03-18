@@ -1,5 +1,6 @@
 import abc
 import os
+
 import numpy as np
 import pandas as pd
 
@@ -80,7 +81,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         """
         self._default_dataset.load_properties_display_names()
 
-    def analyze_property(self, property_name, possible_values=None, categories=None, metric=None, show=True):
+    def analyze_property(self, property_name, possible_values=None, categories=None, metric=None, models=None, show=True):
         """
         It compares the performances of the models for each category considering subsets pf the data set which have a specific property value.
 
@@ -94,6 +95,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             List of the categories to be included in the analysis. If not specified, all the categories are included. (default is None)
         metric: Metrics, optional
             Evaluation metric used for the analysis. If not specified, the default one is used. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -144,15 +147,30 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             logger.error(err_value.format("metric", self._valid_metrics))
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         all_performance = {}
-        for model in self.models:
-            all_performance[model] = self.models[model]["analyzer"].analyze_property(property_name, possible_values,
-                                                                                     categories, False, metric)
 
+        if len(models) == 1:
+            all_performance[models[0]] = self.models[models[0]]["analyzer"].analyze_property(property_name, possible_values,
+                                                                                         categories, show, metric)
+            if show:
+                return
+        else:
+            for model in models:
+                all_performance[model] = self.models[model]["analyzer"].analyze_property(property_name, possible_values,
+                                                                                             categories, False, metric)
         if not show:
             return all_performance
 
@@ -160,15 +178,15 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             results = {}
             for p_value in possible_values:
                 results[p_value] = {}
-                for model in self.models:
+                for model in models:
                     results[p_value][model] = all_performance[model][cat][property_name][p_value]
             label_cat = self._default_dataset.get_display_name_of_category(cat)
             label_p_name = self._default_dataset.get_display_name_of_property(property_name)
             labels_p_values = [self._default_dataset.get_display_name_of_property_value(property_name, p_value) for p_value in results]
-            plot_models_comparison_on_property(results, self.models, label_cat, label_p_name, labels_p_values, metric, self.save_graph_as_png,
+            plot_models_comparison_on_property(results, models, label_cat, label_p_name, labels_p_values, metric, self.save_graph_as_png,
                                                self.result_saving_path)
 
-    def analyze_sensitivity_impact_of_properties(self, properties=None, metric=None, show=True):
+    def analyze_sensitivity_impact_of_properties(self, properties=None, metric=None, models=None, show=True):
         """
         It compares the sensitivity and impact of the models on the different properties.
 
@@ -178,6 +196,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             List of properties to be included in the analysis. If not specified, all the properties are included. (default is None)
         metric: Metrics, optional
             Evaluation metric used for the analysis. If not specified, the default one is used. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -206,24 +226,38 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             logger.error(err_value.format("metric", self._valid_metrics))
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         all_performance = {}
 
-        for model in self.models:
-            all_performance[model] = self.models[model]["analyzer"].analyze_sensitivity_impact_of_properties(properties, metric, show=False)
+        if len(models) == 1:
+            all_performance[models[0]] = self.models[models[0]]["analyzer"].analyze_sensitivity_impact_of_properties(properties, metric, show)
+            if show:
+                return
+        else:
+            for model in models:
+                all_performance[model] = self.models[model]["analyzer"].analyze_sensitivity_impact_of_properties(properties, metric, show=False)
 
         if not show:
             return all_performance
 
         display_names = [self._default_dataset.get_display_name_of_property(pkey) for pkey in properties]
 
-        plot_models_comparison_on_sensitivity_impact(all_performance, self.models, properties, display_names, metric,
+        plot_models_comparison_on_sensitivity_impact(all_performance, models, properties, display_names, metric,
                                                      self.result_saving_path, self.save_graph_as_png)
 
-    def analyze_curve(self, curve=Curves.PRECISION_RECALL_CURVE, average="macro", show=True):
+    def analyze_curve(self, curve=Curves.PRECISION_RECALL_CURVE, average="macro", models=None, show=True):
         """
         It compares the overall models performances by plotting the desired curve.
 
@@ -233,6 +267,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             Evaluation curve used for the analysis. (default is Curves.PRECISION_RECALL_CURVE)
         average: str, optional
             Indicates the averaging method. It can be 'macro' or 'micro'. (default is 'macro')
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -254,6 +290,15 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             logger.error(err_value.format("average", "[macro, micro]"))
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
@@ -261,16 +306,21 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         all_performance = {}
         display_names = {}
 
-        for model in self.models:
-            all_performance[model] = self.models[model]["analyzer"].analyze_curve(curve=curve, average=average, show=False)["overall"]
-            display_names[model] = {"display_name": model}
+        if len(models) == 1:
+            all_performance[models[0]] = self.models[models[0]]["analyzer"].analyze_curve(curve=curve, average=average, show=show)["overall"]
+            if show:
+                return
+        else:
+            for model in models:
+                all_performance[model] = self.models[model]["analyzer"].analyze_curve(curve=curve, average=average, show=False)["overall"]
+                display_names[model] = {"display_name": model}
 
         if not show:
             return all_performance
 
         plot_multiple_curves(all_performance, curve, display_names, self.save_graph_as_png, self.result_saving_path, legend_title="Models")
 
-    def analyze_curve_for_categories(self, categories=None, curve=Curves.PRECISION_RECALL_CURVE, show=True):
+    def analyze_curve_for_categories(self, categories=None, curve=Curves.PRECISION_RECALL_CURVE, models=None, show=True):
         """
         It compares the models performances for each category by plotting the desired curve.
 
@@ -280,6 +330,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
         curve: Curves, optional
             Evaluation curve used for the analysis. (default is Curves.PRECISION_RECALL_CURVE)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -305,17 +357,30 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             logger.error(err_value.format("curve", self._valid_curves))
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
-        for model in self.models:
-            results = self.models[model]["analyzer"].analyze_curve_for_categories(categories=categories, curve=curve, show=False)
+        for model in models:
+            results = self.models[model]["analyzer"].analyze_curve_for_categories(categories=categories, curve=curve,
+                                                                                  show=(show and len(models) == 1))
             for c in categories:
                 c_display_name = self._default_dataset.get_display_name_of_category(c)
                 name = model + "-" + c_display_name
                 all_performance[name] = results[c]
                 display_names[name] = {"display_name": name}
+
+        if show and len(models) == 1:
+            return
 
         if not show:
             return all_performance
@@ -323,7 +388,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         plot_multiple_curves(all_performance, curve, display_names, self.save_graph_as_png, self.result_saving_path,
                              legend_title="Models")
 
-    def analyze_false_positive_errors(self, categories=None, metric=None, show=True):
+    def analyze_false_positive_errors(self, categories=None, metric=None, models=None, show=True):
         """
         It compares the false positives by identifying the type of the errors of the models and shows the gain that each model could achieve by removing all the false positives of each type.
 
@@ -333,6 +398,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
         metric: Metrics, optional
             Evaluation metric used for the analysis. If not specified, the default one is used. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -360,17 +427,27 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             logger.error(err_value.format("metric", self._valid_metrics))
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         all_performance = {}
+
         for cat in categories:
             results = {}
             errors = None
-            for model in self.models:
+            for model in models:
                 impact_counts = []
-                error_values, err, category_metric_value = self.models[model]["analyzer"].analyze_false_positive_errors_for_category(cat, metric=metric, show=False)
+                error_values, err, category_metric_value = self.models[model]["analyzer"].analyze_false_positive_errors_for_category(cat, metric=metric, show=(show and len(models)==1))
                 for value, count in error_values:
                     impact = value - category_metric_value
                     impact_counts.append([impact, count])
@@ -378,14 +455,14 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
                 if errors is None:
                     errors = err
             all_performance[cat] = results
-            if show:
+            if show and len(models) > 1:
                 cat_label = self._default_dataset.get_display_name_of_category(cat)
                 plot_models_comparison_on_error_impact(results, errors, cat_label, metric, self.save_graph_as_png,
                                                        self.result_saving_path)
         if not show:
             return all_performance
 
-    def analyze_false_negative_errors(self, categories=None, show=True):
+    def analyze_false_negative_errors(self, categories=None, models=None, show=True):
         """
         It compares the false negatives by identifying the type of the errors of the models.
 
@@ -393,6 +470,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         ----------
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -409,18 +488,33 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
         tmp_results = {}
-        for model in self.models:
-            tmp_results[model] = self.models[model]["analyzer"].analyze_false_negative_errors(categories=categories, show=False)
+        if len(models) == 1:
+            tmp_results[models[0]] = self.models[models[0]]["analyzer"].analyze_false_negative_errors(categories=categories,
+                                                                                              show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                tmp_results[model] = self.models[model]["analyzer"].analyze_false_negative_errors(categories=categories, show=False)
 
         for c in categories:
             results[c] = {}
-            for model in self.models:
+            for model in models:
                 results[c][model] = tmp_results[model][c]
 
         if not show:
@@ -434,7 +528,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             plot_models_comparison_on_tp_fp_fn_tn(results[c], labels, f"False Negative categorization - {c_label}", "Errors", self.save_graph_as_png,
                                                   self.result_saving_path)
 
-    def show_true_positive_distribution(self, categories=None, show=True):
+    def show_true_positive_distribution(self, categories=None, models=None, show=True):
         """
         It compares the true positives of the models.
 
@@ -442,6 +536,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         ----------
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -461,13 +557,27 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
-        for model in self.models:
-            results[model] = self.models[model]["analyzer"].show_true_positive_distribution(categories, show=False)
+        if len(models) == 1:
+            results[models[0]] = self.models[models[0]]["analyzer"].show_true_positive_distribution(categories, show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                results[model] = self.models[model]["analyzer"].show_true_positive_distribution(categories, show=False)
 
         if not show:
             return results
@@ -476,7 +586,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         plot_models_comparison_on_tp_fp_fn_tn(results, labels, "True Positive comparison", "Categories", self.save_graph_as_png,
                                               self.result_saving_path)
 
-    def show_false_positive_distribution(self, categories=None, show=True):
+    def show_false_positive_distribution(self, categories=None, models=None, show=True):
         """
         It compares the false positives of the models.
 
@@ -484,6 +594,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         ----------
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -504,13 +616,27 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
-        for model in self.models:
-            results[model] = self.models[model]["analyzer"].show_false_positive_distribution(categories, show=False)
+        if len(models) == 1:
+            results[models[0]] = self.models[models[0]]["analyzer"].show_false_positive_distribution(categories, show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                results[model] = self.models[model]["analyzer"].show_false_positive_distribution(categories, show=False)
 
         if not show:
             return results
@@ -519,7 +645,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         plot_models_comparison_on_tp_fp_fn_tn(results, labels, "False Positive comparison", "Categories", self.save_graph_as_png,
                                               self.result_saving_path)
 
-    def show_false_negative_distribution(self, categories=None, show=True):
+    def show_false_negative_distribution(self, categories=None, models=None, show=True):
         """
         It compares the false negatives of the models.
 
@@ -527,6 +653,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         ----------
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -547,13 +675,27 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
-        for model in self.models:
-            results[model] = self.models[model]["analyzer"].show_false_negative_distribution(categories, show=False)
+        if len(models) == 1:
+            results[models[0]] = self.models[models[0]]["analyzer"].show_false_negative_distribution(categories, show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                results[model] = self.models[model]["analyzer"].show_false_negative_distribution(categories, show=False)
         labels = [self._default_dataset.get_display_name_of_category(cat) for cat in categories]
 
         if not show:
@@ -563,7 +705,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
                                               self.result_saving_path)
 
     def base_report(self, metrics=None, categories=None, properties=None, show_categories=True,
-                    show_properties=True, include_reliability=True):
+                    show_properties=True, models=None, include_reliability=True):
         """
         It summarizes the models performances at all levels of granularity.
 
@@ -579,6 +721,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             List of properties to be included in the analysis. If not specified, all the properties are included. (default is None)
         show_properties: bool, optional
             Indicates whether the properties should be included in the report. (default is True)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         include_reliability: bool, optional
             Indicates whether the 'ece' and 'mce' should be included in the report. (default is True)
         Returns
@@ -614,47 +758,60 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             logger.error(err_type.format("show_properties"))
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(include_reliability, bool):
             logger.error(err_type.format("include_reliability"))
             return -1
 
         results = []
-        for model in self.models:
-            results.append(self.models[model]["analyzer"].base_report(metrics, categories, properties, show_categories,
-                                                                      show_properties, include_reliability))
-
-        if isinstance(results[0], int):
-            return -1
-
-        metrics_names = list(results[0].columns)
-
-        for index, model in enumerate(self.models):
-            new_names = []
-            for name in results[index].columns:
-                name += "_" + str(model)
-                new_names.append(name)
-            results[index].columns = new_names
-
         df = None
-        for index in range(0, len(results) - 1):
-            if df is None:
-                df = pd.merge(results[index], results[index + 1], on=["type", "label"])
-            else:
-                df = pd.merge(df, results[index + 1], on=["type", "label"])
+        if len(models) == 1:
+            df = self.models[models[0]]["analyzer"].base_report(metrics, categories, properties, show_categories,
+                                                                          show_properties, include_reliability)
+        else:
+            for model in models:
+                results.append(self.models[model]["analyzer"].base_report(metrics, categories, properties, show_categories,
+                                                                          show_properties, include_reliability))
 
-        tuples, order = [], []
-        second_level_names = np.tile(list(self.models.keys()), len(metrics_names))
-        for m_name in metrics_names:
-            for model in self.models:
-                name = str(m_name) + "_" + str(model)
-                tuples.append((m_name, name))
-                order.append(name)
-        df = df[order]
-        df.columns = pd.MultiIndex.from_tuples(tuples)
-        df.columns.set_levels(second_level_names, level=1, inplace=True, verify_integrity=False)
+            if isinstance(results[0], int):
+                return -1
+
+            metrics_names = list(results[0].columns)
+
+            for index, model in enumerate(models):
+                new_names = []
+                for name in results[index].columns:
+                    name += "_" + str(model)
+                    new_names.append(name)
+                results[index].columns = new_names
+
+            for index in range(0, len(results) - 1):
+                if df is None:
+                    df = pd.merge(results[index], results[index + 1], on=["type", "label"])
+                else:
+                    df = pd.merge(df, results[index + 1], on=["type", "label"])
+
+            tuples, order = [], []
+            second_level_names = np.tile(models, len(metrics_names))
+            for m_name in metrics_names:
+                for model in models:
+                    name = str(m_name) + "_" + str(model)
+                    tuples.append((m_name, name))
+                    order.append(name)
+            df = df[order]
+            df.columns = pd.MultiIndex.from_tuples(tuples)
+            df.columns.set_levels(second_level_names, level=1, inplace=True, verify_integrity=False)
         return df
 
-    def show_true_positive_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, show=True):
+    def show_true_positive_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, models=None, show=True):
         """
         It compares the true positive distribution of the property values for each category of the models.
 
@@ -666,6 +823,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             Values of the property to be included in the analysis. If not specified, all the values are included. (default is None)
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -700,18 +859,35 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
         tmp_results = {}
-        for model in self.models:
-            tmp_results[model] = self.models[model]["analyzer"].show_true_positive_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
+        if len(models) == 1:
+            tmp_results[models[0]] = self.models[models[0]][
+                "analyzer"].show_true_positive_distribution_for_categories_for_property(property_name, property_values,
+                                                                                        categories=categories,
+                                                                                        show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                tmp_results[model] = self.models[model]["analyzer"].show_true_positive_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
 
         for c in categories:
             results[c] = {}
-            for model in self.models:
+            for model in models:
                 results[c][model] = tmp_results[model][c]
 
         if not show:
@@ -725,7 +901,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             plot_models_comparison_on_tp_fp_fn_tn(results[c], labels, f"True Positive comparison of {p_label} for {c_label}", "Property values", self.save_graph_as_png,
                                                   self.result_saving_path)
 
-    def show_false_negative_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, show=True):
+    def show_false_negative_distribution_for_categories_for_property(self, property_name, property_values=None, categories=None, models=None, show=True):
         """
         It compares the false negative distribution of the property values for each category of the models.
 
@@ -737,6 +913,8 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
             Values of the property to be included in the analysis. If not specified, all the values are included. (default is None)
         categories: list, optional
             List of categories to be included in the analysis. If not specified, all the categories are included. (default is None)
+        models: list, optional
+            List of models on which to perform the analysis. If not specified, all models are included. (default is None)
         show: bool, optional
             Indicates whether the plot should be shown or not. If False, returns the results as dict. (default is True)
         """
@@ -771,18 +949,35 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
         elif not self._default_dataset.are_valid_categories(categories):
             return -1
 
+        if models is None:
+            models = self.models.keys()
+        elif not isinstance(models, list):
+            logger.error(err_type.format("models"))
+            return -1
+        elif any(m not in self.models for m in models):
+            logger.error(err_value.format("models", list(self.models.keys())))
+            return -1
+
         if not isinstance(show, bool):
             logger.error(err_type.format("show"))
             return -1
 
         results = {}
         tmp_results = {}
-        for model in self.models:
-            tmp_results[model] = self.models[model]["analyzer"].show_false_negative_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
+        if len(models) == 1:
+            tmp_results[models[0]] = self.models[models[0]][
+                "analyzer"].show_false_negative_distribution_for_categories_for_property(property_name, property_values,
+                                                                                         categories=categories,
+                                                                                         show=show)
+            if show:
+                return
+        else:
+            for model in models:
+                tmp_results[model] = self.models[model]["analyzer"].show_false_negative_distribution_for_categories_for_property(property_name, property_values, categories=categories, show=False)
 
         for c in categories:
             results[c] = {}
-            for model in self.models:
+            for model in models:
                 results[c][model] = tmp_results[model][c]
 
         if not show:

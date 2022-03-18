@@ -759,7 +759,12 @@ class DatasetClassification(DatasetInterface):
                 file = open(self.dataset_root_param, "r")
                 data = json.load(file)
                 file.close()
-                self.observations = pd.DataFrame(data['observations'])
+                if 'observations' in data:
+                    self.observations = pd.DataFrame(data['observations'])
+                elif 'images' in data:
+                    self.observations = pd.DataFrame(data['images'])
+                else:
+                    raise Exception
                 self.categories = pd.DataFrame(data["categories"])
 
                 self._is_valid_dataset_format()

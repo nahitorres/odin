@@ -790,9 +790,13 @@ class DatasetLocalization(DatasetInterface):
         anns = self.annotations.to_dict("records")
         for index, annotation in enumerate(anns):
             if self.task_type == TaskType.INSTANCE_SEGMENTATION:
-                img = self.get_image_from_id(annotation["image_id"])
-                encoded_mask = encode_segmentation(annotation["segmentation"][0], img["height"],
-                                                   img["width"])
+                if len(annotation["segmentation"][0]) == 0:
+                    h, w = 2, 2
+                else:
+                    np_seg = np.array(annotation["segmentation"][0]).reshape(-1, 2)
+                    h = round(max(np_seg[:, 1])) + 2
+                    w = round(max(np_seg[:, 0])) + 2
+                encoded_mask = encode_segmentation(annotation["segmentation"][0], h, w)
                 area = mask.area(encoded_mask)
             else:
                 _, _, w, h = annotation['bbox']
@@ -925,9 +929,14 @@ class DatasetLocalization(DatasetInterface):
 
     def _calculate_annotation_area(self, annotation):
         if self.task_type == TaskType.INSTANCE_SEGMENTATION:
-            img = self.get_image_from_id(annotation["image_id"])
-            encoded_mask = encode_segmentation(annotation["segmentation"][0], img["height"],
-                                               img["width"])
+            if len(annotation["segmentation"][0]) == 0:
+                h, w = 2, 2
+            else:
+                np_seg = np.array(annotation["segmentation"][0]).reshape(-1, 2)
+                h = round(max(np_seg[:, 1])) + 2
+                w = round(max(np_seg[:, 0])) + 2
+            encoded_mask = encode_segmentation(annotation["segmentation"][0], h, w)
+
             return mask.area(encoded_mask)
         if self.task_type == TaskType.OBJECT_DETECTION:
             _, _, w, h = annotation['bbox']
@@ -1119,14 +1128,16 @@ class DatasetLocalization(DatasetInterface):
 
                                 if not self.match_on_filename:
                                     match_param = int(match_param)
-                                    img_id = match_param
-                                else:
-                                    img_id = self.get_image_id_from_image_name(match_param)
                                 segmentation = [float(v) for v in arr[2:]]
 
                                 aspect_ratio_label = self.get_aspect_ratio_label(compute_aspect_ratio_of_segmentation(segmentation))
-                                img = self.get_image_from_id(img_id)
-                                encoded_mask = encode_segmentation(segmentation, img["height"], img["width"])
+                                if len(segmentation) == 0:
+                                    h, w = 2, 2
+                                else:
+                                    np_seg = np.array(segmentation).reshape(-1, 2)
+                                    h = round(max(np_seg[:, 1])) + 2
+                                    w = round(max(np_seg[:, 0])) + 2
+                                encoded_mask = encode_segmentation(segmentation, h, w)
                                 area = mask.area(encoded_mask)
                                 area_size_label = self.get_area_size_label(area)
 

@@ -1188,24 +1188,19 @@ class AnalyzerLocalization(AnalyzerInterface):
         iou: float
         """
         if self.dataset.task_type == TaskType.INSTANCE_SEGMENTATION:
-            if "height" in ann.keys() and "width" in ann.keys():
-                if self._use_boundary_iou:
-                    iou = intersection_over_union(mask_to_boundary(ann['segmentation'][0], h=ann["height"],
-                                                                   w=ann["width"], dilation_ratio=0.02),
-                                                  mask_to_boundary(det['segmentation'], h=ann["height"],
-                                                                   w=ann["width"], dilation_ratio=0.02))
-                else:
-                    iou = sg_intersection_over_union(ann['segmentation'][0], det['segmentation'], ann["height"],
-                                                     ann["width"])
+            np_ann = np.array(ann['segmentation'][0]).reshape(-1, 2)
+            np_det = np.array(det['segmentation']).reshape(-1, 2)
+            h = max(round(max(np_ann[:, 1])), round(max(np_det[:, 1]))) + 2
+            w = max(round(max(np_ann[:, 0])), round(max(np_det[:, 0]))) + 2
+
+            if self._use_boundary_iou:
+                iou = intersection_over_union(mask_to_boundary(ann['segmentation'][0], h=h,
+                                                               w=w, dilation_ratio=0.02),
+                                              mask_to_boundary(det['segmentation'], h=h,
+                                                               w=w, dilation_ratio=0.02))
             else:
-                h, w = self.dataset.get_height_width_from_image(ann["image_id"])
-                if self._use_boundary_iou:
-                    iou = intersection_over_union(mask_to_boundary(ann['segmentation'][0], h=h,
-                                                                   w=w, dilation_ratio=0.02),
-                                                  mask_to_boundary(det['segmentation'], h=h,
-                                                                   w=w, dilation_ratio=0.02))
-                else:
-                    iou = sg_intersection_over_union(ann['segmentation'][0], det['segmentation'], h, w)
+                iou = sg_intersection_over_union(ann['segmentation'][0], det['segmentation'], h, w)
+
         else:
             bbox = ann['bbox'][0], ann['bbox'][1], ann['bbox'][0] + ann['bbox'][2], ann['bbox'][1] + \
                    ann['bbox'][3]

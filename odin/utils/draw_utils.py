@@ -296,7 +296,7 @@ def plot_models_comparison_on_sensitivity_impact(results, models, property_names
 
         xtickslab_pos.extend(np.arange(start_pos, start_pos + n_models))
 
-    xticklab = np.tile(list(models.keys()), n_properties)
+    xticklab = np.tile(list(models), n_properties)
     plt.xticks(xtickslab_pos, xticklab, ha="left", fontsize=fs, rotation=-45)
 
     axis_y_val = plt.gca().get_ylim()
@@ -798,7 +798,7 @@ def plot_models_comparison_on_property(results, models, category, property_name,
             title = f"Comparison on {property_name} property - {category}"
         else:
             title = f"Comparison on {property_name} property - {category}" + split_title
-        models_names = np.tile(list(models.keys()), nobj)
+        models_names = np.tile(list(models), nobj)
         plt.xticks(xticks, models_names, ha="left")
 
         for index, key in enumerate(results):
