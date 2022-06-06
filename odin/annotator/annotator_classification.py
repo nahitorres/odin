@@ -263,7 +263,7 @@ class AnnotatorClassification(AnnotatorInterface):
                 self.objects = [obs['path'] for obs in dataset['observations']]
 
         for index, img in enumerate(dataset['observations']):
-            if "path" not in img:
+            if "path" not in img and self.is_image:
                 key = os.path.join(self.dataset_orig.images_abs_path, img['file_name'])
                 mapping['observations'][key] = index
             else:

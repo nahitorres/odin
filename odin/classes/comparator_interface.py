@@ -800,7 +800,7 @@ class ComparatorInterface(metaclass=abc.ABCMeta):
                     df = pd.merge(df, results[index + 1], on=["type", "label"])
 
             tuples, order = [], []
-            second_level_names = np.tile(models, len(metrics_names))
+            second_level_names = np.tile(list(models), len(metrics_names))
             for m_name in metrics_names:
                 for model in models:
                     name = str(m_name) + "_" + str(model)

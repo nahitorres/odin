@@ -267,14 +267,13 @@ class VisualizerTSPredictiveMaintenance(VisualizerTimeSeriesInterface):
         else:
             self.__update_features_plot(self._ax)
 
+        plt.close('all')
         if len(self._ax) > 0:
             with self.__out:
                 clear_output(wait=True)
                 display(self._figure)
 
     def show(self):
-        # self._reset_plot()
         display(self.all_widgets)
-        # self._update_plot()
 
 

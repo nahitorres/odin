@@ -2,6 +2,7 @@ import cv2
 import ipywidgets as widgets
 from ipyleaflet import Map, LocalTileLayer, ImageOverlay, projections
 from ipyleaflet import WidgetControl
+from odin.utils.env import get_leaflet_url
 
 
 config = {"center":(50, 50),
@@ -40,8 +41,8 @@ def get_image_overlay(img_path):
     # We need to create an ImageOverlay for each image to show,
     # and set the appropriate bounds based  on the image size
     
-    im = cv2.imread(img_path)
-    h, w, _ = im.shape
+    im = Image.open(img_path)
+    w, h = im.size
 
     max_v = 100
 
@@ -57,7 +58,7 @@ def get_image_overlay(img_path):
         hh = int(h * ww / w)
         offset_h = (max_v - hh) / 2
 
-    img_ov = ImageOverlay(url=img_path, bounds=((offset_h, offset_w), (hh + offset_h, ww+offset_w)))
+    img_ov = ImageOverlay(url=get_leaflet_url(im), bounds=((offset_h, offset_w), (hh + offset_h, ww+offset_w)))
     return img_ov, h, w, hh, ww, offset_h, offset_w
 
 

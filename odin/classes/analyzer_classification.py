@@ -441,9 +441,13 @@ class AnalyzerClassification(AnalyzerInterface):
                 proposals = proposals.groupby(self.dataset.match_param_props)["category_id"].apply(list).reset_index(name="cat_props")
                 matching = pd.merge(observations, proposals, how="left", left_on=self.dataset.match_param_gt,
                                     right_on=self.dataset.match_param_props).replace(np.nan, 0)
-                matching["fn_categorization"] = np.where(matching.apply(lambda x: self.__is_false_negative_ml_similar_classes(x["categories"], x["cat_props"]),
-                                                                        axis=1),
-                                                         1, 2)
+                if matching.empty:
+                    matching["fn_categorization"] = ""
+                else:
+                    matching["fn_categorization"] = np.where(matching.apply(lambda x: self.__is_false_negative_ml_similar_classes(x["categories"], x["cat_props"]),
+                                                                            axis=1),
+                                                            1, 2)
+                                                        
 
             else:  # SINGLE_LABEL
                 proposals = proposals.sort_values(by="confidence", ascending=False).groupby(self.dataset.match_param_props).first().reset_index()

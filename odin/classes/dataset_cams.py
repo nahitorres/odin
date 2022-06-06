@@ -74,7 +74,7 @@ class DatasetCAMs(DatasetClassification):
         """
         if cams_paths is not None:
             if isinstance(cams_paths, str):
-                cams_paths = [("default_model", cams_paths)]
+                cams_paths = [("model", cams_paths)]
             elif (not isinstance(cams_paths, list) or
                   not all(isinstance(c, tuple) for c in cams_paths) or
                   not all(isinstance(n, str) and isinstance(p, str) for n, p in cams_paths)):
@@ -250,7 +250,7 @@ class DatasetCAMs(DatasetClassification):
                 self.load_cams()
 
         if self.proposals_paths is not None:
-            if force_loading or self.proposals is None:
+            if force_loading or not self.proposals:
                 self.load_proposals()
 
         if not load_properties:

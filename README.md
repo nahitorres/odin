@@ -356,10 +356,26 @@ When an Analyzer class is instantiated (using the classes of the examples), a js
 The folder "examples" contains notebooks that go through the main functionalities (Analyzer, Annotator, Visualizer), using the dataset ARTDL (http://www.artdl.org/). Some examples are provided using RacePlanes(https://www.cosmiqworks.org/RarePlanes/) or SpamSMS (https://www.dt.fee.unicamp.br/~tiago/smsspamcollection/). Other notebooks are for you to play with your own dataset.
 We tried to make the functions easy to use and intuitive, as can be seen in the examples.
 
-In the requirements.txt we specified the different libraries required, as well as the version we used to implement and test the framework.
+### Pip lib
+
+The framework and its requirements can be install with
+
+```
+ pip install -e . --user
+ ```
+ 
+ After this command, the framework appears as a pip package and can be used everywhere as 
+ 
+ ```
+ from odin import ....
+ ```
+ 
+ Every change is reflected in the pip package without requiring any additional installation step.
+
+ N.B. To be able to use the meta-annotation extractor, two more packages need to be installed (tensorflow and mtcnn). Simply execute the following command:
 
  ```
- pip install -r requirements.txt
+ pip install tensorflow mtcnn
  ```
 
 ### Docker
@@ -385,6 +401,15 @@ If you use ODIN or wish to refer it, please use the following BibTex entry.
   booktitle={European Conference on Computer Vision},
   pages={19--31},
   year={2020},
+  organization={Springer}
+}
+
+@inproceedings{torres2021odin,
+  title={ODIN: Pluggable Meta-annotations and Metrics for the Diagnosis of Classification and Localization},
+  author={Torres, Rocio Nahime and Milani, Federico and Fraternali, Piero},
+  booktitle={International Conference on Machine Learning, Optimization, and Data Science},
+  pages={383--398},
+  year={2021},
   organization={Springer}
 }
 ```

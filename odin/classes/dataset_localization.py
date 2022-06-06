@@ -344,14 +344,20 @@ class DatasetLocalization(DatasetInterface):
         sizes, display_names = [], []
         results = {}
         for name in self.get_categories_names():
-            group = cats_groups.get_group(self.get_category_id_from_name(name))
-            name = self.get_display_name_of_category(name)
-            value = len(group.index)
-            sizes.append(value)
-            results[name] = value
-            if show_avg_size:
-                name += f" [avg size: {group['area'].mean():.2f}]"
-            display_names.append(name)
+            cat_id = self.get_category_id_from_name(name)
+            display_names.append(self.get_display_name_of_category(name))
+            if cat_id not in cats_groups.groups.keys():
+                sizes.append(0)
+                results[name] = 0
+                if show_avg_size:
+                    name += " [avg size: 0]"
+            else:
+                group = cats_groups.get_group(cat_id)
+                value = len(group.index)
+                sizes.append(value)
+                results[name] = value
+                if show_avg_size:
+                    name += f" [avg size: {group['area'].mean():.2f}]"
 
         if not show:
             return results

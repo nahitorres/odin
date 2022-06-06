@@ -224,9 +224,9 @@ class VisualizerTSAnomalyDetection(VisualizerTimeSeriesInterface):
         self._update_plot()
 
     def _setup_plot(self):
-        plt.ioff()
-        plt.figure(figsize=(15, 8))
-        self._ax = plt.gca()
+        # plt.ioff()
+        # plt.figure(figsize=(15, 8))
+        fig, self._ax = plt.subplots(1, figsize=(15, 8)) # plt.gca()
 
     def _update_plot(self):
         self._ax.clear()
@@ -302,6 +302,7 @@ class VisualizerTSAnomalyDetection(VisualizerTimeSeriesInterface):
                                       linestyle='none', color=color, marker='X')
 
         self._ax.legend(loc='upper right')
+        plt.close('all')
         with self.__out:
             clear_output(wait=True)
             display(self._ax.figure)

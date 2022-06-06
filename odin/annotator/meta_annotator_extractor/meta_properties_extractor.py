@@ -2,13 +2,13 @@ import json
 import os
 from enum import Enum
 import pandas as pd
-from tqdm import tqdm, tqdm_notebook
+from tqdm.auto import tqdm
 from odin.annotator.meta_annotator_extractor import AnnotatorColor, AnnotatorFaces
 
 from odin.classes import strings as labels_str, DatasetClassification
 from odin.classes.safe_writer import SafeWriter
 from odin.classes.strings import err_type
-from odin.utils.env import is_notebook, get_root_logger
+from odin.utils.env import get_root_logger
 
 pd.options.mode.chained_assignment = None
 
@@ -55,7 +55,6 @@ class MetaPropertiesExtractor:
         self.name = (dataset.dataset_root_param.split('/')[-1]).split('.')[0]  # get original file name
         self.__set_output(output_path)
 
-        self.__tqdm = tqdm_notebook if is_notebook() else tqdm
         print("{} {}".format(labels_str.info_new_ds, self.file_path_for_json))
 
     def __create_new_properties_for_ds(self):
@@ -110,7 +109,7 @@ class MetaPropertiesExtractor:
                                     "default or to provide your custom one")
             return
         observations = self.dataset.get_all_observations()
-        for i, data_object in self.__tqdm(observations.iterrows(), total=len(observations.index)):
+        for i, data_object in tqdm(observations.iterrows(), total=len(observations.index)):
             for annotator in self.annotators:
                 annotation = annotator.process_object(data_object, self.dataset.images_abs_path)
                 self.dataset.observations.loc[self.dataset.observations["id"] == data_object["id"], annotator.property_name] = annotation

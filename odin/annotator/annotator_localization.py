@@ -18,6 +18,7 @@ from odin.classes import TaskType, DatasetLocalization
 from odin.classes import strings as labels_str
 from odin.classes.strings import err_type
 from odin.annotator import AnnotatorInterface
+from odin.utils.env import get_leaflet_url
 
 
 class AnnotatorLocalization(AnnotatorInterface):
@@ -878,8 +879,9 @@ class AnnotatorLocalization(AnnotatorInterface):
         if not os.path.exists(img_path):
             print(labels_str.warn_img_path_not_exits + img_path)
 
-        im = cv2.imread(img_path)
-        h, w, _ = im.shape
+        #open image and get dimensions
+        im = Image.open(img_path)
+        w, h = im.size
 
         max_v = 100
 
@@ -895,7 +897,11 @@ class AnnotatorLocalization(AnnotatorInterface):
             hh = int(h * ww / w)
             offset_h = (max_v - hh) / 2
 
-        img_ov = ImageOverlay(url=img_path, bounds=((offset_h, offset_w), (hh + offset_h, ww + offset_w)))
+        # new to make it work in jupyter labs
+        img_ov = ImageOverlay(url=get_leaflet_url(im), bounds=((offset_h, offset_w), (hh + offset_h, ww + offset_w)))
+
+        # previous
+        # img_ov = ImageOverlay(url=img_path, bounds=((offset_h, offset_w), (hh + offset_h, ww + offset_w)))
         return img_ov, h, w, hh, ww, offset_h, offset_w
 
     def __show_image_to_annotate(self):

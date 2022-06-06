@@ -15,6 +15,7 @@ from odin.utils.draw_utils import make_multi_category_plot, display_sensitivity_
     plot_class_distribution
 
 logger = get_root_logger()
+np.warnings.filterwarnings('ignore')
 
 
 class AnalyzerInterface(metaclass=abc.ABCMeta):
@@ -321,6 +322,8 @@ class AnalyzerInterface(metaclass=abc.ABCMeta):
         if self.__is_binary:
             categories = [categories[0]]
         for cat in categories:
+            if cat not in self.saved_results[metric]:
+                continue
             if cat not in results:
                 results[cat] = {'all': self.saved_results[metric][cat]['all']}
 
@@ -1261,7 +1264,6 @@ class AnalyzerInterface(metaclass=abc.ABCMeta):
         recall = np.true_divide(tp, n_anns)
         fn = n_anns - tp[-1] if len(tp) > 0 else n_anns
 
-        np.warnings.filterwarnings('ignore')
         recall_norm = np.true_divide(tp_norm, tp_norm + fn)
         precision_norm = np.true_divide(tp_norm, np.add(tp_norm, fp))
 

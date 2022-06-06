@@ -5,6 +5,9 @@ import csv, sys
 from types import FunctionType
 import numpy as np
 from IPython import get_ipython
+from PIL import Image
+from io import BytesIO
+from base64 import b64encode
 
 
 def get_root_logger(log_level=logging.INFO):
@@ -126,4 +129,13 @@ def is_notebook():
             return False  # Other type (?)
     except NameError:
         return False      # Probably standard Python interpreter
+    
 
+def get_leaflet_url(image): # Obtain BLOB to be used as url in leaflet classes
+    ext = image.format # Retrieve image format
+    f = BytesIO()
+    image.save(f, ext)
+    data = b64encode(f.getvalue())
+    data = data.decode('ascii')
+    leaflet_url = 'data:image/{};base64,'.format(ext) + data #BLOB url
+    return leaflet_url
