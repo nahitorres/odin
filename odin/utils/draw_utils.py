@@ -15,12 +15,177 @@ from ..classes import Curves
 
 logger = get_root_logger()
 config = {
-    "text_size": {"pie": 16, "title": 18, "label": 18, "bar_plt": 16, "cm": 16},
-    "fig_size": {"pie": (8, 5), "bar_plt": (8, 5), "cm": {"small": (8, 8), "medium": (12, 12), "large": (20, 20)},
+    "text_size": {"pie": 16, "title": 18, "label": 18, "bar_plt": 16, "hist_plt": 16, "cm": 16},
+    "fig_size": {"pie": (8, 5), "bar_plt": (8, 5), "hist_plt": (8, 5), "cm": {"small": (8, 8), "medium": (12, 12), "large": (20, 20)},
                  "multi_cat": {"small": (10, 5), "medium": (15, 5), "large": (20, 5)},
                  "plotly": {"no_legend": (800, 500), "legend": (900, 600)}},
     "dpi": {"show": 80, "save": 200}
 }
+
+
+def hist_plot(values, nbins, hist_range, colors = None, title = "Plot", y_label = "Number", x_label = "Values", tight_layout = True):
+    if colors is None:
+        colors = [None] * nbins
+    
+    plt.style.use('default')
+    figure = plt.figure(figsize=config["fig_size"]["hist_plt"],
+                        tight_layout=tight_layout)
+    
+    n, bins, patches = plt.hist(values, nbins, range=hist_range)
+    for i in range(len(n)):
+        patches[i].set_facecolor(colors[i])
+    
+    plt.title(title, fontsize=config["text_size"]["title"])
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
+    plt.show()
+
+def iou_histogram_diagram(values, nbins):
+    # builds the results dictionary ad in plot reliability
+    results = { "bins": np.arange(0, 1 + 1.0/nbins, 1.0/nbins) }
+    results["bins"][-1] = 1
+    if results["bins"].shape[0] != nbins + 1:
+        results["bins"] = results["bins"][:-1]
+    bin_shift = (results['bins'][1] - results['bins'][0]) / 2
+    
+    # builds the count results
+    val_sorted = sorted(values)
+    counts = [0] * nbins
+    bin_idx = 0
+    for val in val_sorted:
+        counted = False
+        while not counted:
+            start = bin_idx
+            end = bin_idx + 1
+            
+            if bin_idx < len(counts) - 1:
+                if results["bins"][start] <= val < results["bins"][end]:
+                    counts[bin_idx] += 1
+                    counted = True
+                else:
+                    bin_idx += 1
+            else:
+                if results["bins"][start] <= val <= results["bins"][end]:
+                    counts[bin_idx] += 1
+                    counted = True
+                else:
+                    bin_idx += 1
+    results["counts"] = counts
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=(results['bins'] + bin_shift),
+                         y=results['counts'] / np.sum(results['counts']),
+                         name='IOU values',
+                         showlegend=False,
+                         marker=dict(color='rgb(0, 0, 255)'))
+                  )
+    fig.update_yaxes(range=[0, 1.05],
+                     title_text='% number of windows',
+                     dtick=0.1)
+    fig.update_xaxes(title_text='IOU values',
+                     range=[0, 1],
+                     dtick=bin_shift*2)
+    fig.update_layout(barmode='stack',
+                      bargap=0,
+                      width=600,
+                      height=600,
+                      title_text="IOU Distribution")
+    fig.show()
+    
+
+def bar_plot(groups_pos, bars_width, groups, groups_ticks, groups_labels = None, groups_colors = None,  plot_title = "Bar plot", y_label = "Number of entries", x_label = "Groups", ticks_rotation = 60, tight_layout = True):
+    """Creates a bar plot.
+    
+    Parameters
+    ----------
+    groups_pos : ndarray
+        The position in which the groups must be plotted.
+    
+    bars_width : float
+        The width of a bar in the plot.
+    
+    groups : list[list]
+        A list of the groups to be plotted.
+    
+    groups_colors : list[str]
+        Colors for each group's bar.
+    
+    groups_labels : list[str]
+        Labels for the groups.
+    
+    groups_ticks : list[str]
+        Ticks for each group to be printed.
+    
+    plot_title : str
+        Title of the plot.
+    
+    y_label : str
+        Label of the axis y.
+    
+    x_label : str
+        Label of the axis x.
+    
+    ticks_rotation : float
+        Rotation of the ticks in degrees.
+        
+    tight_layout : bool
+        Tight layout flag to pass to matplotlib.
+
+    Returns
+    -------
+    None
+    """
+    if groups_colors is None:
+        groups_colors = [None] * len(groups)
+    
+    has_legend = groups_labels is not None
+    
+    if groups_labels is None:
+        groups_labels = [None] * len(groups)
+        
+    num_groups = len(groups)
+    half_width = bars_width / 2
+
+    plt.style.use('default')
+    figure = plt.figure(figsize=config["fig_size"]["bar_plt"],
+                        tight_layout=tight_layout)
+    if num_groups % 2 == 0:
+        # the number of groups is even, the pos must be the center
+        # iterate from -half to half to position elements and ignore 0
+        group_idx = 0
+        for i in range(-int(num_groups / 2), int(num_groups / 2) + 1):
+            if i != 0 and i < 0:
+                abs_val = abs(i) - 1
+                new_pos = groups_pos - bars_width * abs_val - half_width
+                plt.bar(new_pos, groups[group_idx], bars_width, color=groups_colors[group_idx], label=groups_labels[group_idx])
+                group_idx += 1
+            elif i != 0 and i > 0:
+                new_pos = groups_pos + bars_width * (i - 1) + half_width
+                plt.bar(new_pos, groups[group_idx], bars_width, color=groups_colors[group_idx], label=groups_labels[group_idx])
+                group_idx += 1
+    else:
+        # the number of groups is odd, the pos must be the position of one group
+        group_idx = 0
+        for i in range(-int((num_groups - 1) / 2), int((num_groups - 1) / 2) + 1):
+            if i != 0 and i < 0:
+                abs_val = abs(i) - 1
+                new_pos = groups_pos - bars_width * abs_val
+                plt.bar(new_pos, groups[group_idx], bars_width, color=groups_colors[group_idx], label=groups_labels[group_idx])
+            elif i != 0 and i > 0:
+                new_pos = groups_pos + bars_width * (i - 1)
+                plt.bar(new_pos, groups[group_idx], bars_width, color=groups_colors[group_idx], label=groups_labels[group_idx])
+            else:
+                plt.bar(groups_pos, groups[group_idx], bars_width, color=groups_colors[group_idx], label=groups_labels[group_idx])
+            group_idx += 1
+
+    plt.title(plot_title, fontsize=config["text_size"]["title"])
+    plt.xticks(groups_pos, groups_ticks)
+    plt.ylabel(y_label)
+    plt.xlabel(x_label)
+    plt.xticks(rotation=ticks_rotation)
+    if has_legend:
+        plt.legend()
+    plt.show()
 
 
 def pie_plot(values, labels, title, save_path, save, colors=None):
@@ -72,7 +237,8 @@ def plot_false_positive_errors(error_values, error_names, category_metric_value,
     title = "False Positive impact for category {}".format(category_name)
     performance_values = [(err[0] - category_metric_value) for err in error_values]
     y_pos = np.arange(len(error_names))
-    plt.barh(y_pos, performance_values, align='center', color=colors)
+    barlist = plt.barh(y_pos, performance_values, align='center', color=colors)
+    
     plt.tick_params(labelsize=config["text_size"]["bar_plt"])
     plt.yticks(y_pos, labels)
     plt.title(title, fontsize=config["text_size"]["title"])
@@ -899,14 +1065,19 @@ def plot_seasonality_trend(results, title, save_plot, output_path):
     plt.close()
 
 
-def plot_threshold_analysis(results, title, save_plot, output_path):
+def plot_threshold_analysis(results, title, save_plot, output_path, comparison=False):
     fig = go.Figure()
-    for metric in results['y'].keys():
-        fig.add_trace(go.Scatter(x=results["x"], y=results["y"][metric], mode="lines", name=metric.value))
+    if comparison:
+        metric = list(results.keys())[0]
+        for model in results[metric].keys():
+            fig.add_trace(go.Scatter(x=results[metric][model]["thresholds"], y=results[metric][model]["results"], mode="lines", name=model))
+    else:
+        for metric in results['y'].keys():
+            fig.add_trace(go.Scatter(x=results["x"], y=results["y"][metric], mode="lines", name=metric.value))
 
     fig.update_layout(
         xaxis_title="Threshold",
-        yaxis_title='score',
+        yaxis_title=metric.value if comparison else 'score',
         yaxis_range=[0, 1.05],
         title=title
     )
@@ -916,24 +1087,23 @@ def plot_threshold_analysis(results, title, save_plot, output_path):
     fig.show()
 
 
-def plot_distribution(data, bins, x_label, title, save_plot, output_path):
+def plot_distribution(data, bins, x_label, title, save_plot, output_path, categories = None):
     plt.style.use('default')
     all_data = []
     for k in data:
         all_data.extend(data[k])
+
     min_v = min(all_data)
     max_v = max(all_data)
     if min_v > 0 or max_v < 0:
-        sns.displot(data, bins=bins, multiple='stack', hue_order=['continuous', 'affected', 'generic'],
-                    palette=['forestgreen', 'darkorange', 'royalblue'])
+        sns.displot(data, bins=bins, multiple='stack', hue_order=categories)
     else:
         perc = np.abs(min_v)/np.abs(min_v - max_v)
         left_bins = math.ceil(bins*perc)
         right_bins = bins - left_bins
         bin_w = max_v / right_bins
         min_range = -bin_w * left_bins
-        sns.displot(data, binwidth=bin_w, binrange=(min_range, max_v), multiple='stack', hue_order=['continuous', 'affected', 'generic'],
-                    palette=['forestgreen', 'darkorange', 'royalblue'])
+        sns.displot(data, binwidth=bin_w, binrange=(min_range, max_v), multiple='stack', hue_order=categories)
 
     plt.title(title)
     plt.xlabel(x_label)
@@ -963,13 +1133,19 @@ def plot_RUL_trend(data, save_plot, output_path):
     plt.close()
 
 
-def plot_gain_chart(data, save_plot, output_path):
+def plot_gain_chart(data, save_plot, output_path, comparison=False):
     x = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    values = np.array([0] + data['values'])
-
+    
+    plt.close('all')
     plt.style.use('default')
-
-    plt.plot(x, values*100, marker='o', label=data['model'])
+    plt.figure(figsize=(8,5), dpi=100)
+    if not comparison:
+        values = np.array([0] + data['values'])
+        plt.plot(x, values*100, marker='o', label=data['model'])
+    else:
+        for model in data.keys():
+            values = np.array([0] + data[model])
+            plt.plot(x, values*100, marker='o', label=model)
     plt.plot(x, x, marker='o', label='random')
     plt.title("Gain chart")
     plt.xticks(x)
@@ -983,16 +1159,19 @@ def plot_gain_chart(data, save_plot, output_path):
         plot_path = os.path.join(output_path, "Gain_chart.png")
         plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
     plt.show()
-    plt.close()
 
 
-def plot_lift_chart(data, save_plot, output_path):
+def plot_lift_chart(data, save_plot, output_path, comparison=False):
     x = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-    values = np.array(data['values'])
-
+    plt.close('all')
     plt.style.use('default')
-
-    plt.plot(x, values, marker='o', label=data['model'])
+    plt.figure(figsize=(8,5), dpi=100)
+    if not comparison:
+        values = np.array(data['values'])
+        plt.plot(x, values, marker='o', label=data['model'])
+    else:
+        for model in data.keys():
+            plt.plot(x, data[model], marker='o', label=model)
     plt.plot(x, [1]*10, marker='o', label='random')
     plt.title("Lift chart")
     plt.xticks(x)
@@ -1006,7 +1185,6 @@ def plot_lift_chart(data, save_plot, output_path):
         plot_path = os.path.join(output_path, "Lift_chart.png")
         plt.savefig(plot_path, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["save"])
     plt.show()
-    plt.close()
 
 
 def plot_predicted_vs_actual(data, save_plot, output_path, id_name=None):
@@ -1062,4 +1240,37 @@ def plot_regression_residuals(data, save_plot, output_path, id_name=None):
     plt.show()
     plt.close()
 
+def plot_performance_comparison(data, metrics, save_plot, output_path):
+    fig = go.Figure()
+    for model in data:
+        fig.add_trace(go.Bar(name=model, x=metrics, y=data[model], legendgroup=model))
 
+    fig.update_xaxes(title_text="Metrics")
+    fig.update_yaxes(title_text="Score")
+    fig.update_layout(barmode='group', title_text="<b>Performance comparison<b>", font_size=16)
+    if save_plot:
+        plot_path = os.path.join(output_path, f"Comparison_performance.png")
+        fig.write_image(plot_path)
+    fig.show()
+
+def plot_errors_impact(data, metric, save_plot, output_path, categories):
+    plt.style.use('default')
+    plt.figure(figsize=config["fig_size"]["bar_plt"], dpi=config["dpi"]["show"])
+    title = "False Positive impact"
+    performance_values = [data[cat] for cat in categories]
+    
+    colors = plotly.colors.qualitative.D3
+    
+    y_pos = np.arange(len(data))
+    plt.barh(y_pos, performance_values, align='center', color=colors)
+    plt.tick_params(labelsize=config["text_size"]["bar_plt"])
+    plt.yticks(y_pos, categories)
+    plt.title(title, fontsize=config["text_size"]["title"])
+    xlabel = metric.value.replace("_", " ")
+    plt.xlabel(xlabel + " impact", fontdict=dict(size=config["text_size"]["bar_plt"]))
+
+    path_to_save = os.path.join(output_path, f"false_positive_gain.png")
+    if save_plot:
+        plt.savefig(path_to_save, facecolor='white', bbox_inches='tight', dpi=config["dpi"]["show"])
+    plt.show()
+    plt.close()

@@ -1,0 +1,15 @@
+timestamp,Duration,Type,Duration2,Duration3
+2013-10-21 23:00:00,,Sudden spike,Long,
+2013-10-21 17:00:00,Short,Unknown,,
+2013-10-22 07:00:00,,Unknown,,Long
+2013-10-20 21:00:00,,Unknown,,Medium
+2013-10-21 04:00:00,,Unknown,,Long
+2013-10-21 00:00:00,,Sudden spike,,Short
+2013-10-21 08:00:00,,Sudden spike,,Medium
+2013-10-21 13:00:00,,Sudden spike,,Long
+2013-10-22 16:00:00,,,,
+2013-10-30 22:00:00,,,,
+2013-11-20 16:00:00,,,,Medium
+2013-11-14 17:00:00,,,,
+2013-11-16 01:00:00,,,,
+2013-11-14 14:00:00,,,,

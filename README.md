@@ -412,4 +412,15 @@ If you use ODIN or wish to refer it, please use the following BibTex entry.
   year={2021},
   organization={Springer}
 }
+
+@article{zangrando2022odin,
+  title={ODIN TS: A Tool for the Black-Box Evaluation of Time Series Analytics},
+  author={Zangrando, Niccol{\`o} and Torres, Rocio Nahime and Milani, Federico and Fraternali, Piero},
+  journal={Engineering Proceedings},
+  volume={18},
+  number={1},
+  pages={4},
+  year={2022},
+  publisher={MDPI}
+}
 ```

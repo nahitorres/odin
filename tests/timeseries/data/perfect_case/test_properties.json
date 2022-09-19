@@ -1,0 +1,33 @@
+{
+	"properties": {
+		"duration": {
+			"values": [
+				{
+					"value": 1,
+					"display_name": 1
+				},
+				{
+					"value": 2,
+					"display_name": 2
+				},
+				{
+					"value": 3,
+					"display_name": 3
+				},
+				{
+					"value": 4,
+					"display_name": 4
+				},
+				{
+					"value": 5,
+					"display_name": 5
+				},
+				{
+					"value": 6,
+					"display_name": 6
+				}
+			],
+			"display_name": "Duration"
+		}
+	}
+}

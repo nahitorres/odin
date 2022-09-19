@@ -27,7 +27,7 @@ class MetaPropertiesType(Enum):
 class AnnotatorInterface(metaclass=abc.ABCMeta):
 
     def __init__(self,
-                 dataset=None,
+                 dataset = None,
                  task_type=None,
                  classes_to_annotate=None,
                  output_path=None,

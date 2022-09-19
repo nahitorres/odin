@@ -7,6 +7,7 @@ class Metrics(Enum):
     PRECISION_SCORE = "Precision"
     RECALL_SCORE = "Recall"
     F1_SCORE = "F1"
+    F_BETA_SCORE = "Fbeta"
     FALSE_ALARM_RATE = "False alarm rate"
     MISS_ALARM_RATE = "Miss alarm rate"
     AVERAGE_PRECISION_SCORE = "Average_Precision"
@@ -23,6 +24,13 @@ class Metrics(Enum):
     NAB_SCORE = "NAB score"
     RMSE = "Root mean squared error"
     MAPE = "Mean absolute percentage error"
+    MARRE = "Mean absolute ranged relative error"
+    OPE = "Overall Percentage Error"
+    RMSLE = "Root mean squared log error"
+    SMAPE = "Symmetric Mean absolute percentage error"
+    MATTHEWS_COEF = "Matthews correlation coefficient"
+    COEFFICIENT_VARIATION = "Coefficient of variation"
+    COEFFICIENT_DETERMINATION = "Coefficient of determination"
 
 
 class Curves(Enum):

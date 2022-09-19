@@ -24,6 +24,9 @@ info_completed_obj = "Completed objects:"
 info_incomplete_obj = "Incomplete objects:"
 info_ds_output = "Generated dataset will be saved at: "
 
+info_loading_properties = "Loading properties..."
+info_done = "Done!"
+
 warn_select_class = "<b style=\"color:RED\">You must assign a class to all bbox before continuing</b>"
 warn_skip_wrong = "Skipping wrong annotation"
 warn_img_path_not_exits = "Image path does not exists "
@@ -78,8 +81,17 @@ err_observations_category_dataset = "observations: mandatory field 'category' no
 err_observations_category_dataset_few = "observations: mandatory field 'category' not found in some observations"
 
 
+err_analyzer_invalid_curve = "Invalid '{}' curve"
+
 err_type = "Invalid '{}' type"
 err_value = "Invalid '{}' value. Possible values: {}"
 err_property_not_loaded = "Property '{}' not loaded"
 
-
+# Time series strings
+err_ts_metric = "Not supported metric: {}"
+err_ts_properties_not_loaded = "Properties file has not been loaded. Load it before trying to use it."
+err_ts_properties_json = "Error loading the properties json. The file path you specified is: {}"
+err_ts_property_invalid = "The specified property [{}] is invalid."
+err_ts_property_values_invalid = "At least one property values you specified is invalid."
+err_ts_property_file_format_invalid = "The dataset json file format is invalid for properties."
+err_ts_only_interval_interval = "This analysis is only available for INTERVAL-INTERVAL matching strategies"

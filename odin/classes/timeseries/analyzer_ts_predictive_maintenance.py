@@ -23,10 +23,12 @@ from odin.utils.draw_utils import plot_gain_chart, plot_lift_chart, plot_predict
 
 class AnalyzerTSPredictiveMaintenance(AnalyzerTimeSeriesInterface):
 
-    __available_metrics_label = [Metrics.ACCURACY, Metrics.PRECISION_SCORE, Metrics.RECALL_SCORE, Metrics.F1_SCORE,
-                                 Metrics.MISS_ALARM_RATE, Metrics.FALSE_ALARM_RATE]
+    __available_metrics_label = [Metrics.ACCURACY, Metrics.PRECISION_SCORE, Metrics.RECALL_SCORE, Metrics.F1_SCORE, Metrics.F_BETA_SCORE,
+                                 Metrics.MISS_ALARM_RATE, Metrics.FALSE_ALARM_RATE, Metrics.MATTHEWS_COEF]
 
-    __available_metrics_regression = [Metrics.MAE, Metrics.MSE, Metrics.RMSE, Metrics.MAPE]
+    __available_metrics_regression = [Metrics.MAE, Metrics.MSE, Metrics.RMSE, Metrics.MAPE, Metrics.MARRE, 
+                                      Metrics.OPE, Metrics.RMSLE, Metrics.SMAPE, Metrics.COEFFICIENT_VARIATION, 
+                                      Metrics.COEFFICIENT_DETERMINATION]
 
     __available_metrics = []
 
@@ -59,6 +61,9 @@ class AnalyzerTSPredictiveMaintenance(AnalyzerTimeSeriesInterface):
             raise TypeError(err_type.format('metric'))
         elif metric not in self.__available_metrics:
             raise ValueError(err_value.format('metric', self.__available_metrics))
+
+        # TODO implement scaler (see AD)
+        self._scaler_values = (False, False)
 
         super().__init__(model_name, dataset, self.__available_metrics, metric, result_saving_path, save_graphs_as_png)
 
@@ -103,7 +108,12 @@ class AnalyzerTSPredictiveMaintenance(AnalyzerTimeSeriesInterface):
         if not show:
             return results
 
-        print(tabulate(all_data, headers=['ID']+[metric.value for metric in metrics]))
+        data = {}
+        for i, m in enumerate(metrics):
+            data[m.value] = [results[k][i] for k in results.keys()]
+        data = pd.DataFrame(data, index=list(results.keys()))
+        data.index.name = "label"
+        return data
 
     def analyze_performance_for_threshold(self, metrics=None, average='micro', show=True):
         if metrics is None:
@@ -390,8 +400,13 @@ class AnalyzerTSPredictiveMaintenance(AnalyzerTimeSeriesInterface):
         if not show:
             return {'macro': r_macro,
                     'micro': r_micro}
-
-        print(tabulate([data_macro, data_micro], headers=[''] + [metric.value for metric in metrics]))
+        
+        data = {}
+        for r_mic, r_mac, m in zip(r_micro, r_macro, metrics) :
+            data[m.value] = [r_mic, r_mac]
+        data = pd.DataFrame(data, index=["micro", "macro"])
+        data.index.name = "label"
+        return data
 
     def _calculate_reliability(self, y_true, y_pred, y_score, num_bins):
         """

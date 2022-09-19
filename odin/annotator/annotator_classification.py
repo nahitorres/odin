@@ -13,7 +13,6 @@ from odin.classes.strings import err_type
 from odin.annotator.annotator_interface import AnnotatorInterface
 from odin.utils.leaflet_zoom_utils import get_image_container_zoom, show_new_image
 
-
 class AnnotatorClassification(AnnotatorInterface):
 
     supported_types = [TaskType.CLASSIFICATION_BINARY,

@@ -16,6 +16,9 @@ from .comparator_interface import ComparatorInterface
 from .comparator_classification import ComparatorClassification
 from .comparator_localization import ComparatorLocalization
 from .comparator_cams import ComparatorCAMs
+from .errors_enum import Errors
+from .custom_error import CustomError
+from .err_combination import ErrCombination
 
 __all__ = [
     'DatasetInterface', 'DatasetClassification', 'DatasetLocalization',
@@ -23,5 +26,5 @@ __all__ = [
     'VisualizerLocalization', 'VisualizerClassification',
     'TaskType', 'Metrics', 'Curves', 'CustomMetric', 'ErrorType',
     'ComparatorInterface', 'ComparatorClassification', 'ComparatorLocalization',
-    'AnnotationType', 'DatasetCAMs', 'AnalyzerCAMs', 'ComparatorCAMs'
+    'AnnotationType', 'DatasetCAMs', 'AnalyzerCAMs', 'ComparatorCAMs', 'Errors', 'CustomError', 'ErrCombination'
 ]

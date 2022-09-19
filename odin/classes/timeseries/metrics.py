@@ -1,45 +1,30 @@
 import math
-
 import numpy as np
 import pandas as pd
+from odin.classes.timeseries.anomaly_matching_strategies import AnomalyMatchingStrategyPointToPoint
 
 
-def get_confusion_matrix(y_true, y_score, threshold):
-    data = pd.DataFrame(data={'y_true': y_true,
-                              'y_score': y_score})
-
-    data['y_pred'] = np.where(data['y_score'] >= threshold, 1, 0)
-    tp = len(data.loc[(data['y_true'] == 1) & (data['y_pred'] == 1)].index)
-    fp = len(data.loc[(data['y_true'] == 0) & (data['y_pred'] == 1)].index)
-    fn = len(data.loc[(data['y_true'] == 1) & (data['y_pred'] == 0)].index)
-    tn = len(data.loc[(data['y_true'] == 0) & (data['y_pred'] == 0)].index)
-
-    cm = np.empty((2, 2))
-    cm[0][0] = tn
-    cm[0][1] = fp
-    cm[1][0] = fn
-    cm[1][1] = tp
-
-    return cm
+def matthews_correlation_coefficient(y_true, y_score, threshold, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    tn, fp, fn, tp = evaluation_type.get_confusion_matrix(y_true, y_score, threshold, inverse_threshold, min_consecutive_samples).ravel()
+    return (tp*tn - fp*fn) / np.sqrt((tp+fn)*(fp+tn)*(fn+tn)*(tp+fp))
 
 
-def accuracy(y_true, y_score, threshold):
-    tn, fp, fn, tp = get_confusion_matrix(y_true, y_score, threshold).ravel()
+def accuracy(y_true, y_score, threshold, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    tn, fp, fn, tp = evaluation_type.get_confusion_matrix(y_true, y_score, threshold, inverse_threshold, min_consecutive_samples).ravel()
 
     return (tp+tn)/(tp+fp+fn+tn)
 
 
-def precision_score(y_true, y_score, threshold):
-    _, fp, _, tp = get_confusion_matrix(y_true, y_score, threshold).ravel()
+def precision_score(y_true, y_score, threshold, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    _, fp, _, tp = evaluation_type.get_confusion_matrix(y_true, y_score, threshold, inverse_threshold, min_consecutive_samples).ravel()
 
     if tp == 0 and fp == 0:
         return 0
 
     return tp/(tp+fp)
 
-
-def recall_score(y_true, y_score, threshold):
-    _, _, fn, tp = get_confusion_matrix(y_true, y_score, threshold).ravel()
+def recall_score(y_true, y_score, threshold, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    _, _, fn, tp = evaluation_type.get_confusion_matrix(y_true, y_score, threshold, inverse_threshold, min_consecutive_samples).ravel()
 
     if tp == 0 and fn == 0:
         return 0
@@ -47,9 +32,9 @@ def recall_score(y_true, y_score, threshold):
     return tp/(tp+fn)
 
 
-def f1_score(y_true, y_score, threshold):
-    precision = precision_score(y_true, y_score, threshold)
-    recall = recall_score(y_true, y_score, threshold)
+def f1_score(y_true, y_score, threshold, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    precision = precision_score(y_true, y_score, threshold, evaluation_type, inverse_threshold, min_consecutive_samples)
+    recall = recall_score(y_true, y_score, threshold, evaluation_type, inverse_threshold, min_consecutive_samples)
 
     if precision == 0 and recall == 0:
         return 0
@@ -57,8 +42,20 @@ def f1_score(y_true, y_score, threshold):
     return 2*precision*recall/(precision+recall)
 
 
-def false_alarm_rate(y_true, y_score, threshold):
-    tn, fp, _, _ = get_confusion_matrix(y_true, y_score, threshold).ravel()
+def f_beta_score(y_true, y_score, threshold, beta=0.1, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    precision = precision_score(y_true, y_score, threshold, evaluation_type, inverse_threshold, min_consecutive_samples)
+    recall = recall_score(y_true, y_score, threshold, evaluation_type, inverse_threshold, min_consecutive_samples)
+
+    if precision == 0 and recall == 0:
+        return 0
+    
+    beta_squared = beta**2
+    return (1+beta_squared)* precision*recall/((beta_squared*precision)+recall)
+
+
+
+def false_alarm_rate(y_true, y_score, threshold, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    tn, fp, _, _ = evaluation_type.get_confusion_matrix(y_true, y_score, threshold, inverse_threshold, min_consecutive_samples).ravel()
 
     if fp == 0 and tn == 0:
         return 0
@@ -66,8 +63,8 @@ def false_alarm_rate(y_true, y_score, threshold):
     return fp/(fp+tn)
 
 
-def miss_alarm_rate(y_true, y_score, threshold):
-    _, _, fn, tp = get_confusion_matrix(y_true, y_score, threshold).ravel()
+def miss_alarm_rate(y_true, y_score, threshold, evaluation_type=AnomalyMatchingStrategyPointToPoint(), inverse_threshold=False, min_consecutive_samples=1):
+    _, _, fn, tp = evaluation_type.get_confusion_matrix(y_true, y_score, threshold, inverse_threshold, min_consecutive_samples).ravel()
 
     if fn == 0 and tp == 0:
         return 0
@@ -75,9 +72,11 @@ def miss_alarm_rate(y_true, y_score, threshold):
     return fn/(fn+tp)
 
 
-def nab_score(anomaly_windows, proposals, y_score, threshold, A_tp, A_fp, A_fn):
+def nab_score(anomaly_windows, proposals, y_score, threshold, A_tp, A_fp, A_fn, inverse_threshold=False, min_consecutive_samples=1):
     all_sigma = []
-    proposals['label'] = np.where(y_score >= threshold, 1, 0)
+    # proposals['label'] = np.where(y_score >= threshold, 1, 0)
+
+    proposals['label'] = AnomalyMatchingStrategyPointToPoint()._get_y_pred(y_score, threshold, inverse_threshold, min_consecutive_samples)
 
     for i, (start, end) in enumerate(anomaly_windows):
         max_d = len(proposals.loc[(proposals.index >= start) & (proposals.index <= end)].index)
@@ -130,9 +129,44 @@ def root_mean_squared_error(y_true, y_score):
 
 
 def mean_absolute_percentage_error(y_true, y_score):
-    return np.sum(np.abs(np.divide(np.array(y_true) - np.array(y_score), np.array(y_true))))/len(y_true)
+    return 100 * np.mean(np.abs(np.divide(np.array(y_true) - np.array(y_score), np.array(y_true))))
 
 
+def mean_absolute_ranged_relative_error(y_true, y_score):
+    return 100 * np.mean(np.abs(np.divide(np.array(y_true) - np.array(y_score), np.max(np.array(y_true)) - np.min(np.array(y_true)))))
+
+
+def overall_percentage_error(y_true, y_score):
+    y_true_sum = np.sum(np.array(y_true))
+    return 100 * np.abs((y_true_sum - np.sum(np.array(y_score))) / y_true_sum)
+
+
+def coefficient_of_variation(y_true, y_score):
+    return 100*root_mean_squared_error(y_true, y_score)/np.mean(y_true)
+
+# r^2
+def coefficient_of_determination(y_true, y_score):
+    np_ytrue = np.array(y_true)
+    np_yscore = np.array(y_score)
+    mean_ytrue = np.mean(np_ytrue)
+    ss_res = np.sum((np_ytrue-np_yscore)**2)
+    ss_tot = np.sum((np_ytrue-mean_ytrue)**2)
+    return 1 - (ss_res/ss_tot)
+
+
+def root_mean_squared_log_error(y_true, y_score):
+    return np.sqrt(np.mean((np.log(np.array(y_true)+1) - np.log(np.array(y_score)+1))**2))
+
+
+def symmetric_mean_absolute_percentage_error(y_true, y_score):
+    np_ytrue = np.array(y_true)
+    np_yscore = np.array(y_score)
+    diff = np.abs(np_ytrue - np_yscore)
+    abs_sum = np.abs(np_ytrue) + np.abs(np_yscore)
+    return 200 * np.mean(np.divide(diff, abs_sum))
+
+
+# TODO , evaluation_type=TPEvaluation.POINT_POINT, inverse_threshold=False, min_consecutive_samples=1
 def precision_recall_curve_values(y_true, y_score):
     data = pd.DataFrame({'y_true': y_true,
                          'y_score': y_score})

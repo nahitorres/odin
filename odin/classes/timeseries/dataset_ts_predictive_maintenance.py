@@ -64,7 +64,7 @@ class DatasetTSPredictiveMaintenance(DatasetTimeSeriesInterface):
 
         print('Done!')
 
-    def _load_proposals(self, model_name, path, proposals_type):
+    def _load_proposals(self, model_name, path, proposals_type, csv_sep=','):
         print("Loading proposals of {} model...".format(model_name))
 
         if not os.path.exists(path):

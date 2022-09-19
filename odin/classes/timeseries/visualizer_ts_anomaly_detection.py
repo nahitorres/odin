@@ -7,7 +7,7 @@ import numpy as np
 
 from odin.classes.timeseries import TSProposalsType
 from odin.classes.timeseries.visualizer_ts_interface import VisualizerTimeSeriesInterface
-
+import odin.classes.timeseries.anomaly_definition_strategies as ads
 
 class VisualizerTSAnomalyDetection(VisualizerTimeSeriesInterface):
 
@@ -37,16 +37,21 @@ class VisualizerTSAnomalyDetection(VisualizerTimeSeriesInterface):
         self.all_widgets = self._create_widgets()
 
     def _init_proposals(self):
-        colors = ['purple', 'olive', 'grey', 'brown', 'pink']
+        colors = ['blue', 'green', 'cyan', 'magenta', 'yellow']
         proposals = {}
         for i, a in enumerate(self.analyzers.keys()):
-            y_score = self.analyzers[a]._get_y_score(self._data, self.dataset.get_proposals(a))
-            p = pd.DataFrame(data={'y_score': y_score},
-                             index=self._data.index)
+            obs = self.dataset.get_observations(scaled=self.analyzers[a]._scaler_values[0])
+            props = self.dataset.get_proposals(a, scaled=self.analyzers[a]._scaler_values[1])
+            y_score = self.analyzers[a]._get_y_score(obs, props)
+
+            indexes = self.analyzers[a]._cut_y_true(self._data.index.values, y_score, proposals=None, also_proposals=False)
+            
+            p = pd.DataFrame(data={'y_score': y_score.tolist()},
+                             index=indexes)
             threshold = self.analyzers[a]._threshold
             proposals[a] = {'y_score': p,
                             'threshold': threshold,
-                            'max_value': max(y_score),
+                            'max_value': max(y_score.reshape(-1)),
                             'show': False,
                             'show_error': False,
                             'error_distance': 20,
@@ -224,8 +229,6 @@ class VisualizerTSAnomalyDetection(VisualizerTimeSeriesInterface):
         self._update_plot()
 
     def _setup_plot(self):
-        # plt.ioff()
-        # plt.figure(figsize=(15, 8))
         fig, self._ax = plt.subplots(1, figsize=(15, 8)) # plt.gca()
 
     def _update_plot(self):
@@ -270,24 +273,37 @@ class VisualizerTSAnomalyDetection(VisualizerTimeSeriesInterface):
             proposals = self._show_proposals[a]['y_score'].copy()
 
             max_value, step_value = (1, 0.1) if self.analyzers[a].proposals_type == TSProposalsType.LABEL else (
-            max(proposals['y_score'].values), max(proposals['y_score'].values) / 10)
+            self._show_proposals[a]["max_value"], self._show_proposals[a]["max_value"] / 10)
             bins = np.arange(0, max_value, step_value).round(2)
 
-            proposals = proposals.loc[proposals.index.isin(x) &
-                                      (proposals['y_score'] >= self._show_proposals[a]['threshold'])]
+            if isinstance(self.analyzers[a]._anomaly_evaluation, ads.AnomalyDefinitionStrategyTSOverlappingWindows):
+                proposals = proposals.loc[proposals.index.isin(x) &
+                                      (np.all(np.array(proposals['y_score'].tolist()) >= self._show_proposals[a]['threshold'], axis=1))]
+            elif isinstance(self.analyzers[a]._anomaly_evaluation, ads.AnomalyDefinitionStrategyTSGaussianDistribution):
+                proposals = proposals.loc[proposals.index.isin(x) &
+                                        (proposals['y_score'] <= self._show_proposals[a]['threshold'])]
+            else:
+                proposals = proposals.loc[proposals.index.isin(x) &
+                                        (proposals['y_score'] >= self._show_proposals[a]['threshold'])]
+            """
+            if not isinstance(self.analyzers[a]._anomaly_evaluation, ads.AnomalyDefinitionStrategyTSOverlappingWindows):
+                for i, b in enumerate(bins[1:]):
+                    if b < self._show_proposals[a]['threshold']:
+                        continue
+                    tmp = proposals.loc[(proposals['y_score'] > bins[i]) & (proposals['y_score'] <= b)]
+                    tmp = self._data_to_show.loc[self._data_to_show.index.isin(tmp.index)]
+                    self._ax.plot(tmp.index, tmp[self._feature].values,
+                                linestyle='none', color=to_rgba(self._show_proposals[a]['color'], 0.1*(i+1)), marker='X')
 
-            for i, b in enumerate(bins[1:]):
-                if b < self._show_proposals[a]['threshold']:
-                    continue
-                tmp = proposals.loc[(proposals['y_score'] > bins[i]) & (proposals['y_score'] <= b)]
+                tmp = proposals.loc[proposals['y_score'] > bins[-1]]
                 tmp = self._data_to_show.loc[self._data_to_show.index.isin(tmp.index)]
-                self._ax.plot(tmp.index, tmp[self._feature].values,
-                              linestyle='none', color=to_rgba(self._show_proposals[a]['color'], 0.1*(i+1)), marker='X')
-
-            tmp = proposals.loc[proposals['y_score'] > bins[-1]]
-            tmp = self._data_to_show.loc[self._data_to_show.index.isin(tmp.index)]
+                self._ax.plot(tmp.index, tmp[self._feature].values, label=a,
+                            linestyle='none', color=self._show_proposals[a]['color'],  marker='X')
+            else:
+            """
+            tmp = self._data_to_show.loc[self._data_to_show.index.isin(proposals.index)]
             self._ax.plot(tmp.index, tmp[self._feature].values, label=a,
-                          linestyle='none', color=self._show_proposals[a]['color'],  marker='X')
+                        linestyle='none', color=self._show_proposals[a]['color'],  marker='X')
 
             # PLOT Errors
             if self._show_proposals[a]['show_error']:
@@ -301,7 +317,7 @@ class VisualizerTSAnomalyDetection(VisualizerTimeSeriesInterface):
                         self._ax.plot(tmp.index, tmp[self._feature].values, label=e,
                                       linestyle='none', color=color, marker='X')
 
-        self._ax.legend(loc='upper right')
+        self._ax.legend(loc='upper right', fontsize=16)
         plt.close('all')
         with self.__out:
             clear_output(wait=True)
