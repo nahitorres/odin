@@ -8,7 +8,7 @@ ODIN  is agnostic to the training platform and  input formats and can be extende
 We have added support to the Time Series analysis. The documentation will be soon available!
 
 ## Documentation
-For the complete documentation, please visit the [Odin website](https://rnt-pmi.github.io/odin-docs/)
+For the complete documentation, please visit the [Odin website](https://nahitorres.github.io/odin-docs/)
 
 
 ### Analyzer
