@@ -11,6 +11,8 @@ from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import warnings
+
 from ..classes import Curves
 
 logger = get_root_logger()
@@ -189,7 +191,7 @@ def bar_plot(groups_pos, bars_width, groups, groups_ticks, groups_labels = None,
 
 
 def pie_plot(values, labels, title, save_path, save, colors=None):
-    np.warnings.filterwarnings('ignore')
+    warnings.filterwarnings('ignore')
     percentages = np.array(values) / np.sum(values) * 100
     if np.isnan(percentages).any():
         logger.warning(f"No values for {labels}. Unable to plot {title}.")

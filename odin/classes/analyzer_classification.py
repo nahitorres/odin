@@ -8,6 +8,8 @@ import pandas as pd
 
 from sklearn.metrics import auc, multilabel_confusion_matrix, confusion_matrix
 
+import warnings
+
 from odin.classes import DatasetClassification, TaskType, Metrics, Curves
 from odin.classes.analyzer_interface import AnalyzerInterface
 from odin.classes.dataset_cams import DatasetCAMs
@@ -924,7 +926,7 @@ class AnalyzerClassification(AnalyzerInterface):
         -------
         accuracy, None (the standard error)
         """
-        np.warnings.filterwarnings('ignore')
+        warnings.filterwarnings('ignore')
         # binary
         if np.array(gt).ndim == 1 and np.array_equal(np.array(gt), np.array(gt).astype(bool)) and \
                 np.array(detections).ndim == 1:

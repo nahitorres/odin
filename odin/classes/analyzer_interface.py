@@ -8,6 +8,8 @@ import pandas as pd
 
 from aenum import extend_enum
 
+import warnings
+
 from odin.classes import Metrics, Curves, TaskType, CustomMetric
 from odin.classes.strings import *
 from odin.utils import get_root_logger
@@ -15,7 +17,7 @@ from odin.utils.draw_utils import make_multi_category_plot, display_sensitivity_
     plot_class_distribution
 
 logger = get_root_logger()
-np.warnings.filterwarnings('ignore')
+warnings.filterwarnings('ignore')
 
 
 class AnalyzerInterface(metaclass=abc.ABCMeta):

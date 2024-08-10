@@ -97,7 +97,7 @@ class AnnotatorLocalization(AnnotatorInterface):
 
             if not isinstance(classes_to_annotate, list):
                 raise TypeError(err_type.format("classes_to_annotate"))
-            elif len(classes_to_annotate) <= 1:
+            elif len(classes_to_annotate) < 1:
                 raise Exception(labels_str.warn_little_classes)
 
             self.images = images
