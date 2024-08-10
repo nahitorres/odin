@@ -11,6 +11,8 @@ import pandas as pd
 from sklearn.metrics import auc
 from tqdm import tqdm, tqdm_notebook
 
+import warnings
+
 from odin.classes import DatasetLocalization, Metrics, Curves, TaskType
 from odin.classes.analyzer_interface import AnalyzerInterface
 from odin.classes.strings import err_type, err_value
@@ -962,7 +964,7 @@ class AnalyzerLocalization(AnalyzerInterface):
 
         missed = np.zeros(m_size_array,
                           dtype=np.float64)  # create an array of zeros for missed for the sake of calculation
-        np.warnings.filterwarnings('ignore')  # just to not print warnings when there are NaN
+        warnings.filterwarnings('ignore')  # just to not print warnings when there are NaN
 
         if  len(recall) == 0:
             return 0, 0
